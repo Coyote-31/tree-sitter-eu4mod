@@ -22,15 +22,20 @@
     "nan": "^2.14.0"
   },
   "devDependencies": {
+    "electron": "^4.2.12",
+    "electron-builder": "^22.3.2",
+    "electron-rebuild": "^1.10.0",
     "tree-sitter-cli": "^0.16.4"
   },
   "scripts": {
-    "build": "tree-sitter generate && node-gyp build",
+    "build": "electron-builder",
+    "rebuild": "electron-rebuild",
+    "gen": "tree-sitter generate",
     "test": "tree-sitter test",
-    "test-windows": "tree-sitter test",
-    "build-test": "tree-sitter generate && node-gyp build && tree-sitter test",
+    "build-test": "tree-sitter generate && electron-builder && tree-sitter test",
     "watch-test": "npm-watch test",
-    "watch-grammar": "npm-watch build-test"
+    "watch-grammar": "npm-watch build-test",
+    "postinstall": "electron-builder install-app-deps"
   },
   "repository": {
     "type": "git",
@@ -44,5 +49,9 @@
       ],
       "injection-regex": "^eu4-mod$"
     }
-  ]
+  ],
+  "gypfile": true,
+  "directories": {
+    "test": "test"
+  }
 }
