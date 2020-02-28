@@ -14,6 +14,10 @@
   ],
   "author": "Richard ANDRIAN (Coyote-31)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Coyote-31/tree-sitter-eu4-mod/issues"
+  },
+  "homepage": "https://github.com/Coyote-31/tree-sitter-eu4-mod/#readme",
   "dependencies": {
     "nan": "^2.14.0"
   },
@@ -27,6 +31,10 @@
     "build-test": "tree-sitter generate && node-gyp build && tree-sitter test",
     "watch-test": "npm-watch test",
     "watch-grammar": "npm-watch build-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Coyote-31/tree-sitter-eu4-mod.git"
   },
   "tree-sitter": [
     {
