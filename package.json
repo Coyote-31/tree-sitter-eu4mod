@@ -19,12 +19,10 @@
   },
   "homepage": "https://github.com/Coyote-31/tree-sitter-eu4-mod/#readme",
   "dependencies": {
-    "nan": "^2.14.0"
+    "nan": "^2.14.0",
+    "node-gyp": "^6.1.0"
   },
   "devDependencies": {
-    "electron": "4.2.12",
-    "electron-builder": "^22.3.2",
-    "electron-rebuild": "^1.10.0",
     "tree-sitter-cli": "^0.16.4"
   },
   "electronVersion": "4.2.12",
@@ -33,8 +31,7 @@
     "rebuild": "electron-rebuild",
     "gen": "tree-sitter generate",
     "test": "tree-sitter test",
-    "build-test": "tree-sitter generate && electron-builder && tree-sitter test",
-    "postinstall": "electron-builder install-app-deps"
+    "build-test": "tree-sitter generate && electron-builder && tree-sitter test"
   },
   "repository": {
     "type": "git",
