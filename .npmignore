@@ -1,4 +1,8 @@
 test
 build
+dist
 script
 *.log
+parser.exp
+parser.lib
+parser.obj
