@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-eu4-mod",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Global grammar tree-sitter for modding files in Europa Universalis IV.",
   "main": "index.js",
   "keywords": [
@@ -41,5 +41,7 @@
     "type": "git",
     "url": "https://github.com/Coyote-31/tree-sitter-eu4-mod"
   },
-  "engines": {"atom": ">=1.0.0 <2.0.0"}
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
 }
