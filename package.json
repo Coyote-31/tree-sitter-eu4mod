@@ -22,11 +22,12 @@
     "nan": "^2.14.0"
   },
   "devDependencies": {
-    "electron": "^4.2.12",
+    "electron": "4.2.12",
     "electron-builder": "^22.3.2",
     "electron-rebuild": "^1.10.0",
     "tree-sitter-cli": "^0.16.4"
   },
+  "electronVersion": "4.2.12",
   "scripts": {
     "build": "electron-builder",
     "rebuild": "electron-rebuild",
