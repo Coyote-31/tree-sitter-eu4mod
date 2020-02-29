@@ -40,18 +40,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Coyote-31/tree-sitter-eu4-mod.git"
-  },
-  "tree-sitter": [
-    {
-      "scope": "source.eu4-mod",
-      "file-types": [
-        "mod"
-      ],
-      "injection-regex": "^eu4-mod$"
-    }
-  ],
-  "gypfile": true,
-  "directories": {
-    "test": "test"
   }
 }
