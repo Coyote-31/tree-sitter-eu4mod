@@ -34,8 +34,6 @@
     "gen": "tree-sitter generate",
     "test": "tree-sitter test",
     "build-test": "tree-sitter generate && electron-builder && tree-sitter test",
-    "watch-test": "npm-watch test",
-    "watch-grammar": "npm-watch build-test",
     "postinstall": "electron-builder install-app-deps"
   },
   "repository": {
