@@ -27,11 +27,9 @@
   },
   "electronVersion": "4.2.12",
   "scripts": {
-    "build": "electron-builder",
-    "rebuild": "electron-rebuild",
-    "gen": "tree-sitter generate",
-    "test": "tree-sitter test",
-    "build-test": "tree-sitter generate && electron-builder && tree-sitter test"
+    "build": "tree-sitter generate && node-gyp build",
+    "rebuild": "tree-sitter generate && node-gyp rebuild",
+    "build-test": "tree-sitter generate && tree-sitter test && node-gyp build"
   },
   "repository": {
     "type": "git",
