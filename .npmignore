@@ -1,9 +1,9 @@
 *.log
-/bin
-/build
-/dist
-/test
+bin/
+build/
+dist/
+test/
 .gitattribut
-/parser.exp
-/parser.lib
-/parser.obj
+parser.exp
+parser.lib
+parser.obj
