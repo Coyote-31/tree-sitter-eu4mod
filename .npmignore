@@ -1,6 +1,7 @@
 *.log
 bin/
 build/
+prebuilds/
 dist/
 test/
 .gitattribut

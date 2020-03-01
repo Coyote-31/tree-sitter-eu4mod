@@ -18,12 +18,16 @@
     "url": "https://github.com/Coyote-31/tree-sitter-eu4-mod/issues"
   },
   "homepage": "https://github.com/Coyote-31/tree-sitter-eu4-mod/#readme",
+  "dependencies": {
+    "nan": "^2.14.0"
+  },
   "devDependencies": {
+    "prebuild": "^10.0.0",
     "tree-sitter-cli": "^0.16.4"
   },
-  "electronVersion": "4.2.7",
   "scripts": {
     "build": "tree-sitter generate && node-gyp build",
+    "prebuild": "prebuild -t 4.2.7 -r electron",
     "rebuild": "node-gyp rebuild -target=v10.11.0 --arch=x64",
     "build-test": "tree-sitter generate && tree-sitter test && node-gyp build"
   },
