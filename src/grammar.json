@@ -1,5 +1,5 @@
 {
-  "name": "eu4_mod",
+  "name": "eu4mod",
   "rules": {
     "source_file": {
       "type": "STRING",

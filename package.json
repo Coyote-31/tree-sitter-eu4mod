@@ -1,5 +1,5 @@
 {
-  "name": "tree-sitter-eu4-mod",
+  "name": "tree-sitter-eu4mod",
   "version": "0.0.11",
   "description": "Global grammar tree-sitter for modding files in Europa Universalis IV.",
   "main": "index.js",
@@ -15,9 +15,9 @@
   "author": "Richard ANDRIAN - Coyote-31 <coyotepouil@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Coyote-31/tree-sitter-eu4-mod/issues"
+    "url": "https://github.com/Coyote-31/tree-sitter-eu4mod/issues"
   },
-  "homepage": "https://github.com/Coyote-31/tree-sitter-eu4-mod/#readme",
+  "homepage": "https://github.com/Coyote-31/tree-sitter-eu4mod/#readme",
   "dependencies": {
     "nan": "^2.14.0"
   },

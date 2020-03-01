@@ -1,7 +1,7 @@
 {
   "targets": [
     {
-      "target_name": "tree_sitter_eu4_mod_binding",
+      "target_name": "tree_sitter_eu4mod_binding",
       "include_dirs": [
         "<!(node -e \"require('nan')\")",
         "src"

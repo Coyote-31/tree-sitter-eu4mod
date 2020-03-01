@@ -130,7 +130,7 @@ static TSParseActionEntry ts_parse_actions[] = {
 #define extern __declspec(dllexport)
 #endif
 
-extern const TSLanguage *tree_sitter_eu4_mod(void) {
+extern const TSLanguage *tree_sitter_eu4mod(void) {
   static TSLanguage language = {
     .version = LANGUAGE_VERSION,
     .symbol_count = SYMBOL_COUNT,
