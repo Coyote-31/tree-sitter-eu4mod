@@ -12,7 +12,7 @@
     "paradox",
     "mod"
   ],
-  "author": "Richard ANDRIAN (Coyote-31)",
+  "author": "Richard ANDRIAN - Coyote-31 <coyotepouil@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Coyote-31/tree-sitter-eu4-mod/issues"
@@ -35,7 +35,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Coyote-31/tree-sitter-eu4-mod"
+    "url": "github:Coyote-31/tree-sitter-eu4-mod"
   },
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
