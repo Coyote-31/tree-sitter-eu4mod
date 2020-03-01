@@ -1,5 +1,5 @@
 {
-  "name": "tree-sitter-eu4mod",
+  "name": "tree-sitter-eu4-mod",
   "version": "0.0.9",
   "description": "Global grammar tree-sitter for modding files in Europa Universalis IV.",
   "main": "index.js",
