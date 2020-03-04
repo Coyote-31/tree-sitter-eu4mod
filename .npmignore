@@ -1,8 +1,6 @@
 *.log
-bin/
 build/
 prebuilds/
-dist/
 test/
 .gitattribut
 parser.exp
