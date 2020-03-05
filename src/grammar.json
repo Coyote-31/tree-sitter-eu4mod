@@ -1,7 +1,14 @@
 {
   "name": "eu4mod",
   "rules": {
-    "source_file": {
+    "file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "hello"
+      }
+    },
+    "hello": {
       "type": "STRING",
       "value": "hello"
     }

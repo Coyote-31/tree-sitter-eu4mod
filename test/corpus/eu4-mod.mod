@@ -6,4 +6,5 @@ hello
 
 ---
 
-(source_file)
+(file
+  (hello))
