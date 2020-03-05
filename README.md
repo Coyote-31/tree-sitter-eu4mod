@@ -1,4 +1,4 @@
-tree-sitter-eu4mod
+tree-sitter-eu4mod [Alpha]
 ===================
 
-Global Europa Universalis IV modding files grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter).
+Global Europa Universalis IV modding files grammar supporting [tree-sitter](https://github.com/tree-sitter/tree-sitter).
