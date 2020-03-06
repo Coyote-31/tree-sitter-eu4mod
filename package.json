@@ -26,10 +26,11 @@
   },
   "scripts": {
     "install": "prebuild-install || node-gyp rebuild",
-    "prebuild": "prebuild -t 4.2.7 -r electron --verbose",
+    "prebuild": "prebuild -t 4.2.7 -r electron",
     "build": "tree-sitter generate && node-gyp build",
-    "build-test": "tree-sitter generate && tree-sitter test && node-gyp build",
-    "test": "tree-sitter test"
+    "bt": "tree-sitter generate && npm test && node-gyp build",
+    "test": "tree-sitter test && tree-sitter parse test/examples/* --quiet --time",
+    "test-windows": "tree-sitter test"
   },
   "repository": {
     "type": "git",
