@@ -1,21 +1,118 @@
 [
   {
-    "type": "file",
+    "type": "dot_mod",
     "named": true,
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
-          "type": "hello",
+          "type": "mod_mono_line",
+          "named": true
+        },
+        {
+          "type": "mod_multi_line",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "hello",
+    "type": "file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "dot_mod",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mod_mono_line",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "mod_equal",
+          "named": true
+        },
+        {
+          "type": "mod_var_name",
+          "named": true
+        },
+        {
+          "type": "mod_var_value",
+          "named": true
+        },
+        {
+          "type": "warning_space_tab",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mod_multi_line",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "mod_equal",
+          "named": true
+        },
+        {
+          "type": "mod_var_name_multi",
+          "named": true
+        },
+        {
+          "type": "mod_var_value",
+          "named": true
+        },
+        {
+          "type": "warning_space_tab",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mod_equal",
     "named": true
+  },
+  {
+    "type": "mod_var_name",
+    "named": true
+  },
+  {
+    "type": "mod_var_name_multi",
+    "named": true
+  },
+  {
+    "type": "mod_var_value",
+    "named": true
+  },
+  {
+    "type": "warning_space_tab",
+    "named": true
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
   }
 ]
