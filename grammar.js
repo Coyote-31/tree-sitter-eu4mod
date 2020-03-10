@@ -10,40 +10,58 @@ module.exports = grammar({
 
     //// Rules for *.mod :
 
-    dot_mod: $ => repeat1(choice(
-      $.mod_mono_line,
-      $.mod_multi_line
-    )),
+    // Main rule and handle the single line file without \n
+    dot_mod: $ => seq(
+      repeat($._carriage_return),
+      choice($.mod_mono_line, $.mod_multi_line),
+      repeat(seq(
+        repeat1($._carriage_return),
+        choice($.mod_mono_line, $.mod_multi_line)
+      )),
+      repeat($._carriage_return)
+    ),
 
     // Manage space in monoline declaration
-    mod_mono_line: $ => prec.left(seq(
-      optional($.warning_space_tab),
+    mod_mono_line: $ => prec.left(2, seq(
+      repeat($.warning_space_tab),
       $.mod_var_name,
+      repeat($.warning_space_tab),
       optional(seq(
-        optional($.warning_space_tab),
+        repeat($.warning_space_tab),
         $.mod_equal,
-        optional($.warning_space_tab),
-        $.mod_var_value,
-        optional($.warning_space_tab),
-        optional($._carriage_return)
+        repeat($.warning_space_tab),
+        $.mod_var_value
       ))
     )),
 
     mod_multi_line: $ => seq(
-      optional($.warning_space_tab),
+      repeat($.warning_space_tab),
       $.mod_var_name_multi,
       optional(seq(
+        repeat($.warning_space_tab),
         $.mod_equal,
+        repeat($.warning_space_tab),
         '{',
-        repeat(seq(
-          /\s/,
-          $.mod_var_value,
-          $._carriage_return
-        )),
-        '}',
-        optional($.warning_space_tab),
-        $._carriage_return
+        repeat($.mod_multi_line_content),
+        repeat($.warning_space_tab),
+        '}'
       ))
+    ),
+
+    mod_multi_line_content: $ =>choice(
+      seq(
+        repeat($.warning_space_tab),
+        $.mod_var_value,
+      ),
+      seq(
+        repeat(seq(
+          $._carriage_return,
+          /\t| {2}/,
+          repeat($.warning_space_tab),
+          $.mod_var_value
+        )),
+        $._carriage_return
+      ),
     ),
 
     mod_var_name: $ => token.immediate(choice(
@@ -67,7 +85,7 @@ module.exports = grammar({
 
     _carriage_return: $ => /\r?\n/,
 
-    warning_space_tab: $ => /\s+/,
+    warning_space_tab: $ => /\t| ]/,
 
     debug: $ => /.+/
   }

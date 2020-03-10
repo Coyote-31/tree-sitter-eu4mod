@@ -73,9 +73,28 @@
           "named": true
         },
         {
+          "type": "mod_multi_line_content",
+          "named": true
+        },
+        {
           "type": "mod_var_name_multi",
           "named": true
         },
+        {
+          "type": "warning_space_tab",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mod_multi_line_content",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
         {
           "type": "mod_var_value",
           "named": true
