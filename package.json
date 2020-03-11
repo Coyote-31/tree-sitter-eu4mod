@@ -1,7 +1,7 @@
 {
   "name": "tree-sitter-eu4mod",
-  "version": "0.2.0",
-  "description": "Global grammar tree-sitter for modding files in Europa Universalis IV. [Alpha]",
+  "version": "0.2.1",
+  "description": "Global parser for Europa Universalis IV grammar syntax. [Alpha]",
   "main": "index.js",
   "keywords": [
     "parser",
