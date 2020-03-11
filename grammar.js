@@ -22,45 +22,40 @@ module.exports = grammar({
     ),
 
     // Manage space in monoline declaration
-    mod_mono_line: $ => prec.left(2, seq(
+    mod_mono_line: $ => seq(
       repeat($.warning_space_tab),
       $.mod_var_name,
       repeat($.warning_space_tab),
-      optional(seq(
-        repeat($.warning_space_tab),
-        $.mod_equal,
-        repeat($.warning_space_tab),
-        $.mod_var_value
-      ))
-    )),
+      $.mod_equal,
+      repeat($.warning_space_tab),
+      $.mod_var_value
+    ),
 
     mod_multi_line: $ => seq(
       repeat($.warning_space_tab),
       $.mod_var_name_multi,
-      optional(seq(
-        repeat($.warning_space_tab),
-        $.mod_equal,
-        repeat($.warning_space_tab),
-        '{',
-        repeat($.mod_multi_line_content),
-        repeat($.warning_space_tab),
-        '}'
-      ))
+      repeat($.warning_space_tab),
+      $.mod_equal,
+      repeat($.warning_space_tab),
+      token.immediate('{'),
+      $.mod_multi_line_content,
+      repeat($.warning_space_tab),
+      token.immediate('}')
     ),
 
-    mod_multi_line_content: $ =>choice(
+    mod_multi_line_content: $ => choice(
       seq(
-        repeat($.warning_space_tab),
-        $.mod_var_value,
+        repeat1($._carriage_return),
+        repeat1(seq(
+          token.immediate(choice(/\t/, "  ")),
+          repeat($.warning_space_tab),
+          $.mod_var_value,
+          repeat1($._carriage_return)
+        )),
       ),
       seq(
-        repeat(seq(
-          $._carriage_return,
-          /\t| {2}/,
-          repeat($.warning_space_tab),
-          $.mod_var_value
-        )),
-        $._carriage_return
+        repeat($.warning_space_tab),
+        $.mod_var_value
       ),
     ),
 
@@ -83,9 +78,9 @@ module.exports = grammar({
 
     mod_var_value: $ => token.immediate(/\"[^\"\n]*\"/),
 
-    _carriage_return: $ => /\r?\n/,
+    _carriage_return: $ => token.immediate(/\r?\n/),
 
-    warning_space_tab: $ => /\t| ]/,
+    warning_space_tab: $ => token.immediate(choice(/\t/, " ")),
 
     debug: $ => /.+/
   }

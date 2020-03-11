@@ -1,8 +1,8 @@
 ==================
-Basic monoline
+Mono-line [simple]
 ==================
 name="Vanilla Wolf Pack"
----
+------
 
 (file
   (dot_mod
@@ -11,13 +11,14 @@ name="Vanilla Wolf Pack"
       (mod_equal)
       (mod_var_value) )))
 
+
 ==================
-Spaced monoline
+Mono-line [spaced]
 ==================
 
 name="Vanilla Wolf Pack"
 
----
+------
 
 (file
   (dot_mod
@@ -25,3 +26,60 @@ name="Vanilla Wolf Pack"
       (mod_var_name)
       (mod_equal)
       (mod_var_value) )))
+
+
+===================
+Multi-line [simple]
+===================
+tags={
+  "Fixes"
+}
+------
+
+(file
+  (dot_mod
+    (mod_multi_line
+      (mod_var_name_multi)
+      (mod_equal)
+      (mod_multi_line_content
+        (mod_var_value) ))))
+
+
+===================
+Multi-line [spaced]
+===================
+
+tags={
+  "Fixes"
+}
+
+------
+
+(file
+  (dot_mod
+    (mod_multi_line
+      (mod_var_name_multi)
+      (mod_equal)
+      (mod_multi_line_content
+        (mod_var_value) ))))
+
+
+===================
+Multi-line [2 args]
+===================
+
+tags={
+  "Fixes"
+  "Sound"
+}
+
+------
+
+(file
+  (dot_mod
+    (mod_multi_line
+      (mod_var_name_multi)
+      (mod_equal)
+      (mod_multi_line_content
+        (mod_var_value)
+        (mod_var_value) ))))
