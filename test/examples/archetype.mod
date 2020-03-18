@@ -3,12 +3,13 @@ version="1.0.*"
 path="mod/VanillaWolfPack"
 archive="mod/VanillaWolfPack.zip"
 dependencies={
-	"Better UI 2"
-	"Vanilla'd - The Grand Exhibition 1/6"
+	 "Better UI 2"
+   "Vanilla'd - The Grand Exhibition 1/6"
 }
 tags={
-	"Fixes"
-	"GUI"
+
+  "Fixes"
+ 	"GUI"
 	"Graphics"
 }
 picture="thumbnail.png"

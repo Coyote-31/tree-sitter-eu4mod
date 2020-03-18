@@ -13,7 +13,7 @@ name="Vanilla Wolf Pack"
 
 
 ==================
-Mono-line [spaced]
+Mono-line [line_space]
 ==================
 
 name="Vanilla Wolf Pack"
@@ -25,6 +25,25 @@ name="Vanilla Wolf Pack"
     (mod_mono_line
       (mod_var_name)
       (mod_equal)
+      (mod_var_value) )))
+
+
+======================
+Mono-line [warn_space]
+======================
+
+ name = "Vanilla Wolf Pack"
+
+------
+
+(file
+  (dot_mod
+    (mod_mono_line
+      (warning_space_tab)
+      (mod_var_name)
+      (warning_space_tab)
+      (mod_equal)
+      (warning_space_tab)
       (mod_var_value) )))
 
 
@@ -45,9 +64,9 @@ tags={
         (mod_var_value) ))))
 
 
-===================
-Multi-line [spaced]
-===================
+=======================
+Multi-line [line_space]
+=======================
 
 tags={
   "Fixes"
@@ -82,4 +101,58 @@ tags={
       (mod_equal)
       (mod_multi_line_content
         (mod_var_value)
+        (mod_var_value) ))))
+
+
+===================
+Multi-line [warn_space]
+===================
+
+ tags = {
+   "Fixes"
+    "Sound"
+ }
+
+------
+
+(file
+  (dot_mod
+    (mod_multi_line
+      (warning_space_tab)
+      (mod_var_name_multi)
+      (warning_space_tab)
+      (mod_equal)
+      (warning_space_tab)
+      (mod_multi_line_content
+        (warning_space_tab)
+        (mod_var_value)
+        (warning_space_tab)
+        (warning_space_tab)
+        (mod_var_value) )
+      (warning_space_tab) )))
+
+
+===================
+Multi-line [space_tab]
+===================
+
+tags={
+  "Fixes"
+   "Sound"
+    "Balance"
+}
+
+------
+
+(file
+  (dot_mod
+    (mod_multi_line
+      (mod_var_name_multi)
+      (mod_equal)
+      (mod_multi_line_content
+        (mod_var_value)
+        (warning_space_tab)
+        (mod_var_value)
+        (warning_space_tab)
+        (warning_space_tab)
         (mod_var_value) ))))
