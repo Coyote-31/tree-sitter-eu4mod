@@ -14,6 +14,10 @@
         {
           "type": "mod_multi_line",
           "named": true
+        },
+        {
+          "type": "warning_space_tab",
+          "named": true
         }
       ]
     }

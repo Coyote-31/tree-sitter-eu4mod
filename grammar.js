@@ -14,9 +14,11 @@ module.exports = grammar({
     dot_mod: $ => seq(
       repeat($._carriage_return),
       choice($.mod_mono_line, $.mod_multi_line),
+      repeat($.warning_space_tab),
       repeat(seq(
         repeat1($._carriage_return),
-        choice($.mod_mono_line, $.mod_multi_line)
+        choice($.mod_mono_line, $.mod_multi_line),
+        repeat($.warning_space_tab)
       )),
       repeat($._carriage_return)
     ),
@@ -47,7 +49,7 @@ module.exports = grammar({
       seq(
         repeat1($._carriage_return),
         repeat1(seq(
-          token.immediate(choice(/\t/, "  ")),
+          token.immediate(choice(/\t/, /\s\s/, /\s\t/)),
           repeat($.warning_space_tab),
           $.mod_var_value,
           repeat1($._carriage_return)
