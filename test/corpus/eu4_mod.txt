@@ -1,20 +1,20 @@
-==================
-Mono-line [simple]
-==================
+======================
+[mod](line_mono) basic
+======================
 name="Vanilla Wolf Pack"
 ------
 
 (file
   (dot_mod
-    (mod_mono_line
-      (mod_var_name)
-      (mod_equal)
-      (mod_var_value) )))
+    (mod_line_mono
+      (mod_line_mono_name)
+      (assign_equal)
+      (string) )))
 
 
-==================
-Mono-line [line_space]
-==================
+====================
+[mod](line_mono) eol
+====================
 
 name="Vanilla Wolf Pack"
 
@@ -22,34 +22,15 @@ name="Vanilla Wolf Pack"
 
 (file
   (dot_mod
-    (mod_mono_line
-      (mod_var_name)
-      (mod_equal)
-      (mod_var_value) )))
+    (mod_line_mono
+      (mod_line_mono_name)
+      (assign_equal)
+      (string) )))
 
 
-======================
-Mono-line [warn_space]
-======================
-
- name = "Vanilla Wolf Pack"
-
-------
-
-(file
-  (dot_mod
-    (mod_mono_line
-      (warning_space_tab)
-      (mod_var_name)
-      (warning_space_tab)
-      (mod_equal)
-      (warning_space_tab)
-      (mod_var_value) )))
-
-
-===================
-Multi-line [simple]
-===================
+=======================
+[mod](line_multi) basic
+=======================
 tags={
   "Fixes"
 }
@@ -57,16 +38,15 @@ tags={
 
 (file
   (dot_mod
-    (mod_multi_line
-      (mod_var_name_multi)
-      (mod_equal)
-      (mod_multi_line_content
-        (mod_var_value) ))))
+    (mod_line_multi
+      (mod_line_multi_name)
+      (assign_equal)
+      (string) )))
 
 
-=======================
-Multi-line [line_space]
-=======================
+=====================
+[mod](line_multi) eol
+=====================
 
 tags={
   "Fixes"
@@ -76,16 +56,15 @@ tags={
 
 (file
   (dot_mod
-    (mod_multi_line
-      (mod_var_name_multi)
-      (mod_equal)
-      (mod_multi_line_content
-        (mod_var_value) ))))
+    (mod_line_multi
+      (mod_line_multi_name)
+      (assign_equal)
+      (string) )))
 
 
-===================
-Multi-line [2 args]
-===================
+========================
+[mod](line_multi) 2 args
+========================
 
 tags={
   "Fixes"
@@ -96,63 +75,8 @@ tags={
 
 (file
   (dot_mod
-    (mod_multi_line
-      (mod_var_name_multi)
-      (mod_equal)
-      (mod_multi_line_content
-        (mod_var_value)
-        (mod_var_value) ))))
-
-
-===================
-Multi-line [warn_space]
-===================
-
- tags = {
-   "Fixes"
-    "Sound"
- }
-
-------
-
-(file
-  (dot_mod
-    (mod_multi_line
-      (warning_space_tab)
-      (mod_var_name_multi)
-      (warning_space_tab)
-      (mod_equal)
-      (warning_space_tab)
-      (mod_multi_line_content
-        (warning_space_tab)
-        (mod_var_value)
-        (warning_space_tab)
-        (warning_space_tab)
-        (mod_var_value) )
-      (warning_space_tab) )))
-
-
-===================
-Multi-line [space_tab]
-===================
-
-tags={
-  "Fixes"
-   "Sound"
-    "Balance"
-}
-
-------
-
-(file
-  (dot_mod
-    (mod_multi_line
-      (mod_var_name_multi)
-      (mod_equal)
-      (mod_multi_line_content
-        (mod_var_value)
-        (warning_space_tab)
-        (mod_var_value)
-        (warning_space_tab)
-        (warning_space_tab)
-        (mod_var_value) ))))
+    (mod_line_multi
+      (mod_line_multi_name)
+      (assign_equal)
+      (string)
+      (string) )))

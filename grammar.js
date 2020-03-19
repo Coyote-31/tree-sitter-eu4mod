@@ -1,67 +1,141 @@
 module.exports = grammar({
   name: 'eu4mod',
 
+  extras: $ => [
+    $.comment,
+    /[\s\f\uFEFF\u2060\u200B]|\\\r?\n/,
+  ],
 
   rules: {
 
     file: $ => choice(
-      $.dot_mod
+      $.dot_mod,
+      $.dot_gfx,
     ),
 
-    //// Rules for *.mod :
+
+    //===============================================//
+    //       MOD -> Rules for *.mod files :          //
+    //===============================================//
 
     // Main rule and handle the single line file without \n
-    dot_mod: $ => seq(
-      repeat($._carriage_return),
-      choice($.mod_mono_line, $.mod_multi_line),
-      repeat($.warning_space_tab),
-      repeat(seq(
-        repeat1($._carriage_return),
-        choice($.mod_mono_line, $.mod_multi_line),
-        repeat($.warning_space_tab)
-      )),
-      repeat($._carriage_return)
+    dot_mod: $ => repeat1(choice(
+      $.mod_line_mono,
+      $.mod_line_multi
+    )),
+
+    mod_line_mono: $ => seq(
+      $.mod_line_mono_name,
+      $.assign_equal,
+      $.string
     ),
 
-    // Manage space in monoline declaration
-    mod_mono_line: $ => seq(
-      repeat($.warning_space_tab),
-      $.mod_var_name,
-      repeat($.warning_space_tab),
-      $.mod_equal,
-      repeat($.warning_space_tab),
-      $.mod_var_value
+    mod_line_multi: $ => seq(
+      $.mod_line_multi_name,
+      $.assign_equal,
+      '{',
+      repeat($._mod_line_multi_content),
+      '}'
     ),
 
-    mod_multi_line: $ => seq(
-      repeat($.warning_space_tab),
-      $.mod_var_name_multi,
-      repeat($.warning_space_tab),
-      $.mod_equal,
-      repeat($.warning_space_tab),
-      token.immediate('{'),
-      $.mod_multi_line_content,
-      repeat($.warning_space_tab),
-      token.immediate('}')
+    _mod_line_multi_content: $ => seq(
+        choice(
+          /\t/,
+          /\s\s/,
+          /\s\t/
+        ),
+        $.string,
+        $._eol
     ),
 
-    mod_multi_line_content: $ => choice(
-      seq(
-        repeat1($._carriage_return),
-        repeat1(seq(
-          token.immediate(choice(/\t/, /\s\s/, /\s\t/)),
-          repeat($.warning_space_tab),
-          $.mod_var_value,
-          repeat1($._carriage_return)
-        )),
-      ),
-      seq(
-        repeat($.warning_space_tab),
-        $.mod_var_value
-      ),
+    //===============================================//
+    //        GFX -> Rules for *.gfx files :         //
+    //===============================================//
+
+    dot_gfx: $ => repeat1(choice(
+        $.gfx_types,
+        $.debug_assign
+    )),
+
+    gfx_types: $ => choice(
+      $._types_spriteTypes
     ),
 
-    mod_var_name: $ => token.immediate(choice(
+    // GFX Types :
+
+    _types_spriteTypes: $ => seq(
+      alias('spriteTypes', $.types_name),
+      $.assign_equal,
+      '{',
+      $._spriteTypes_content,
+      '}'
+    ),
+
+    _spriteTypes_content: $ => repeat1(choice(
+      $._spriteTypes_attribut,
+      $._spriteTypes_type
+    )),
+
+    _spriteTypes_attribut: $ => alias(choice(
+      $._attribut_cursor_offset
+    ), $.gfx_attribut),
+
+    _spriteTypes_type: $ => alias(choice(
+        $._type_spriteType
+        // TODO
+    ), $.gfx_type),
+
+    // GFX Type :
+
+    _type_spriteType: $ => seq(
+      alias('spriteType', $.type_name),
+      $.assign_equal,
+      '{',
+      $._spriteType_content,
+      '}'
+    ),
+
+    _spriteType_content: $ => repeat1(
+      alias(
+        choice(
+          $._attribut_name,
+          $._attribut_texturefile
+        ),
+      $.gfx_attribut)
+    ),
+
+
+    // GFX attributs :
+
+   _attribut_name: $ => seq(
+      alias('name', $.attribut_name),
+      $.assign_equal,
+      $.string
+    ),
+
+   _attribut_texturefile: $ => seq(
+      alias('texturefile', $.attribut_name),
+      $.assign_equal,
+      $.string
+    ),
+
+   _attribut_cursor_offset: $ => seq(
+      alias('cursor_offset', $.attribut_name),
+      $.assign_equal,
+      '{',
+      $.number,
+      $.number,
+      '}'
+    ),
+
+    //==============================//
+    //            TOKENS            //
+    //==============================//
+
+
+    // MOD tokens :
+
+    mod_line_mono_name: $ => choice(
       'name',
       'supported_version',
       'version',
@@ -69,21 +143,50 @@ module.exports = grammar({
       'archive',
       'picture',
       'remote_file_id'
-    )),
+    ),
 
-    mod_var_name_multi: $ => token.immediate(choice(
+    mod_line_multi_name: $ => choice(
       'tags',
       'dependencies'
-    )),
+    ),
 
-    mod_equal: $ => token.immediate('='),
+    //======================================================//
+    //     Default grammar to find not handled keywords:    //
+    //======================================================//
 
-    mod_var_value: $ => token.immediate(/\"[^\"\n]*\"/),
+    debug_assign: $ => seq(
+      $.debug_assign_name,
+      $.assign_equal,
+      choice(
+        $.string,
+        $.number,
+        $.debug_assign_multi,
+        $.debug_assign
+      )
+    ),
 
-    _carriage_return: $ => token.immediate(/\r?\n/),
+    debug_assign_multi: $ => seq(
+      '{',
+      choice(
+        repeat($.string),
+        repeat($.number)
+      ),
+      '}'
+    ),
 
-    warning_space_tab: $ => token.immediate(choice(/\t/, " ")),
+    assign_equal: $ => '=',
+
+    string: $ => /"[^\"\n]*"/,
+
+    number: $ => /\-?\d+/,
+
+    comment: $ => /\#[^\n]*/,
+
+    _eol: $ => /\r?\n/,
+
+    debug_assign_name: $ => /[\w_]+/,
 
     debug: $ => /.+/
+
   }
 });

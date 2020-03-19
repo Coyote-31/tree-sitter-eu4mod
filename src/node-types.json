@@ -1,5 +1,78 @@
 [
   {
+    "type": "debug_assign",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assign_equal",
+          "named": true
+        },
+        {
+          "type": "debug_assign",
+          "named": true
+        },
+        {
+          "type": "debug_assign_multi",
+          "named": true
+        },
+        {
+          "type": "debug_assign_name",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "debug_assign_multi",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dot_gfx",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "debug_assign",
+          "named": true
+        },
+        {
+          "type": "gfx_types",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "dot_mod",
     "named": true,
     "fields": {},
@@ -8,15 +81,11 @@
       "required": true,
       "types": [
         {
-          "type": "mod_mono_line",
+          "type": "mod_line_mono",
           "named": true
         },
         {
-          "type": "mod_multi_line",
-          "named": true
-        },
-        {
-          "type": "warning_space_tab",
+          "type": "mod_line_multi",
           "named": true
         }
       ]
@@ -31,6 +100,10 @@
       "required": true,
       "types": [
         {
+          "type": "dot_gfx",
+          "named": true
+        },
+        {
           "type": "dot_mod",
           "named": true
         }
@@ -38,7 +111,7 @@
     }
   },
   {
-    "type": "mod_mono_line",
+    "type": "gfx_attribut",
     "named": true,
     "fields": {},
     "children": {
@@ -46,26 +119,26 @@
       "required": true,
       "types": [
         {
-          "type": "mod_equal",
+          "type": "assign_equal",
           "named": true
         },
         {
-          "type": "mod_var_name",
+          "type": "attribut_name",
           "named": true
         },
         {
-          "type": "mod_var_value",
+          "type": "number",
           "named": true
         },
         {
-          "type": "warning_space_tab",
+          "type": "string",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "mod_multi_line",
+    "type": "gfx_type",
     "named": true,
     "fields": {},
     "children": {
@@ -73,26 +146,22 @@
       "required": true,
       "types": [
         {
-          "type": "mod_equal",
+          "type": "assign_equal",
           "named": true
         },
         {
-          "type": "mod_multi_line_content",
+          "type": "gfx_attribut",
           "named": true
         },
         {
-          "type": "mod_var_name_multi",
-          "named": true
-        },
-        {
-          "type": "warning_space_tab",
+          "type": "type_name",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "mod_multi_line_content",
+    "type": "gfx_types",
     "named": true,
     "fields": {},
     "children": {
@@ -100,35 +169,143 @@
       "required": true,
       "types": [
         {
-          "type": "mod_var_value",
+          "type": "assign_equal",
           "named": true
         },
         {
-          "type": "warning_space_tab",
+          "type": "gfx_attribut",
+          "named": true
+        },
+        {
+          "type": "gfx_type",
+          "named": true
+        },
+        {
+          "type": "types_name",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "mod_equal",
+    "type": "mod_line_mono",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assign_equal",
+          "named": true
+        },
+        {
+          "type": "mod_line_mono_name",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mod_line_mono_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "mod_line_multi",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assign_equal",
+          "named": true
+        },
+        {
+          "type": "mod_line_multi_name",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mod_line_multi_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "archive",
+    "named": false
+  },
+  {
+    "type": "assign_equal",
     "named": true
   },
   {
-    "type": "mod_var_name",
+    "type": "attribut_name",
     "named": true
   },
   {
-    "type": "mod_var_name_multi",
+    "type": "debug_assign_name",
     "named": true
   },
   {
-    "type": "mod_var_value",
+    "type": "dependencies",
+    "named": false
+  },
+  {
+    "type": "name",
+    "named": false
+  },
+  {
+    "type": "number",
     "named": true
   },
   {
-    "type": "warning_space_tab",
+    "type": "path",
+    "named": false
+  },
+  {
+    "type": "picture",
+    "named": false
+  },
+  {
+    "type": "remote_file_id",
+    "named": false
+  },
+  {
+    "type": "string",
     "named": true
+  },
+  {
+    "type": "supported_version",
+    "named": false
+  },
+  {
+    "type": "tags",
+    "named": false
+  },
+  {
+    "type": "type_name",
+    "named": true
+  },
+  {
+    "type": "types_name",
+    "named": true
+  },
+  {
+    "type": "version",
+    "named": false
   },
   {
     "type": "{",

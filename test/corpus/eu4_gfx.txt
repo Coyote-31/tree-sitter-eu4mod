@@ -1,0 +1,73 @@
+========================
+[gfx](spriteTypes) basic
+========================
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_popup_edittextbox_bg"
+		texturefile = "gfx/interface/popup_edittextbox_bg.dds"
+	}
+}
+------
+
+(file
+  (dot_gfx
+		(gfx_types
+			(types_name) (assign_equal)
+			(gfx_type
+				(type_name) (assign_equal)
+				(gfx_attribut
+					(attribut_name) (assign_equal) (string))
+				(gfx_attribut
+					(attribut_name) (assign_equal) (string)) ))))
+
+
+====================
+[gfx](types) comment
+====================
+# Com#ent "wit#' "n0ï$è'/ \
+spriteTypes = {
+
+	#Com#ent "wit#' "n0ï$è'/ \
+
+	spriteType = {
+
+		# Com#ent "wit#' "n0ï$è'/ \
+		name = "GFX_popup_edittextbox_bg"# Com#ent "wit#' "n0ï$è'/ \
+		texturefile = "gfx/interface/popup_edittextbox_bg.dds"
+	}
+}
+# Com#ent "wit#' "n0ï$è'/ \
+------
+
+(file
+	(comment)
+  (dot_gfx
+    (gfx_types
+			(types_name) (assign_equal)
+			(comment)
+			(gfx_type
+				(type_name)	(assign_equal)
+				(comment)
+				(gfx_attribut
+					(attribut_name) (assign_equal) (string) ) (comment)
+				(gfx_attribut
+					(attribut_name) (assign_equal) (string) ))))
+	(comment) )
+
+===============================
+[gfx](types) core.gfx beginning
+===============================
+spriteTypes = {
+
+	#Global offset for all editboxes
+	cursor_offset = { -5 -4 }
+}
+------
+(file
+	(dot_gfx
+		(gfx_types
+			(types_name) (assign_equal)
+			(comment)
+			(gfx_attribut
+				(attribut_name) (assign_equal) (number) (number) ))))
