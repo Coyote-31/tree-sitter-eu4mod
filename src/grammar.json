@@ -116,7 +116,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "debug_assign"
+            "name": "debug_loop"
           }
         ]
       }
@@ -172,6 +172,10 @@
           {
             "type": "SYMBOL",
             "name": "_spriteTypes_type"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "debug_loop"
           }
         ]
       }
@@ -248,6 +252,10 @@
             {
               "type": "SYMBOL",
               "name": "_attribut_texturefile"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "debug_loop"
             }
           ]
         },
@@ -379,12 +387,12 @@
         }
       ]
     },
-    "debug_assign": {
+    "debug_loop": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "debug_assign_name"
+          "name": "debug_name"
         },
         {
           "type": "SYMBOL",
@@ -403,17 +411,17 @@
             },
             {
               "type": "SYMBOL",
-              "name": "debug_assign_multi"
+              "name": "debug_name"
             },
             {
               "type": "SYMBOL",
-              "name": "debug_assign"
+              "name": "debug_multi"
             }
           ]
         }
       ]
     },
-    "debug_assign_multi": {
+    "debug_multi": {
       "type": "SEQ",
       "members": [
         {
@@ -424,17 +432,24 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "REPEAT",
+              "type": "REPEAT1",
               "content": {
                 "type": "SYMBOL",
                 "name": "string"
               }
             },
             {
-              "type": "REPEAT",
+              "type": "REPEAT1",
               "content": {
                 "type": "SYMBOL",
                 "name": "number"
+              }
+            },
+            {
+              "type": "REPEAT1",
+              "content": {
+                "type": "SYMBOL",
+                "name": "debug_loop"
               }
             }
           ]
@@ -454,8 +469,52 @@
       "value": "\"[^\\\"\\n]*\""
     },
     "number": {
-      "type": "PATTERN",
-      "value": "\\-?\\d+"
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "-"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "PATTERN",
+            "value": "\\d+"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "\\.\\d+"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "f"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
     },
     "comment": {
       "type": "PATTERN",
@@ -465,7 +524,7 @@
       "type": "PATTERN",
       "value": "\\r?\\n"
     },
-    "debug_assign_name": {
+    "debug_name": {
       "type": "PATTERN",
       "value": "[\\w_]+"
     },

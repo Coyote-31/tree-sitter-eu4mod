@@ -54,7 +54,7 @@ module.exports = grammar({
 
     dot_gfx: $ => repeat1(choice(
         $.gfx_types,
-        $.debug_assign
+        $.debug_loop
     )),
 
     gfx_types: $ => choice(
@@ -73,16 +73,18 @@ module.exports = grammar({
 
     _spriteTypes_content: $ => repeat1(choice(
       $._spriteTypes_attribut,
-      $._spriteTypes_type
+      $._spriteTypes_type,
+      $.debug_loop
     )),
 
     _spriteTypes_attribut: $ => alias(choice(
-      $._attribut_cursor_offset
+      $._attribut_cursor_offset,
+      // TODO
     ), $.gfx_attribut),
 
     _spriteTypes_type: $ => alias(choice(
-        $._type_spriteType
-        // TODO
+      $._type_spriteType,
+      // TODO
     ), $.gfx_type),
 
     // GFX Type :
@@ -99,7 +101,9 @@ module.exports = grammar({
       alias(
         choice(
           $._attribut_name,
-          $._attribut_texturefile
+          $._attribut_texturefile,
+          // TODO
+          $.debug_loop
         ),
       $.gfx_attribut)
     ),
@@ -154,22 +158,23 @@ module.exports = grammar({
     //     Default grammar to find not handled keywords:    //
     //======================================================//
 
-    debug_assign: $ => seq(
-      $.debug_assign_name,
+    debug_loop: $ => seq(
+      $.debug_name,
       $.assign_equal,
       choice(
         $.string,
         $.number,
-        $.debug_assign_multi,
-        $.debug_assign
+        $.debug_name,
+        $.debug_multi
       )
     ),
 
-    debug_assign_multi: $ => seq(
+    debug_multi: $ => seq(
       '{',
       choice(
-        repeat($.string),
-        repeat($.number)
+        repeat1($.string),
+        repeat1($.number),
+        repeat1($.debug_loop)
       ),
       '}'
     ),
@@ -178,13 +183,18 @@ module.exports = grammar({
 
     string: $ => /"[^\"\n]*"/,
 
-    number: $ => /\-?\d+/,
+    number: $ => token(seq(
+      optional('-'),
+      /\d+/,
+      optional(/\.\d+/),
+      optional('f')
+    )),
 
     comment: $ => /\#[^\n]*/,
 
     _eol: $ => /\r?\n/,
 
-    debug_assign_name: $ => /[\w_]+/,
+    debug_name: $ => /[\w_]+/,
 
     debug: $ => /.+/
 

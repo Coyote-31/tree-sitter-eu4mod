@@ -1,6 +1,6 @@
 [
   {
-    "type": "debug_assign",
+    "type": "debug_loop",
     "named": true,
     "fields": {},
     "children": {
@@ -12,15 +12,11 @@
           "named": true
         },
         {
-          "type": "debug_assign",
+          "type": "debug_multi",
           "named": true
         },
         {
-          "type": "debug_assign_multi",
-          "named": true
-        },
-        {
-          "type": "debug_assign_name",
+          "type": "debug_name",
           "named": true
         },
         {
@@ -35,13 +31,17 @@
     }
   },
   {
-    "type": "debug_assign_multi",
+    "type": "debug_multi",
     "named": true,
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "debug_loop",
+          "named": true
+        },
         {
           "type": "number",
           "named": true
@@ -62,7 +62,7 @@
       "required": true,
       "types": [
         {
-          "type": "debug_assign",
+          "type": "debug_loop",
           "named": true
         },
         {
@@ -127,6 +127,14 @@
           "named": true
         },
         {
+          "type": "debug_multi",
+          "named": true
+        },
+        {
+          "type": "debug_name",
+          "named": true
+        },
+        {
           "type": "number",
           "named": true
         },
@@ -170,6 +178,10 @@
       "types": [
         {
           "type": "assign_equal",
+          "named": true
+        },
+        {
+          "type": "debug_loop",
           "named": true
         },
         {
@@ -256,7 +268,7 @@
     "named": true
   },
   {
-    "type": "debug_assign_name",
+    "type": "debug_name",
     "named": true
   },
   {
