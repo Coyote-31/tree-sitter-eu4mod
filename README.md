@@ -22,8 +22,8 @@ To install this package from the [npmjs repository](https://www.npmjs.com/packag
 | Extension | Supported |
 |   :---:   |   :---:   |
 |   .mod    |    ✅     |
+|   .gfx    |    ✅     |
 |   .gui    |    ❌     |
-|   .gfx    |    ❌     |
 
 
 ### Which text editor use this package :
