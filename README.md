@@ -19,11 +19,11 @@ To install this package from the [npmjs repository](https://www.npmjs.com/packag
 
 ### Which EU4 file extension is managed :
 
-| Extension | Supported |
-|   :---:   |   :---:   |
-|   .mod    |    ✅     |
-|   .gfx    |    ✅     |
-|   .gui    |    ❌     |
+Extension | Supported
+:---:   |   :---:
+.mod    |    ✅
+.gfx    |    ✅
+.gui    |    ❌
 
 
 ### Which text editor use this package :
@@ -41,8 +41,8 @@ The parser is build with a generator tool from the dependency package [`tree-sit
 
 ### Source archive :
 
-| Link | Info |
-|    :---:     |   :---:   |
+Link | Info
+:---:     |   :---:
 **[GitHub repository](https://github.com/Coyote-31/tree-sitter-eu4mod)** | [![GitHub commits](https://badgen.net/github/commits/Coyote-31/tree-sitter-eu4mod?icon=git&label=total%20commits)](https://github.com/Coyote-31/tree-sitter-eu4mod/commits/master)
 **[Last release](https://github.com/Coyote-31/tree-sitter-eu4mod/releases/latest)** | [![GitHub tag (latest by date)](https://badgen.net/github/tag/Coyote-31/tree-sitter-eu4mod?icon=atom&label=last%20release)](https://github.com/Coyote-31/tree-sitter-eu4mod/releases/latest)
 **[All releases](https://github.com/Coyote-31/tree-sitter-eu4mod/releases)** | [![total releases](https://badgen.net/github/tags/Coyote-31/tree-sitter-eu4mod?icon=npm&label=total%20releases)](https://github.com/Coyote-31/tree-sitter-eu4mod/releases)
@@ -51,8 +51,8 @@ The parser is build with a generator tool from the dependency package [`tree-sit
 ## 🐛 Any issue or bug **[report here](https://github.com/Coyote-31/tree-sitter-eu4mod/issues)**
 If you have any issue or find a bug please :
 
-| **[Open an issue on GitHub](https://github.com/Coyote-31/tree-sitter-eu4mod/issues)** | ![GitHub issues](https://img.shields.io/github/issues/Coyote-31/tree-sitter-eu4mod?logo=github) |
-|    :---:     |   :---:   |
+**[Open an issue on GitHub](https://github.com/Coyote-31/tree-sitter-eu4mod/issues)** | ![GitHub issues](https://img.shields.io/github/issues/Coyote-31/tree-sitter-eu4mod?logo=github)
+:---:     |   :---:
 
 
 ## 🔍 See also
