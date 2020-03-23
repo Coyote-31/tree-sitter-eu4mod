@@ -1,19 +1,18 @@
-======================
-[mod](line_mono) basic
-======================
+====================
+[mod](name) basic
+====================
 name="Vanilla Wolf Pack"
 ------
 
 (file
   (dot_mod
-    (mod_line_mono
-      (mod_line_mono_name)
-      (assign_equal)
-      (string) )))
+    (mod_name_identifier)
+    (assign_equal)
+    (mod_name_value) ))
 
 
 ====================
-[mod](line_mono) eol
+[mod](name) eol
 ====================
 
 name="Vanilla Wolf Pack"
@@ -22,15 +21,14 @@ name="Vanilla Wolf Pack"
 
 (file
   (dot_mod
-    (mod_line_mono
-      (mod_line_mono_name)
-      (assign_equal)
-      (string) )))
+    (mod_name_identifier)
+    (assign_equal)
+    (mod_name_value) ))
 
 
-=======================
-[mod](line_multi) basic
-=======================
+====================
+[mod](tags) basic
+====================
 tags={
   "Fixes"
 }
@@ -38,15 +36,14 @@ tags={
 
 (file
   (dot_mod
-    (mod_line_multi
-      (mod_line_multi_name)
-      (assign_equal)
-      (string) )))
+    (identifier)
+    (assign_equal)
+    (tags_keyword) ))
 
 
-=====================
-[mod](line_multi) eol
-=====================
+====================
+[mod](tags) eol
+====================
 
 tags={
   "Fixes"
@@ -56,27 +53,42 @@ tags={
 
 (file
   (dot_mod
-    (mod_line_multi
-      (mod_line_multi_name)
-      (assign_equal)
-      (string) )))
+    (identifier)
+    (assign_equal)
+    (tags_keyword) ))
 
 
-========================
-[mod](line_multi) 2 args
-========================
-
+====================
+[mod](tags) multi args
+====================
 tags={
-  "Fixes"
-  "Sound"
+  "Alternative History"
+  "Loading Screen"
+  "Missions And Decisions"
 }
-
 ------
 
 (file
   (dot_mod
-    (mod_line_multi
-      (mod_line_multi_name)
-      (assign_equal)
-      (string)
-      (string) )))
+    (identifier)
+    (assign_equal)
+    (tags_keyword)
+    (tags_keyword)
+    (tags_keyword) ))
+
+
+====================
+[mod](dependencies) basic
+====================
+dependencies={
+	"Better UI 2"
+	"Vanilla'd - The Grand Exhibition 1/6"
+}
+------
+
+(file
+  (dot_mod
+    (identifier)
+    (assign_equal)
+    (dependencies)
+    (dependencies) ))

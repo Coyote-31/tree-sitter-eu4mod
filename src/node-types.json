@@ -16,7 +16,7 @@
           "named": true
         },
         {
-          "type": "debug_name",
+          "type": "name",
           "named": true
         },
         {
@@ -36,7 +36,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "debug_loop",
@@ -62,11 +62,7 @@
       "required": true,
       "types": [
         {
-          "type": "debug_loop",
-          "named": true
-        },
-        {
-          "type": "gfx_types",
+          "type": "gfx_types_definition",
           "named": true
         }
       ]
@@ -81,11 +77,31 @@
       "required": true,
       "types": [
         {
-          "type": "mod_line_mono",
+          "type": "assign_equal",
           "named": true
         },
         {
-          "type": "mod_line_multi",
+          "type": "dependencies",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "mod_name_identifier",
+          "named": true
+        },
+        {
+          "type": "mod_name_value",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tags_keyword",
           "named": true
         }
       ]
@@ -111,7 +127,7 @@
     }
   },
   {
-    "type": "gfx_attribut",
+    "type": "gfx_type_definition",
     "named": true,
     "fields": {},
     "children": {
@@ -123,53 +139,18 @@
           "named": true
         },
         {
-          "type": "attribut_name",
+          "type": "identifier",
           "named": true
         },
         {
-          "type": "debug_multi",
-          "named": true
-        },
-        {
-          "type": "debug_name",
-          "named": true
-        },
-        {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "string",
+          "type": "statement",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "gfx_type",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "assign_equal",
-          "named": true
-        },
-        {
-          "type": "gfx_attribut",
-          "named": true
-        },
-        {
-          "type": "type_name",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "gfx_types",
+    "type": "gfx_types_definition",
     "named": true,
     "fields": {},
     "children": {
@@ -185,22 +166,22 @@
           "named": true
         },
         {
-          "type": "gfx_attribut",
+          "type": "gfx_type_definition",
           "named": true
         },
         {
-          "type": "gfx_type",
+          "type": "identifier",
           "named": true
         },
         {
-          "type": "types_name",
+          "type": "statement",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "mod_line_mono",
+    "type": "statement",
     "named": true,
     "fields": {},
     "children": {
@@ -212,7 +193,19 @@
           "named": true
         },
         {
-          "type": "mod_line_mono_name",
+          "type": "debug_multi",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "number",
           "named": true
         },
         {
@@ -221,103 +214,42 @@
         }
       ]
     }
-  },
-  {
-    "type": "mod_line_mono_name",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "mod_line_multi",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "assign_equal",
-          "named": true
-        },
-        {
-          "type": "mod_line_multi_name",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "mod_line_multi_name",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "archive",
-    "named": false
   },
   {
     "type": "assign_equal",
     "named": true
   },
   {
-    "type": "attribut_name",
-    "named": true
-  },
-  {
-    "type": "debug_name",
-    "named": true
-  },
-  {
     "type": "dependencies",
-    "named": false
+    "named": true
+  },
+  {
+    "type": "identifier",
+    "named": true
+  },
+  {
+    "type": "mod_name_identifier",
+    "named": true
+  },
+  {
+    "type": "mod_name_value",
+    "named": true
   },
   {
     "type": "name",
-    "named": false
+    "named": true
   },
   {
     "type": "number",
     "named": true
   },
   {
-    "type": "path",
-    "named": false
-  },
-  {
-    "type": "picture",
-    "named": false
-  },
-  {
-    "type": "remote_file_id",
-    "named": false
-  },
-  {
     "type": "string",
     "named": true
   },
   {
-    "type": "supported_version",
-    "named": false
-  },
-  {
-    "type": "tags",
-    "named": false
-  },
-  {
-    "type": "type_name",
+    "type": "tags_keyword",
     "named": true
-  },
-  {
-    "type": "types_name",
-    "named": true
-  },
-  {
-    "type": "version",
-    "named": false
   },
   {
     "type": "{",

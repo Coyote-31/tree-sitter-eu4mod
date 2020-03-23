@@ -12,14 +12,14 @@ spriteTypes = {
 
 (file
   (dot_gfx
-		(gfx_types
-			(types_name) (assign_equal)
-			(gfx_type
-				(type_name) (assign_equal)
-				(gfx_attribut
-					(attribut_name) (assign_equal) (string))
-				(gfx_attribut
-					(attribut_name) (assign_equal) (string)) ))))
+		(gfx_types_definition
+			(identifier) (assign_equal)
+			(gfx_type_definition
+				(identifier) (assign_equal)
+				(statement
+					(identifier) (assign_equal) (string))
+				(statement
+					(identifier) (assign_equal) (string)) ))))
 
 
 ====================
@@ -43,16 +43,16 @@ spriteTypes = {
 (file
 	(comment)
   (dot_gfx
-    (gfx_types
-			(types_name) (assign_equal)
+    (gfx_types_definition
+			(identifier) (assign_equal)
 			(comment)
-			(gfx_type
-				(type_name)	(assign_equal)
+			(gfx_type_definition
+				(identifier)	(assign_equal)
 				(comment)
-				(gfx_attribut
-					(attribut_name) (assign_equal) (string) ) (comment)
-				(gfx_attribut
-					(attribut_name) (assign_equal) (string) ))))
+				(statement
+					(identifier) (assign_equal) (string) ) (comment)
+				(statement
+					(identifier) (assign_equal) (string) ))))
 	(comment) )
 
 ===============================
@@ -66,8 +66,8 @@ spriteTypes = {
 ------
 (file
 	(dot_gfx
-		(gfx_types
-			(types_name) (assign_equal)
+		(gfx_types_definition
+			(identifier) (assign_equal)
 			(comment)
-			(gfx_attribut
-				(attribut_name) (assign_equal) (number) (number) ))))
+			(statement
+				(identifier) (assign_equal) (number) (number) ))))

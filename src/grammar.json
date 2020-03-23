@@ -21,89 +21,42 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "mod_line_mono"
+            "name": "_statement_mod_name"
           },
           {
             "type": "SYMBOL",
-            "name": "mod_line_multi"
+            "name": "_statement_mod_path"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_statement_mod_archive"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_statement_mod_remote_file_id"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_statement_mod_version"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_statement_mod_picture"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_statement_mod_supported_version"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_statement_mod_tags"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_statement_mod_dependencies"
           }
         ]
       }
-    },
-    "mod_line_mono": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "mod_line_mono_name"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "assign_equal"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "string"
-        }
-      ]
-    },
-    "mod_line_multi": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "mod_line_multi_name"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "assign_equal"
-        },
-        {
-          "type": "STRING",
-          "value": "{"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_mod_line_multi_content"
-          }
-        },
-        {
-          "type": "STRING",
-          "value": "}"
-        }
-      ]
-    },
-    "_mod_line_multi_content": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "PATTERN",
-              "value": "\\t"
-            },
-            {
-              "type": "PATTERN",
-              "value": "\\s\\s"
-            },
-            {
-              "type": "PATTERN",
-              "value": "\\s\\t"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "string"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_eol"
-        }
-      ]
     },
     "dot_gfx": {
       "type": "REPEAT1",
@@ -112,16 +65,12 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "gfx_types"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "debug_loop"
+            "name": "gfx_types_definition"
           }
         ]
       }
     },
-    "gfx_types": {
+    "gfx_types_definition": {
       "type": "CHOICE",
       "members": [
         {
@@ -140,19 +89,44 @@
             "value": "spriteTypes"
           },
           "named": true,
-          "value": "types_name"
+          "value": "identifier"
         },
         {
           "type": "SYMBOL",
           "name": "assign_equal"
         },
         {
+          "type": "SYMBOL",
+          "name": "_spriteTypes_block"
+        }
+      ]
+    },
+    "_spriteTypes_block": {
+      "type": "SEQ",
+      "members": [
+        {
           "type": "STRING",
           "value": "{"
         },
         {
-          "type": "SYMBOL",
-          "name": "_spriteTypes_content"
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_spriteTypes_statement"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_spriteTypes_type"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "debug_loop"
+              }
+            ]
+          }
         },
         {
           "type": "STRING",
@@ -160,39 +134,19 @@
         }
       ]
     },
-    "_spriteTypes_content": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "_spriteTypes_attribut"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_spriteTypes_type"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "debug_loop"
-          }
-        ]
-      }
-    },
-    "_spriteTypes_attribut": {
+    "_spriteTypes_statement": {
       "type": "ALIAS",
       "content": {
         "type": "CHOICE",
         "members": [
           {
             "type": "SYMBOL",
-            "name": "_attribut_cursor_offset"
+            "name": "_statement_gfx_cursor_offset"
           }
         ]
       },
       "named": true,
-      "value": "gfx_attribut"
+      "value": "statement"
     },
     "_spriteTypes_type": {
       "type": "ALIAS",
@@ -206,7 +160,7 @@
         ]
       },
       "named": true,
-      "value": "gfx_type"
+      "value": "gfx_type_definition"
     },
     "_type_spriteType": {
       "type": "SEQ",
@@ -218,19 +172,49 @@
             "value": "spriteType"
           },
           "named": true,
-          "value": "type_name"
+          "value": "identifier"
         },
         {
           "type": "SYMBOL",
           "name": "assign_equal"
         },
         {
+          "type": "SYMBOL",
+          "name": "_spriteType_block"
+        }
+      ]
+    },
+    "_spriteType_block": {
+      "type": "SEQ",
+      "members": [
+        {
           "type": "STRING",
           "value": "{"
         },
         {
-          "type": "SYMBOL",
-          "name": "_spriteType_content"
+          "type": "REPEAT",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_name"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_texturefile"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "debug_loop"
+                }
+              ]
+            },
+            "named": true,
+            "value": "statement"
+          }
         },
         {
           "type": "STRING",
@@ -238,32 +222,29 @@
         }
       ]
     },
-    "_spriteType_content": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "ALIAS",
-        "content": {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_attribut_name"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_attribut_texturefile"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "debug_loop"
-            }
-          ]
+    "_statement_basic_string": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "name"
+          },
+          "named": true,
+          "value": "identifier"
         },
-        "named": true,
-        "value": "gfx_attribut"
-      }
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
     },
-    "_attribut_name": {
+    "_statement_name": {
       "type": "SEQ",
       "members": [
         {
@@ -273,7 +254,7 @@
             "value": "name"
           },
           "named": true,
-          "value": "attribut_name"
+          "value": "identifier"
         },
         {
           "type": "SYMBOL",
@@ -285,7 +266,353 @@
         }
       ]
     },
-    "_attribut_texturefile": {
+    "_statement_mod_name": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "name"
+          },
+          "named": true,
+          "value": "mod_name_identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "string"
+          },
+          "named": true,
+          "value": "mod_name_value"
+        }
+      ]
+    },
+    "_statement_mod_path": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "path"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "_statement_mod_archive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "archive"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "_statement_mod_remote_file_id": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "remote_file_id"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "_statement_mod_version": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "version"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "_statement_mod_picture": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "picture"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "_statement_mod_supported_version": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "supported_version"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "_statement_mod_tags": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "tags"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_mod_tags_block"
+        }
+      ]
+    },
+    "_mod_tags_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_mod_tags_keyword"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_mod_tags_keyword": {
+      "type": "ALIAS",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "\"Alternative History\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Balance\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Events\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Expansion\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Fixes\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Gameplay\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Graphics\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Guide\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Historical\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Loading Screen\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Map\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Military\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Missions And Decisions\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"National Ideas\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"New Nations\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Religion\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Sound\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Technologies\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Trade\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Translation\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Utilities\""
+          },
+          {
+            "type": "STRING",
+            "value": "\"Converted From CKII\""
+          }
+        ]
+      },
+      "named": true,
+      "value": "tags_keyword"
+    },
+    "_statement_mod_dependencies": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "dependencies"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_mod_dependencies_block"
+        }
+      ]
+    },
+    "_mod_dependencies_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "string"
+            },
+            "named": true,
+            "value": "dependencies"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_statement_gfx_texturefile": {
       "type": "SEQ",
       "members": [
         {
@@ -295,7 +622,7 @@
             "value": "texturefile"
           },
           "named": true,
-          "value": "attribut_name"
+          "value": "identifier"
         },
         {
           "type": "SYMBOL",
@@ -307,7 +634,7 @@
         }
       ]
     },
-    "_attribut_cursor_offset": {
+    "_statement_gfx_cursor_offset": {
       "type": "SEQ",
       "members": [
         {
@@ -317,7 +644,7 @@
             "value": "cursor_offset"
           },
           "named": true,
-          "value": "attribut_name"
+          "value": "identifier"
         },
         {
           "type": "SYMBOL",
@@ -341,58 +668,12 @@
         }
       ]
     },
-    "mod_line_mono_name": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "name"
-        },
-        {
-          "type": "STRING",
-          "value": "supported_version"
-        },
-        {
-          "type": "STRING",
-          "value": "version"
-        },
-        {
-          "type": "STRING",
-          "value": "path"
-        },
-        {
-          "type": "STRING",
-          "value": "archive"
-        },
-        {
-          "type": "STRING",
-          "value": "picture"
-        },
-        {
-          "type": "STRING",
-          "value": "remote_file_id"
-        }
-      ]
-    },
-    "mod_line_multi_name": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "tags"
-        },
-        {
-          "type": "STRING",
-          "value": "dependencies"
-        }
-      ]
-    },
     "debug_loop": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "debug_name"
+          "name": "name"
         },
         {
           "type": "SYMBOL",
@@ -411,7 +692,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "debug_name"
+              "name": "name"
             },
             {
               "type": "SYMBOL",
@@ -432,21 +713,21 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "REPEAT1",
+              "type": "REPEAT",
               "content": {
                 "type": "SYMBOL",
                 "name": "string"
               }
             },
             {
-              "type": "REPEAT1",
+              "type": "REPEAT",
               "content": {
                 "type": "SYMBOL",
                 "name": "number"
               }
             },
             {
-              "type": "REPEAT1",
+              "type": "REPEAT",
               "content": {
                 "type": "SYMBOL",
                 "name": "debug_loop"
@@ -459,6 +740,10 @@
           "value": "}"
         }
       ]
+    },
+    "name": {
+      "type": "PATTERN",
+      "value": "[\\w_]+"
     },
     "assign_equal": {
       "type": "STRING",
@@ -523,10 +808,6 @@
     "_eol": {
       "type": "PATTERN",
       "value": "\\r?\\n"
-    },
-    "debug_name": {
-      "type": "PATTERN",
-      "value": "[\\w_]+"
     },
     "debug": {
       "type": "PATTERN",
