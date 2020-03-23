@@ -5,9 +5,8 @@ dependencies={
 	"Vanilla'd - The Grand Exhibition 1/6"
 }
 tags={
-	"Fixes"
-	"GUI"
 	"Graphics"
+	"Fixes"
 }
 picture="thumbnail.png"
 supported_version="1.29.*.*"
