@@ -15,48 +15,82 @@
       ]
     },
     "dot_mod": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "_statement_mod_name"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_statement_mod_path"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_statement_mod_archive"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_statement_mod_remote_file_id"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_statement_mod_version"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_statement_mod_picture"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_statement_mod_supported_version"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_statement_mod_tags"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_statement_mod_dependencies"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_dot_mod_statement"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_eol"
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_dot_mod_statement"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_eol"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_dot_mod_statement": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_statement_mod_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_mod_path"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_mod_archive"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_mod_remote_file_id"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_mod_version"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_mod_picture"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_mod_supported_version"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_mod_tags"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_mod_dependencies"
+        }
+      ]
     },
     "dot_gfx": {
       "type": "REPEAT1",
@@ -65,21 +99,30 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "gfx_types_definition"
+            "name": "_gfx_types_definition"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "debug_loop"
           }
         ]
       }
     },
-    "gfx_types_definition": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_types_spriteTypes"
-        }
-      ]
+    "_gfx_types_definition": {
+      "type": "ALIAS",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_spriteTypes"
+          }
+        ]
+      },
+      "named": true,
+      "value": "types_definition"
     },
-    "_types_spriteTypes": {
+    "_spriteTypes": {
       "type": "SEQ",
       "members": [
         {
@@ -155,14 +198,14 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "_type_spriteType"
+            "name": "_spriteType"
           }
         ]
       },
       "named": true,
-      "value": "gfx_type_definition"
+      "value": "type_definition"
     },
-    "_type_spriteType": {
+    "_spriteType": {
       "type": "SEQ",
       "members": [
         {
@@ -222,17 +265,17 @@
         }
       ]
     },
-    "_statement_basic_string": {
+    "_statement_name": {
       "type": "SEQ",
       "members": [
         {
           "type": "ALIAS",
           "content": {
-            "type": "SYMBOL",
-            "name": "name"
+            "type": "STRING",
+            "value": "name"
           },
           "named": true,
-          "value": "identifier"
+          "value": "name_identifier"
         },
         {
           "type": "SYMBOL",
@@ -244,14 +287,14 @@
         }
       ]
     },
-    "_statement_name": {
+    "_statement_string": {
       "type": "SEQ",
       "members": [
         {
           "type": "ALIAS",
           "content": {
-            "type": "STRING",
-            "value": "name"
+            "type": "SYMBOL",
+            "name": "name"
           },
           "named": true,
           "value": "identifier"
@@ -458,7 +501,34 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_mod_tags_keyword"
+            "name": "_eol"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_mod_tags_keyword"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_eol"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_mod_tags_keyword"
+              }
+            ]
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_eol"
           }
         },
         {
@@ -473,92 +543,92 @@
         "type": "CHOICE",
         "members": [
           {
-            "type": "STRING",
-            "value": "\"Alternative History\""
+            "type": "PATTERN",
+            "value": "\"[Aa]lternative [Hh]istory\""
           },
           {
-            "type": "STRING",
-            "value": "\"Balance\""
+            "type": "PATTERN",
+            "value": "\"[Bb]alance\""
           },
           {
-            "type": "STRING",
-            "value": "\"Events\""
+            "type": "PATTERN",
+            "value": "\"[Ee]vents\""
           },
           {
-            "type": "STRING",
-            "value": "\"Expansion\""
+            "type": "PATTERN",
+            "value": "\"[Ee]xpansion\""
           },
           {
-            "type": "STRING",
-            "value": "\"Fixes\""
+            "type": "PATTERN",
+            "value": "\"[Ff]ixes\""
           },
           {
-            "type": "STRING",
-            "value": "\"Gameplay\""
+            "type": "PATTERN",
+            "value": "\"[Gg]ameplay\""
           },
           {
-            "type": "STRING",
-            "value": "\"Graphics\""
+            "type": "PATTERN",
+            "value": "\"[Gg]raphics\""
           },
           {
-            "type": "STRING",
-            "value": "\"Guide\""
+            "type": "PATTERN",
+            "value": "\"[Gg]uide\""
           },
           {
-            "type": "STRING",
-            "value": "\"Historical\""
+            "type": "PATTERN",
+            "value": "\"[Hh]istorical\""
           },
           {
-            "type": "STRING",
-            "value": "\"Loading Screen\""
+            "type": "PATTERN",
+            "value": "\"[Ll]oading [Ss]creen\""
           },
           {
-            "type": "STRING",
-            "value": "\"Map\""
+            "type": "PATTERN",
+            "value": "\"[Mm]ap\""
           },
           {
-            "type": "STRING",
-            "value": "\"Military\""
+            "type": "PATTERN",
+            "value": "\"[Mm]ilitary\""
           },
           {
-            "type": "STRING",
-            "value": "\"Missions And Decisions\""
+            "type": "PATTERN",
+            "value": "\"[Mm]issions [Aa]nd [Dd]ecisions\""
           },
           {
-            "type": "STRING",
-            "value": "\"National Ideas\""
+            "type": "PATTERN",
+            "value": "\"[Nn]ational [Ii]deas\""
           },
           {
-            "type": "STRING",
-            "value": "\"New Nations\""
+            "type": "PATTERN",
+            "value": "\"[Nn]ew [Nn]ations\""
           },
           {
-            "type": "STRING",
-            "value": "\"Religion\""
+            "type": "PATTERN",
+            "value": "\"[Rr]eligion\""
           },
           {
-            "type": "STRING",
-            "value": "\"Sound\""
+            "type": "PATTERN",
+            "value": "\"[Ss]ound\""
           },
           {
-            "type": "STRING",
-            "value": "\"Technologies\""
+            "type": "PATTERN",
+            "value": "\"[Tt]echnologies\""
           },
           {
-            "type": "STRING",
-            "value": "\"Trade\""
+            "type": "PATTERN",
+            "value": "\"[Tt]rade\""
           },
           {
-            "type": "STRING",
-            "value": "\"Translation\""
+            "type": "PATTERN",
+            "value": "\"[Tt]ranslation\""
           },
           {
-            "type": "STRING",
-            "value": "\"Utilities\""
+            "type": "PATTERN",
+            "value": "\"[Uu]tilities\""
           },
           {
-            "type": "STRING",
-            "value": "\"Converted From CKII\""
+            "type": "PATTERN",
+            "value": "\"[Cc]onverted [Ff]rom CKII\""
           }
         ]
       },
@@ -696,13 +766,13 @@
             },
             {
               "type": "SYMBOL",
-              "name": "debug_multi"
+              "name": "_debug_block"
             }
           ]
         }
       ]
     },
-    "debug_multi": {
+    "_debug_block": {
       "type": "SEQ",
       "members": [
         {

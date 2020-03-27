@@ -12,34 +12,11 @@
           "named": true
         },
         {
-          "type": "debug_multi",
+          "type": "debug_loop",
           "named": true
         },
         {
           "type": "name",
-          "named": true
-        },
-        {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "debug_multi",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "debug_loop",
           "named": true
         },
         {
@@ -62,7 +39,11 @@
       "required": true,
       "types": [
         {
-          "type": "gfx_types_definition",
+          "type": "debug_loop",
+          "named": true
+        },
+        {
+          "type": "types_definition",
           "named": true
         }
       ]
@@ -127,30 +108,7 @@
     }
   },
   {
-    "type": "gfx_type_definition",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "assign_equal",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "statement",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "gfx_types_definition",
+    "type": "statement",
     "named": true,
     "fields": {},
     "children": {
@@ -166,7 +124,38 @@
           "named": true
         },
         {
-          "type": "gfx_type_definition",
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "name_identifier",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assign_equal",
           "named": true
         },
         {
@@ -181,7 +170,7 @@
     }
   },
   {
-    "type": "statement",
+    "type": "types_definition",
     "named": true,
     "fields": {},
     "children": {
@@ -193,7 +182,7 @@
           "named": true
         },
         {
-          "type": "debug_multi",
+          "type": "debug_loop",
           "named": true
         },
         {
@@ -201,15 +190,11 @@
           "named": true
         },
         {
-          "type": "name",
+          "type": "statement",
           "named": true
         },
         {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "string",
+          "type": "type_definition",
           "named": true
         }
       ]
@@ -237,6 +222,10 @@
   },
   {
     "type": "name",
+    "named": true
+  },
+  {
+    "type": "name_identifier",
     "named": true
   },
   {

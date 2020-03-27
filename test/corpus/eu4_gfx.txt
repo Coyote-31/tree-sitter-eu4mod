@@ -12,12 +12,12 @@ spriteTypes = {
 
 (file
   (dot_gfx
-		(gfx_types_definition
+		(types_definition
 			(identifier) (assign_equal)
-			(gfx_type_definition
+			(type_definition
 				(identifier) (assign_equal)
 				(statement
-					(identifier) (assign_equal) (string))
+					(name_identifier) (assign_equal) (string))
 				(statement
 					(identifier) (assign_equal) (string)) ))))
 
@@ -43,14 +43,14 @@ spriteTypes = {
 (file
 	(comment)
   (dot_gfx
-    (gfx_types_definition
+    (types_definition
 			(identifier) (assign_equal)
 			(comment)
-			(gfx_type_definition
+			(type_definition
 				(identifier)	(assign_equal)
 				(comment)
 				(statement
-					(identifier) (assign_equal) (string) ) (comment)
+					(name_identifier) (assign_equal) (string) ) (comment)
 				(statement
 					(identifier) (assign_equal) (string) ))))
 	(comment) )
@@ -66,7 +66,7 @@ spriteTypes = {
 ------
 (file
 	(dot_gfx
-		(gfx_types_definition
+		(types_definition
 			(identifier) (assign_equal)
 			(comment)
 			(statement

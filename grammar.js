@@ -18,7 +18,16 @@ module.exports = grammar({
     //       MOD -> Rules for *.mod files :          //
     //===============================================//
 
-    dot_mod: $ => repeat1(choice(
+    dot_mod: $ => seq(
+      repeat(seq(
+        $._dot_mod_statement,
+        $._eol
+      )),
+      $._dot_mod_statement,
+      optional($._eol)
+    ),
+
+    _dot_mod_statement: $ => choice(
       $._statement_mod_name,
       $._statement_mod_path,
       $._statement_mod_archive,
@@ -28,23 +37,28 @@ module.exports = grammar({
       $._statement_mod_supported_version,
       $._statement_mod_tags,
       $._statement_mod_dependencies
-    )),
+    ),
 
     //===============================================//
     //        GFX -> Rules for *.gfx files :         //
     //===============================================//
 
     dot_gfx: $ => repeat1(choice(
-        $.gfx_types_definition
+        $._gfx_types_definition,
+        $.debug_loop
     )),
 
-    gfx_types_definition: $ => choice(
-      $._types_spriteTypes
-    ),
+    _gfx_types_definition: $ => alias(choice(
+      $._spriteTypes
+    ), $.types_definition),
 
+    //---------//
     // TYPES :
+    //---------//
 
-    _types_spriteTypes: $ => seq(
+    // spriteTypes
+
+    _spriteTypes: $ => seq(
       alias('spriteTypes', $.identifier),
       $.assign_equal,
       $._spriteTypes_block
@@ -65,12 +79,16 @@ module.exports = grammar({
     ), $.statement),
 
     _spriteTypes_type: $ => alias(choice(
-      $._type_spriteType
-    ), $.gfx_type_definition),
+      $._spriteType
+    ), $.type_definition),
 
+    //---------//
     // TYPE :
+    //---------//
 
-    _type_spriteType: $ => seq(
+    // spriteType
+
+    _spriteType: $ => seq(
       alias('spriteType', $.identifier),
       $.assign_equal,
       $._spriteType_block
@@ -92,23 +110,21 @@ module.exports = grammar({
     //          STATEMENTS          //
     //==============================//
 
-
     //-------------------------------------//
     //  Commons statements [_statement_X]  //
     //-------------------------------------//
 
-   _statement_basic_string: $ => seq(
+    _statement_name: $ => seq(
+      alias('name', $.name_identifier),
+      $.assign_equal,
+      $.string
+    ),
+
+   _statement_string: $ => seq(
       alias($.name, $.identifier),
       $.assign_equal,
       $.string
     ),
-
-   _statement_name: $ => seq(
-      alias('name', $.identifier),
-      $.assign_equal,
-      $.string
-    ),
-
 
     //-------------------------------------//
     //  MOD statements [_statement_mod_X]  //
@@ -164,16 +180,22 @@ module.exports = grammar({
 
     _mod_tags_block: $ => seq(
       '{',
-      repeat($._mod_tags_keyword),
+      repeat($._eol),
+      $._mod_tags_keyword,
+      repeat(seq(
+        $._eol,
+        $._mod_tags_keyword
+      )),
+      repeat($._eol),
       '}'
     ),
 
     _mod_tags_keyword: $ => alias(choice(
-      '"Alternative History"', '"Balance"', '"Events"', '"Expansion"', '"Fixes"',
-      '"Gameplay"', '"Graphics"', '"Guide"', '"Historical"', '"Loading Screen"',
-      '"Map"', '"Military"', '"Missions And Decisions"', '"National Ideas"',
-      '"New Nations"', '"Religion"', '"Sound"', '"Technologies"', '"Trade"',
-      '"Translation"', '"Utilities"', '"Converted From CKII"'
+      /"[Aa]lternative [Hh]istory"/, /"[Bb]alance"/, /"[Ee]vents"/, /"[Ee]xpansion"/, /"[Ff]ixes"/,
+      /"[Gg]ameplay"/, /"[Gg]raphics"/, /"[Gg]uide"/, /"[Hh]istorical"/, /"[Ll]oading [Ss]creen"/,
+      /"[Mm]ap"/, /"[Mm]ilitary"/, /"[Mm]issions [Aa]nd [Dd]ecisions"/, /"[Nn]ational [Ii]deas"/,
+      /"[Nn]ew [Nn]ations"/, /"[Rr]eligion"/, /"[Ss]ound"/, /"[Tt]echnologies"/, /"[Tt]rade"/,
+      /"[Tt]ranslation"/, /"[Uu]tilities"/, /"[Cc]onverted [Ff]rom CKII"/
       ), $.tags_keyword
     ),
 
@@ -220,11 +242,11 @@ module.exports = grammar({
         $.string,
         $.number,
         $.name,
-        $.debug_multi
+        $._debug_block
       )
     ),
 
-    debug_multi: $ => seq(
+    _debug_block: $ => seq(
       '{',
       choice(
         repeat($.string),
