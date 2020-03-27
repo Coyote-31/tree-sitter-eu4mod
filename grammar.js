@@ -191,11 +191,13 @@ module.exports = grammar({
     ),
 
     _mod_tags_keyword: $ => alias(choice(
-      /"[Aa]lternative [Hh]istory"/, /"[Bb]alance"/, /"[Ee]vents"/, /"[Ee]xpansion"/, /"[Ff]ixes"/,
-      /"[Gg]ameplay"/, /"[Gg]raphics"/, /"[Gg]uide"/, /"[Hh]istorical"/, /"[Ll]oading [Ss]creen"/,
-      /"[Mm]ap"/, /"[Mm]ilitary"/, /"[Mm]issions [Aa]nd [Dd]ecisions"/, /"[Nn]ational [Ii]deas"/,
-      /"[Nn]ew [Nn]ations"/, /"[Rr]eligion"/, /"[Ss]ound"/, /"[Tt]echnologies"/, /"[Tt]rade"/,
-      /"[Tt]ranslation"/, /"[Uu]tilities"/, /"[Cc]onverted [Ff]rom CKII"/
+      /"[Aa]lternative [Hh]istory"/, /"[Bb]alance"/, /"[Ee]vents"/,
+      /"[Ee]xpansion"/, /"[Ff]ixes"/, /"[Gg]ameplay"/, /"[Gg]raphics"/,
+      /"[Gg]uide"/, /"[Hh]istorical"/, /"[Ll]oading [Ss]creen"/, /"[Mm]ap"/,
+      /"[Mm]ilitary"/, /"[Mm]issions [Aa]nd [Dd]ecisions"/,
+      /"[Nn]ational [Ii]deas"/, /"[Nn]ew [Nn]ations"/, /"[Rr]eligion"/,
+      /"[Ss]ound"/, /"[Tt]echnologies"/, /"[Tt]rade"/, /"[Tt]ranslation"/, 
+      /"[Uu]tilities"/, /"[Cc]onverted [Ff]rom CKII"/
       ), $.tags_keyword
     ),
 
