@@ -17,7 +17,7 @@ spriteTypes = {
 			(type_definition
 				(identifier) (assign_equal)
 				(statement
-					(name_identifier) (assign_equal) (string))
+					(name_identifier) (assign_equal) (name_value))
 				(statement
 					(identifier) (assign_equal) (string)) ))))
 
@@ -50,7 +50,7 @@ spriteTypes = {
 				(identifier)	(assign_equal)
 				(comment)
 				(statement
-					(name_identifier) (assign_equal) (string) ) (comment)
+					(name_identifier) (assign_equal) (name_value) ) (comment)
 				(statement
 					(identifier) (assign_equal) (string) ))))
 	(comment) )

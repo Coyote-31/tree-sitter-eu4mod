@@ -16,7 +16,7 @@
           "named": true
         },
         {
-          "type": "name",
+          "type": "identifier",
           "named": true
         },
         {
@@ -38,10 +38,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "debug_loop",
-          "named": true
-        },
         {
           "type": "types_definition",
           "named": true
@@ -70,11 +66,11 @@
           "named": true
         },
         {
-          "type": "mod_name_identifier",
+          "type": "name_identifier",
           "named": true
         },
         {
-          "type": "mod_name_value",
+          "type": "name_value",
           "named": true
         },
         {
@@ -120,19 +116,15 @@
           "named": true
         },
         {
-          "type": "debug_loop",
-          "named": true
-        },
-        {
           "type": "identifier",
           "named": true
         },
         {
-          "type": "name",
+          "type": "name_identifier",
           "named": true
         },
         {
-          "type": "name_identifier",
+          "type": "name_value",
           "named": true
         },
         {
@@ -182,10 +174,6 @@
           "named": true
         },
         {
-          "type": "debug_loop",
-          "named": true
-        },
-        {
           "type": "identifier",
           "named": true
         },
@@ -213,19 +201,11 @@
     "named": true
   },
   {
-    "type": "mod_name_identifier",
-    "named": true
-  },
-  {
-    "type": "mod_name_value",
-    "named": true
-  },
-  {
-    "type": "name",
-    "named": true
-  },
-  {
     "type": "name_identifier",
+    "named": true
+  },
+  {
+    "type": "name_value",
     "named": true
   },
   {

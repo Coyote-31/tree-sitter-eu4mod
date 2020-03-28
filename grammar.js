@@ -6,6 +6,11 @@ module.exports = grammar({
     /[\s\f\uFEFF\u2060\u200B]|\\\r?\n/,
   ],
 
+  inline: $ => [
+    $._dot_mod_statement,
+    $._gfx_types_definition
+  ],
+
   rules: {
 
     file: $ => choice(
@@ -18,17 +23,12 @@ module.exports = grammar({
     //       MOD -> Rules for *.mod files :          //
     //===============================================//
 
-    dot_mod: $ => seq(
-      repeat(seq(
-        $._dot_mod_statement,
-        $._eol
-      )),
-      $._dot_mod_statement,
-      optional($._eol)
+    dot_mod: $ => repeat1(
+        $._dot_mod_statement
     ),
 
     _dot_mod_statement: $ => choice(
-      $._statement_mod_name,
+      $._statement_name,
       $._statement_mod_path,
       $._statement_mod_archive,
       $._statement_mod_remote_file_id,
@@ -44,8 +44,7 @@ module.exports = grammar({
     //===============================================//
 
     dot_gfx: $ => repeat1(choice(
-        $._gfx_types_definition,
-        $.debug_loop
+        $._gfx_types_definition
     )),
 
     _gfx_types_definition: $ => alias(choice(
@@ -68,8 +67,7 @@ module.exports = grammar({
       '{',
       repeat(choice(
         $._spriteTypes_statement,
-        $._spriteTypes_type,
-        $.debug_loop
+        $._spriteTypes_type
       )),
       '}'
     ),
@@ -99,8 +97,7 @@ module.exports = grammar({
       repeat(
         alias(choice(
           $._statement_name,
-          $._statement_gfx_texturefile,
-          $.debug_loop
+          $._statement_gfx_texturefile
         ), $.statement)),
       '}'
     ),
@@ -116,77 +113,83 @@ module.exports = grammar({
 
     _statement_name: $ => seq(
       alias('name', $.name_identifier),
-      $.assign_equal,
-      $.string
+      optional(seq(
+        $.assign_equal,
+        alias($.string, $.name_value)
+      ))
     ),
 
-   _statement_string: $ => seq(
-      alias($.name, $.identifier),
-      $.assign_equal,
-      $.string
+    _statement_string: $ => seq(
+      $.identifier,
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
     ),
 
     //-------------------------------------//
     //  MOD statements [_statement_mod_X]  //
     //-------------------------------------//
 
-    _statement_mod_name: $ => seq(
-      alias('name', $.mod_name_identifier),
-      $.assign_equal,
-      alias($.string, $.mod_name_value)
-    ),
-
     _statement_mod_path: $ => seq(
       alias('path', $.identifier),
-      $.assign_equal,
-      $.string
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
     ),
 
     _statement_mod_archive: $ => seq(
       alias('archive', $.identifier),
-      $.assign_equal,
-      $.string
+      optional(seq(
+        $.assign_equal,
+        alias(token(seq('"', /[^\"\n]*/, '.zip"')), $.string)
+      ))
     ),
 
     _statement_mod_remote_file_id: $ => seq(
       alias('remote_file_id', $.identifier),
-      $.assign_equal,
-      $.string
+      optional(seq(
+        $.assign_equal,
+        alias(token(seq('"', /\d*/, '"')), $.string)
+      ))
     ),
 
     _statement_mod_version: $ => seq(
       alias('version', $.identifier),
-      $.assign_equal,
-      $.string
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
     ),
 
     _statement_mod_picture: $ => seq(
       alias('picture', $.identifier),
-      $.assign_equal,
-      $.string
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
     ),
 
     _statement_mod_supported_version: $ => seq(
       alias('supported_version', $.identifier),
-      $.assign_equal,
-      $.string
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
     ),
 
     _statement_mod_tags: $ => seq(
       alias('tags', $.identifier),
-      $.assign_equal,
-      $._mod_tags_block
+      optional(seq(
+        $.assign_equal,
+        $._mod_tags_block
+      ))
     ),
 
     _mod_tags_block: $ => seq(
       '{',
-      repeat($._eol),
-      $._mod_tags_keyword,
-      repeat(seq(
-        $._eol,
-        $._mod_tags_keyword
-      )),
-      repeat($._eol),
+      repeat($._mod_tags_keyword),
       '}'
     ),
 
@@ -196,15 +199,17 @@ module.exports = grammar({
       /"[Gg]uide"/, /"[Hh]istorical"/, /"[Ll]oading [Ss]creen"/, /"[Mm]ap"/,
       /"[Mm]ilitary"/, /"[Mm]issions [Aa]nd [Dd]ecisions"/,
       /"[Nn]ational [Ii]deas"/, /"[Nn]ew [Nn]ations"/, /"[Rr]eligion"/,
-      /"[Ss]ound"/, /"[Tt]echnologies"/, /"[Tt]rade"/, /"[Tt]ranslation"/, 
+      /"[Ss]ound"/, /"[Tt]echnologies"/, /"[Tt]rade"/, /"[Tt]ranslation"/,
       /"[Uu]tilities"/, /"[Cc]onverted [Ff]rom CKII"/
       ), $.tags_keyword
     ),
 
     _statement_mod_dependencies: $ => seq(
       alias('dependencies', $.identifier),
-      $.assign_equal,
-      $._mod_dependencies_block
+      optional(seq(
+        $.assign_equal,
+        $._mod_dependencies_block
+      ))
     ),
 
     _mod_dependencies_block: $ => seq(
@@ -219,17 +224,21 @@ module.exports = grammar({
 
    _statement_gfx_texturefile: $ => seq(
       alias('texturefile', $.identifier),
-      $.assign_equal,
-      $.string
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
     ),
 
    _statement_gfx_cursor_offset: $ => seq(
       alias('cursor_offset', $.identifier),
       $.assign_equal,
-      '{',
-      $.number,
-      $.number,
-      '}'
+      optional(seq(
+        '{',
+        $.number,
+        $.number,
+        '}'
+      ))
     ),
 
 
@@ -238,12 +247,12 @@ module.exports = grammar({
     //======================================================//
 
     debug_loop: $ => seq(
-      $.name,
+      $.identifier,
       $.assign_equal,
       choice(
         $.string,
         $.number,
-        $.name,
+        $.identifier,
         $._debug_block
       )
     ),
@@ -264,7 +273,7 @@ module.exports = grammar({
     //==============================//
 
 
-    name: $ => /[\w_]+/,
+    identifier: $ => /[a-z_][a-zA-Z0-9]*/,
 
     assign_equal: $ => '=',
 
@@ -279,7 +288,7 @@ module.exports = grammar({
 
     comment: $ => /\#[^\n]*/,
 
-    _eol: $ => /\r?\n/,
+    _eol: $ => token(/\r?\n/),
 
     debug: $ => /.+/
 

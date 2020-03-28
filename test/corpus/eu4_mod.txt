@@ -6,9 +6,9 @@ name="Vanilla Wolf Pack"
 
 (file
   (dot_mod
-    (mod_name_identifier)
+    (name_identifier)
     (assign_equal)
-    (mod_name_value) ))
+    (name_value) ))
 
 
 ====================
@@ -21,9 +21,9 @@ name="Vanilla Wolf Pack"
 
 (file
   (dot_mod
-    (mod_name_identifier)
+    (name_identifier)
     (assign_equal)
-    (mod_name_value) ))
+    (name_value) ))
 
 
 ====================
