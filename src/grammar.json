@@ -463,8 +463,45 @@
                   "name": "assign_equal"
                 },
                 {
-                  "type": "SYMBOL",
-                  "name": "string"
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[0-9]+"
+                        },
+                        {
+                          "type": "REPEAT",
+                          "content": {
+                            "type": "SEQ",
+                            "members": [
+                              {
+                                "type": "STRING",
+                                "value": "."
+                              },
+                              {
+                                "type": "PATTERN",
+                                "value": "[0-9]+"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        }
+                      ]
+                    }
+                  },
+                  "named": true,
+                  "value": "string"
                 }
               ]
             },
@@ -533,8 +570,89 @@
                   "name": "assign_equal"
                 },
                 {
-                  "type": "SYMBOL",
-                  "name": "string"
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        },
+                        {
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "PATTERN",
+                              "value": "[0-9]+"
+                            },
+                            {
+                              "type": "STRING",
+                              "value": "*"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "."
+                        },
+                        {
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "PATTERN",
+                              "value": "[0-9]+"
+                            },
+                            {
+                              "type": "STRING",
+                              "value": "*"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "."
+                        },
+                        {
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "PATTERN",
+                              "value": "[0-9]+"
+                            },
+                            {
+                              "type": "STRING",
+                              "value": "*"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "."
+                        },
+                        {
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "PATTERN",
+                              "value": "[0-9]+"
+                            },
+                            {
+                              "type": "STRING",
+                              "value": "*"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        }
+                      ]
+                    }
+                  },
+                  "named": true,
+                  "value": "string"
                 }
               ]
             },

@@ -159,7 +159,14 @@ module.exports = grammar({
       alias('version', $.identifier),
       optional(seq(
         $.assign_equal,
-        $.string
+        alias(token(seq(
+          '"',
+          /[0-9]+/,
+          repeat(seq(
+            '.',
+            /[0-9]+/)),
+          '"'
+        )), $.string)
       ))
     ),
 
@@ -175,7 +182,17 @@ module.exports = grammar({
       alias('supported_version', $.identifier),
       optional(seq(
         $.assign_equal,
-        $.string
+        alias(token(seq(
+          '"',
+          choice(/[0-9]+/, '*'),
+          '.',
+          choice(/[0-9]+/, '*'),
+          '.',
+          choice(/[0-9]+/, '*'),
+          '.',
+          choice(/[0-9]+/, '*'),
+          '"'
+        )), $.string)
       ))
     ),
 
