@@ -1,6 +1,7 @@
 node_modules/
 build/
 prebuilds/
+test/private/*
 *.log
 parser.exp
 parser.lib
