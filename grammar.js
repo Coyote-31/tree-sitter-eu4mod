@@ -50,7 +50,8 @@ module.exports = grammar({
 
     _gfx_types_definition: $ => alias(choice(
       $._spriteTypes,
-      $._objectTypes
+      $._objectTypes,
+      $._bitmapfonts
     ), $.types_definition),
 
     //---------//
@@ -102,6 +103,26 @@ module.exports = grammar({
     _objectTypes_type: $ => alias(choice(
       $._animatedmaptext,
     ), $.type_definition),
+
+    // bitmapfonts
+
+    _bitmapfonts: $ => seq(
+      alias('bitmapfonts', $.identifier),
+      $.assign_equal,
+      $._bitmapfonts_block
+    ),
+
+    _bitmapfonts_block: $ => seq(
+      '{',
+      repeat($._bitmapfonts_type),
+      '}'
+    ),
+
+    _bitmapfonts_type: $ => alias(choice(
+      $._bitmapfont,
+      $._textcolors
+    ), $.type_definition),
+
 
     //---------//
     // TYPE :
@@ -194,6 +215,8 @@ module.exports = grammar({
       '}'
     ),
 
+    // animatedmaptext
+
     _animatedmaptext: $ => seq(
       alias('animatedmaptext', $.identifier),
       $.assign_equal,
@@ -207,6 +230,45 @@ module.exports = grammar({
           $._statement_name,
           $._statement_gfx_speed,
           $._statement_gfx_textblock
+        ), $.statement)),
+      '}'
+    ),
+
+    // textcolors
+
+    _textcolors: $ => seq(
+      alias('textcolors', $.identifier),
+      $.assign_equal,
+      $._textcolors_block
+    ),
+
+    _textcolors_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_gfx_textcolors,
+        ), $.statement)),
+      '}'
+    ),
+
+    // bitmapfont
+
+    _bitmapfont: $ => seq(
+      alias('bitmapfont', $.identifier),
+      $.assign_equal,
+      $._bitmapfont_block
+    ),
+
+    _bitmapfont_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_name,
+          $._statement_mod_path,
+          $._statement_gfx_bitmapfont_color,
+          $._statement_gfx_bitmapfont_border_color,
+          $._textcolors,
+          $._statement_gfx_cursor_offset
         ), $.statement)),
       '}'
     ),
@@ -303,17 +365,6 @@ module.exports = grammar({
     //-------------------------------------//
     //  MOD statements [_statement_mod_X]  //
     //-------------------------------------//
-
-    _statement_gfx_name: $ => seq(
-      alias('name', $.name_identifier),
-      optional(seq(
-        $.assign_equal,
-        choice(
-          alias(token(seq('"', /[a-zA-Z0-9_]*/, '"')), $.name_value),
-          alias(token(seq('"GFX_', /[a-zA-Z0-9_]*/, '"')), $.name_gfx_value)
-        )
-      ))
-    ),
 
     _statement_mod_path: $ => seq(
       alias('path', $.identifier),
@@ -452,13 +503,32 @@ module.exports = grammar({
     //  GFX statements [_statement_gfx_X]  //
     //-------------------------------------//
 
+    _statement_gfx_name: $ => seq(
+      alias('name', $.name_identifier),
+      optional(seq(
+        $.assign_equal,
+        choice(
+          alias(token(seq('"', /[a-zA-Z0-9_]*/, '"')), $.name_value),
+          alias(token(seq('"GFX_', /[a-zA-Z0-9_]*/, '"')), $.name_gfx_value)
+        )
+      ))
+    ),
+
+    _statement_gfx_path: $ => seq(
+      alias('path', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string,
+      ))
+    ),
+
     _statement_gfx_cursor_offset: $ => seq(
       alias('cursor_offset', $.identifier),
-      $.assign_equal,
       optional(seq(
+        $.assign_equal,
         '{',
-        $.float,
-        $.float,
+        $.integer,
+        $.integer,
         '}'
       ))
     ),
@@ -753,6 +823,35 @@ module.exports = grammar({
       ))
     ),
 
+    _statement_gfx_textcolors: $ => seq(
+      alias(choice(
+        'B','b','G','H','l','M','O','g','R','T','W','Y',
+      ), $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        $.byte,
+        $.byte,
+        $.byte,
+        '}'
+      ))
+    ),
+
+    _statement_gfx_bitmapfont_color: $ => seq(
+      alias('color', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.hexadecimal
+      ))
+    ),
+
+    _statement_gfx_bitmapfont_border_color: $ => seq(
+      alias('border_color', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.hexadecimal
+      ))
+    ),
 
     //======================================================//
     //     Default grammar to find not handled keywords:    //
@@ -837,6 +936,14 @@ module.exports = grammar({
     _integer_positive: $ => alias(/\d+/, $.integer),
 
     byte: $ => /[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]/,
+
+    hexadecimal: $ => token(seq(
+      '0x',
+      choice(
+        /[0-9a-f]{4}/,
+        /[0-9a-f]{8}/
+      )
+    )),
 
     angle: $ => /36[0]\.0|3[0-5][0-9]\.[0-9]|[12][0-9][0-9]\.[0-9]|[1-9]?[0-9]\.[0-9]/,
 

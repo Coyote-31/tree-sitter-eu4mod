@@ -71,7 +71,7 @@ spriteTypes = {
 			(identifier) (assign_equal)
 			(comment)
 			(statement
-				(identifier) (assign_equal) (float) (float) ))))
+				(identifier) (assign_equal) (integer) (integer) ))))
 
 
 ===============================
