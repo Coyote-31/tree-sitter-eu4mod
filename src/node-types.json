@@ -1,36 +1,5 @@
 [
   {
-    "type": "debug_loop",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "assign_equal",
-          "named": true
-        },
-        {
-          "type": "debug_loop",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "dot_gfx",
     "named": true,
     "fields": {},
@@ -149,7 +118,7 @@
           "named": true
         },
         {
-          "type": "keywords",
+          "type": "keyword",
           "named": true
         },
         {
@@ -262,7 +231,7 @@
     "named": true
   },
   {
-    "type": "keywords",
+    "type": "keyword",
     "named": true
   },
   {
@@ -275,10 +244,6 @@
   },
   {
     "type": "name_value",
-    "named": true
-  },
-  {
-    "type": "number",
     "named": true
   },
   {

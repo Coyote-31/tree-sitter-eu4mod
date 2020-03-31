@@ -304,7 +304,7 @@ module.exports = grammar({
 
 
     _entry_x_integer: $ => seq(
-      alias('x', $.identifier),
+      alias('x', $.keyword),
       optional(seq(
         $.assign_equal,
         $.integer
@@ -312,7 +312,7 @@ module.exports = grammar({
     ),
 
     _entry_y_integer: $ => seq(
-      alias('y', $.identifier),
+      alias('y', $.keyword),
       optional(seq(
         $.assign_equal,
         $.integer
@@ -326,7 +326,7 @@ module.exports = grammar({
 
 
     _entry_x_float: $ => seq(
-      alias('x', $.identifier),
+      alias('x', $.keyword),
       optional(seq(
         $.assign_equal,
         $.float
@@ -334,31 +334,10 @@ module.exports = grammar({
     ),
 
     _entry_y_float: $ => seq(
-      alias('y', $.identifier),
+      alias('y', $.keyword),
       optional(seq(
         $.assign_equal,
         $.float
-      ))
-    ),
-
-    _statement_xy_precision_1: $ => choice(
-      seq($._entry_x_precision_1, $._entry_y_precision_1),
-      seq($._entry_y_precision_1, $._entry_x_precision_1)
-    ),
-
-    _entry_x_precision_1: $ => seq(
-      alias('x', $.identifier),
-      optional(seq(
-        $.assign_equal,
-        $._number_precision_1
-      ))
-    ),
-
-    _entry_y_precision_1: $ => seq(
-      alias('y', $.identifier),
-      optional(seq(
-        $.assign_equal,
-        $._number_precision_1
       ))
     ),
 
@@ -728,7 +707,7 @@ module.exports = grammar({
       alias('clicksound', $.identifier),
       optional(seq(
         $.assign_equal,
-        alias(choice('click'), $.keywords)
+        alias(choice('click'), $.keyword)
       ))
     ),
 
@@ -804,7 +783,7 @@ module.exports = grammar({
       alias('format', $.identifier),
       optional(seq(
         $.assign_equal,
-        alias(choice('centre'), $.keywords)
+        alias(choice('centre'), $.keyword)
       ))
     ),
 
@@ -853,35 +832,9 @@ module.exports = grammar({
       ))
     ),
 
-    //======================================================//
-    //     Default grammar to find not handled keywords:    //
-    //======================================================//
-
-    debug_loop: $ => seq(
-      $.identifier,
-      $.assign_equal,
-      choice(
-        $.string,
-        $.number,
-        $.identifier,
-        $._debug_block
-      )
-    ),
-
-    _debug_block: $ => seq(
-      '{',
-      choice(
-        repeat($.string),
-        repeat($.number),
-        repeat($.debug_loop)
-      ),
-      '}'
-    ),
-
     //==============================//
     //            TOKENS            //
     //==============================//
-
 
     identifier: $ => /[a-z_][a-zA-Z0-9_]*/,
 
@@ -895,20 +848,6 @@ module.exports = grammar({
       optional(/\.\d+/),
       optional('f')
     )),
-
-    _number_precision_1: $ => alias(token(seq(
-      optional('-'),
-      /\d+/,
-      '.',
-      /\d/
-    )), $.number),
-
-    _number_precision_2: $ => alias(token(seq(
-      optional('-'),
-      /\d+/,
-      '.',
-      /\d\d/
-    )), $.number),
 
     float: $ => token(seq(
       optional('-'),
