@@ -112,11 +112,23 @@
       "required": true,
       "types": [
         {
+          "type": "angle",
+          "named": true
+        },
+        {
           "type": "assign_equal",
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "integer",
           "named": true
         },
         {
@@ -134,9 +146,18 @@
         {
           "type": "string",
           "named": true
+        },
+        {
+          "type": "time",
+          "named": true
         }
       ]
     }
+  },
+  {
+    "type": "time",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "type_definition",
@@ -189,7 +210,39 @@
     }
   },
   {
+    "type": "\"add\"",
+    "named": false
+  },
+  {
+    "type": "\"multiply\"",
+    "named": false
+  },
+  {
+    "type": "\"overlay\"",
+    "named": false
+  },
+  {
+    "type": "\"pulsing\"",
+    "named": false
+  },
+  {
+    "type": "\"rotating\"",
+    "named": false
+  },
+  {
+    "type": "\"scrolling\"",
+    "named": false
+  },
+  {
+    "type": "angle",
+    "named": true
+  },
+  {
     "type": "assign_equal",
+    "named": true
+  },
+  {
+    "type": "boolean",
     "named": true
   },
   {
@@ -197,7 +250,15 @@
     "named": true
   },
   {
+    "type": "false",
+    "named": false
+  },
+  {
     "type": "identifier",
+    "named": true
+  },
+  {
+    "type": "integer",
     "named": true
   },
   {
@@ -219,6 +280,10 @@
   {
     "type": "tags_keyword",
     "named": true
+  },
+  {
+    "type": "true",
+    "named": false
   },
   {
     "type": "{",

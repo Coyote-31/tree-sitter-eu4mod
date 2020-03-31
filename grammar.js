@@ -44,9 +44,9 @@ module.exports = grammar({
     //        GFX -> Rules for *.gfx files :         //
     //===============================================//
 
-    dot_gfx: $ => repeat1(choice(
+    dot_gfx: $ => repeat1(
         $._gfx_types_definition
-    )),
+    ),
 
     _gfx_types_definition: $ => alias(choice(
       $._spriteTypes
@@ -98,7 +98,12 @@ module.exports = grammar({
       repeat(
         alias(choice(
           $._statement_name,
-          $._statement_gfx_texturefile
+          $._statement_gfx_texturefile,
+          $._statement_gfx_noOfFrames,
+          $._statement_gfx_overlay_frames_per_row,
+          $._statement_gfx_overlay_rows,
+          $._statement_gfx_effectFile,
+          $._statement_gfx_animation
         ), $.statement)),
       '}'
     ),
@@ -125,6 +130,22 @@ module.exports = grammar({
       optional(seq(
         $.assign_equal,
         $.string
+      ))
+    ),
+
+    _entry_x: $ => seq(
+      alias('x', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._number_precision_1
+      ))
+    ),
+
+    _entry_y: $ => seq(
+      alias('y', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._number_precision_1
       ))
     ),
 
@@ -269,15 +290,7 @@ module.exports = grammar({
     //  GFX statements [_statement_gfx_X]  //
     //-------------------------------------//
 
-   _statement_gfx_texturefile: $ => seq(
-      alias('texturefile', $.identifier),
-      optional(seq(
-        $.assign_equal,
-        $.string
-      ))
-    ),
-
-   _statement_gfx_cursor_offset: $ => seq(
+    _statement_gfx_cursor_offset: $ => seq(
       alias('cursor_offset', $.identifier),
       $.assign_equal,
       optional(seq(
@@ -288,6 +301,163 @@ module.exports = grammar({
       ))
     ),
 
+   _statement_gfx_texturefile: $ => seq(
+      alias('texturefile', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias(token(seq(
+          '"',
+          /[^\"\n]+/,
+          choice('.dds', '.tga'),
+          '"'
+        )), $.string)
+      ))
+    ),
+
+   _statement_gfx_noOfFrames: $ => seq(
+      alias('noOfFrames', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._integer_positive
+      ))
+    ),
+
+    _statement_gfx_overlay_frames_per_row: $ => seq(
+       alias('overlay_frames_per_row', $.identifier),
+       optional(seq(
+         $.assign_equal,
+         $._integer_positive
+       ))
+     ),
+
+    _statement_gfx_overlay_rows: $ => seq(
+       alias('overlay_rows', $.identifier),
+       optional(seq(
+         $.assign_equal,
+         $._integer_positive
+       ))
+     ),
+
+    _statement_gfx_effectFile: $ => seq(
+       alias('effectFile', $.identifier),
+       optional(seq(
+         $.assign_equal,
+         alias(token(seq(
+           '"',
+           /[^\"\n]+/,
+           '.lua',
+           '"'
+         )), $.string)
+       ))
+     ),
+
+    _statement_gfx_animation: $ => seq(
+      alias('animation', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._gfx_animation_block
+      ))
+    ),
+
+    _gfx_animation_block: $ => seq(
+      '{',
+      repeat(choice(
+        $._animation_entry_dds,
+        $._animation_entry_angle,
+        $._animation_entry_bool,
+        $._animation_entry_time,
+        $._animation_entry_xy,
+        $._animation_entry_blendmode,
+        $._animation_entry_type,
+        $._animation_entry_frames,
+      )),
+      '}'
+    ),
+
+    _animation_entry_dds: $ => seq(
+      alias(choice(
+        'animationmaskfile',
+        'animationtexturefile'
+      ), $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias(token(seq(
+          '"',
+          /[^\"\n]+/,
+          '.dds',
+          '"'
+        )), $.string)
+      ))
+    ),
+
+    _animation_entry_angle: $ => seq(
+      alias('animationrotation', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.angle
+      ))
+    ),
+
+    _animation_entry_bool: $ => seq(
+      alias('animationlooping', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._yes_no
+      ))
+    ),
+
+    _animation_entry_time: $ => seq(
+      alias(choice(
+        'animationtime',
+        'animationdelay'
+      ), $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.time
+      ))
+    ),
+
+    _animation_entry_xy: $ => seq(
+      alias(choice(
+        'animationrotationoffset',
+        'animationtexturescale'
+      ), $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        choice(
+          seq($._entry_x, $._entry_y),
+          seq($._entry_y, $._entry_x)
+        ),
+        '}'
+      ))
+    ),
+
+    _animation_entry_blendmode: $ => seq(
+      alias('animationblendmode', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        choice('"add"', '"multiply"', '"overlay"')
+      ))
+    ),
+
+    _animation_entry_type: $ => seq(
+      alias('animationtype', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        choice('"scrolling"', '"rotating"', '"pulsing"')
+      ))
+    ),
+
+    _animation_entry_frames: $ => seq(
+      alias('animationframes', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        repeat1($._integer_positive),
+        '}'
+      ))
+    ),
 
     //======================================================//
     //     Default grammar to find not handled keywords:    //
@@ -314,7 +484,6 @@ module.exports = grammar({
       '}'
     ),
 
-
     //==============================//
     //            TOKENS            //
     //==============================//
@@ -332,6 +501,33 @@ module.exports = grammar({
       optional(/\.\d+/),
       optional('f')
     )),
+
+    _number_precision_1: $ => alias(token(seq(
+      /\d+/,
+      '.',
+      /\d/
+    )), $.number),
+
+    integer: $ => token(seq(
+      optional('-'),
+      /\d+/
+    )),
+
+    _integer_positive: $ => alias(/\d+/, $.integer),
+
+    byte: $ => /[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]/,
+
+    angle: $ => /36[0]\.0|3[0-5][0-9]\.[0-9]|[12][0-9][0-9]\.[0-9]|[1-9]?[0-9]\.[0-9]/,
+
+    time: $ => token(seq(
+      /\d+/,
+      '.',
+      /\d/
+    )),
+
+    boolean: $ => choice('true', 'false'),
+
+    _yes_no: $ => alias(choice('yes', 'no'), $.boolean),
 
     comment: $ => /\#[^\n]*/,
 

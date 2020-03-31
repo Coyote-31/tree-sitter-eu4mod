@@ -55,6 +55,7 @@ spriteTypes = {
 					(identifier) (assign_equal) (string) ))))
 	(comment) )
 
+
 ===============================
 [gfx](types) core.gfx beginning
 ===============================
@@ -71,3 +72,36 @@ spriteTypes = {
 			(comment)
 			(statement
 				(identifier) (assign_equal) (number) (number) ))))
+
+
+===============================
+[gfx](type) Full
+===============================
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_popup_edittextbox_bg"
+		texturefile = "gfx/interface/popup_edittextbox_bg.dds"
+		noOfFrames = 119
+		overlay_frames_per_row = 32
+		overlay_rows = 4
+	}
+}
+------
+
+(file
+  (dot_gfx
+		(types_definition
+			(identifier) (assign_equal)
+			(type_definition
+				(identifier) (assign_equal)
+				(statement
+					(name_identifier) (assign_equal) (name_value))
+				(statement
+					(identifier) (assign_equal) (string))
+				(statement
+					(identifier) (assign_equal) (integer))
+				(statement
+					(identifier) (assign_equal) (integer))
+				(statement
+					(identifier) (assign_equal) (integer)) ))))
