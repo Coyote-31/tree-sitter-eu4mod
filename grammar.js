@@ -49,7 +49,8 @@ module.exports = grammar({
     ),
 
     _gfx_types_definition: $ => alias(choice(
-      $._spriteTypes
+      $._spriteTypes,
+      $._objectTypes
     ), $.types_definition),
 
     //---------//
@@ -84,6 +85,24 @@ module.exports = grammar({
       $._maskedShieldType,
     ), $.type_definition),
 
+    // objectTypes
+
+    _objectTypes: $ => seq(
+      alias('objectTypes', $.identifier),
+      $.assign_equal,
+      $._objectTypes_block
+    ),
+
+    _objectTypes_block: $ => seq(
+      '{',
+      repeat($._objectTypes_type),
+      '}'
+    ),
+
+    _objectTypes_type: $ => alias(choice(
+      $._animatedmaptext,
+    ), $.type_definition),
+
     //---------//
     // TYPE :
     //---------//
@@ -100,7 +119,7 @@ module.exports = grammar({
       '{',
       repeat(
         alias(choice(
-          $._statement_name,
+          $._statement_gfx_name,
           $._statement_gfx_textureFile,
           $._statement_gfx_noOfFrames,
           $._statement_gfx_overlay_frames_per_row,
@@ -149,6 +168,7 @@ module.exports = grammar({
           $._statement_gfx_textureFile,
           $._statement_gfx_borderSize,
           $._statement_gfx_allwaystransparent,
+          $._statement_gfx_legacy_lazy_load,
           $._statement_gfx_noOfFrames
         ), $.statement)),
       '}'
@@ -166,10 +186,27 @@ module.exports = grammar({
       '{',
       repeat(
         alias(choice(
-          $._statement_name,
+          $._statement_gfx_name,
           $._statement_gfx_textureFile,
           $._statement_gfx_noOfFrames,
           $._statement_gfx_effectFile
+        ), $.statement)),
+      '}'
+    ),
+
+    _animatedmaptext: $ => seq(
+      alias('animatedmaptext', $.identifier),
+      $.assign_equal,
+      $._animatedmaptext_block
+    ),
+
+    _animatedmaptext_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_name,
+          $._statement_gfx_speed,
+          $._statement_gfx_textblock
         ), $.statement)),
       '}'
     ),
@@ -220,6 +257,28 @@ module.exports = grammar({
       ))
     ),
 
+    _statement_xy_float: $ => choice(
+      seq($._entry_x_float, $._entry_y_float),
+      seq($._entry_y_float, $._entry_x_float)
+    ),
+
+
+    _entry_x_float: $ => seq(
+      alias('x', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.float
+      ))
+    ),
+
+    _entry_y_float: $ => seq(
+      alias('y', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.float
+      ))
+    ),
+
     _statement_xy_precision_1: $ => choice(
       seq($._entry_x_precision_1, $._entry_y_precision_1),
       seq($._entry_y_precision_1, $._entry_x_precision_1)
@@ -244,6 +303,17 @@ module.exports = grammar({
     //-------------------------------------//
     //  MOD statements [_statement_mod_X]  //
     //-------------------------------------//
+
+    _statement_gfx_name: $ => seq(
+      alias('name', $.name_identifier),
+      optional(seq(
+        $.assign_equal,
+        choice(
+          alias(token(seq('"', /[a-zA-Z0-9_]*/, '"')), $.name_value),
+          alias(token(seq('"GFX_', /[a-zA-Z0-9_]*/, '"')), $.name_gfx_value)
+        )
+      ))
+    ),
 
     _statement_mod_path: $ => seq(
       alias('path', $.identifier),
@@ -387,8 +457,8 @@ module.exports = grammar({
       $.assign_equal,
       optional(seq(
         '{',
-        $.number,
-        $.number,
+        $.float,
+        $.float,
         '}'
       ))
     ),
@@ -458,7 +528,7 @@ module.exports = grammar({
         $._animation_entry_angle,
         $._animation_entry_bool,
         $._animation_entry_time,
-        $._animation_entry_xy,
+        $._animation_entry_xy_float,
         $._animation_entry_blendmode,
         $._animation_entry_type,
         $._animation_entry_frames,
@@ -505,11 +575,11 @@ module.exports = grammar({
       ), $.identifier),
       optional(seq(
         $.assign_equal,
-        $.time
+        $._float_positive
       ))
     ),
 
-    _animation_entry_xy: $ => seq(
+    _animation_entry_xy_float: $ => seq(
       alias(choice(
         'animationrotationoffset',
         'animationtexturescale'
@@ -517,7 +587,7 @@ module.exports = grammar({
       optional(seq(
         $.assign_equal,
         '{',
-        $._statement_xy_precision_1,
+        $._statement_xy_float,
         '}'
       ))
     ),
@@ -576,11 +646,110 @@ module.exports = grammar({
       ))
     ),
 
+    _statement_gfx_legacy_lazy_load: $ => seq(
+      alias('legacy_lazy_load', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._yes_no
+      ))
+    ),
+
     _statement_gfx_clicksound: $ => seq(
       alias('clicksound', $.identifier),
       optional(seq(
         $.assign_equal,
         alias(choice('click'), $.keywords)
+      ))
+    ),
+
+    _statement_gfx_speed: $ => seq(
+      alias('speed', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._float_positive
+      ))
+    ),
+
+    _statement_gfx_textblock: $ => seq(
+      alias('textblock', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._gfx_textblock,
+      ))
+    ),
+
+    _gfx_textblock: $ => seq(
+      '{',
+      repeat(choice(
+        $._statement_gfx_text,
+        $._statement_gfx_color,
+        $._statement_gfx_font,
+        $._statement_gfx_position,
+        $._statement_gfx_size,
+        $._statement_gfx_format,
+        $._statement_gfx_cull_distance,
+      )),
+      '}',
+    ),
+
+    _statement_gfx_text: $ => seq(
+      alias('text', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gfx_color: $ => seq(
+      alias('color', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        $._float_positive,
+        $._float_positive,
+        $._float_positive,
+        '}'
+      ))
+    ),
+
+    _statement_gfx_font: $ => seq(
+      alias('font', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gfx_position: $ => seq(
+      alias('position', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        $._statement_xy_integer,
+        '}'
+      ))
+    ),
+
+    _statement_gfx_format: $ => seq(
+      alias('format', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias(choice('centre'), $.keywords)
+      ))
+    ),
+
+    _statement_gfx_cull_distance: $ => seq(
+      alias('cull_distance', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias(token(seq(
+          /\d+/,
+          optional(seq(
+            '.',
+            /\d+/
+          )),
+          'f'
+        )), $.float),
       ))
     ),
 
@@ -615,7 +784,7 @@ module.exports = grammar({
     //==============================//
 
 
-    identifier: $ => /[a-z_][a-zA-Z0-9]*/,
+    identifier: $ => /[a-z_][a-zA-Z0-9_]*/,
 
     assign_equal: $ => '=',
 
@@ -629,10 +798,36 @@ module.exports = grammar({
     )),
 
     _number_precision_1: $ => alias(token(seq(
+      optional('-'),
       /\d+/,
       '.',
       /\d/
     )), $.number),
+
+    _number_precision_2: $ => alias(token(seq(
+      optional('-'),
+      /\d+/,
+      '.',
+      /\d\d/
+    )), $.number),
+
+    float: $ => token(seq(
+      optional('-'),
+      /\d+/,
+      optional(seq(
+        '.',
+        /\d+/
+      ))
+    )),
+
+    _float_positive: $ => alias(token(seq(
+      optional('-'),
+      /\d+/,
+      optional(seq(
+        '.',
+        /\d+/
+      ))
+    )), $.float),
 
     integer: $ => token(seq(
       optional('-'),
@@ -644,12 +839,6 @@ module.exports = grammar({
     byte: $ => /[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]/,
 
     angle: $ => /36[0]\.0|3[0-5][0-9]\.[0-9]|[12][0-9][0-9]\.[0-9]|[1-9]?[0-9]\.[0-9]/,
-
-    time: $ => token(seq(
-      /\d+/,
-      '.',
-      /\d/
-    )),
 
     boolean: $ => choice('true', 'false'),
 
