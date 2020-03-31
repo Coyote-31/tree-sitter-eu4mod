@@ -8,3 +8,4 @@ tags=
  "Loading Screen"
  }
 picture="nameofapicture.png"
+replace_path = "missions"

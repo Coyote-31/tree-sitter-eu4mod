@@ -24,7 +24,7 @@ module.exports = grammar({
     //===============================================//
 
     dot_mod: $ => repeat1(
-        $._dot_mod_statement
+      $._dot_mod_statement
     ),
 
     _dot_mod_statement: $ => choice(
@@ -35,6 +35,7 @@ module.exports = grammar({
       $._statement_mod_version,
       $._statement_mod_picture,
       $._statement_mod_supported_version,
+      $._statement_mod_replace_path,
       $._statement_mod_tags,
       $._statement_mod_dependencies
     ),
@@ -174,7 +175,12 @@ module.exports = grammar({
       alias('picture', $.identifier),
       optional(seq(
         $.assign_equal,
-        $.string
+        alias(token(seq(
+          '"',
+          /[^\"\n]*/,
+          choice('.jpg', '.png'),
+          '"'
+        )), $.string)
       ))
     ),
 
@@ -184,16 +190,40 @@ module.exports = grammar({
         $.assign_equal,
         alias(token(seq(
           '"',
-          choice(/[0-9]+/, '*'),
+          /[0-9]+/,
           '.',
-          choice(/[0-9]+/, '*'),
-          '.',
-          choice(/[0-9]+/, '*'),
-          '.',
-          choice(/[0-9]+/, '*'),
+          /[0-9]+/,
+          optional(token(seq(
+            '.',
+            choice(/[0-9]+/, '*'),
+            optional(token(seq(
+              '.',
+              choice(/[0-9]+/, '*'),
+            ))),
+          ))),
           '"'
         )), $.string)
       ))
+    ),
+
+    _statement_mod_replace_path: $ => seq(
+      alias('replace_path', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._mod_replace_path_folder
+      ))
+    ),
+
+    _mod_replace_path_folder: $ => alias(token(
+      seq(
+        '"',
+        choice(
+          'common', 'decisions', 'events', 'gfx', 'history', 'interface',
+          'localisation', 'map', 'missions'
+        ),
+        optional(/[^\"\n]+/),
+        '"'
+      )), $.string
     ),
 
     _statement_mod_tags: $ => seq(

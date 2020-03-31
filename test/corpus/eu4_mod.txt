@@ -1,5 +1,5 @@
 ====================
-[mod](name) basic
+[mod](name)
 ====================
 name="Vanilla Wolf Pack"
 ------
@@ -27,7 +27,98 @@ name="Vanilla Wolf Pack"
 
 
 ====================
-[mod](tags) basic
+[mod](path)
+====================
+path="E:/Documents/Paradox Interactive/Europa Universalis IV/mod/VWPack"
+------
+
+(file
+  (dot_mod
+    (identifier)
+    (assign_equal)
+    (string) ))
+
+
+====================
+[mod](archive)
+====================
+archive="E:/Documents/Paradox Interactive/Europa Universalis IV/mod/vd_ex.zip"
+------
+
+(file
+  (dot_mod
+    (identifier)
+    (assign_equal)
+    (string) ))
+
+
+====================
+[mod](remote_file_id)
+====================
+remote_file_id="1995380521"
+------
+
+(file
+  (dot_mod
+    (identifier)
+    (assign_equal)
+    (string) ))
+
+
+====================
+[mod](version)
+====================
+version="2.1"
+------
+
+(file
+  (dot_mod
+    (identifier)
+    (assign_equal)
+    (string) ))
+
+
+====================
+[mod](picture)
+====================
+picture="thumbnail.png"
+------
+
+(file
+  (dot_mod
+    (identifier)
+    (assign_equal)
+    (string) ))
+
+
+====================
+[mod](supported_version)
+====================
+supported_version="1.29.*.*"
+------
+
+(file
+  (dot_mod
+    (identifier)
+    (assign_equal)
+    (string) ))
+
+
+====================
+[mod](replace_path)
+====================
+replace_path="gfx\flags"
+------
+
+(file
+  (dot_mod
+    (identifier)
+    (assign_equal)
+    (string) ))
+
+
+====================
+[mod](tags)
 ====================
 tags={
   "Fixes"
@@ -78,7 +169,29 @@ tags={
 
 
 ====================
-[mod](dependencies) basic
+[mod](tags) ParadoxPlaza
+====================
+tags=
+{
+"Sound"
+ "graphics"
+ "map"
+ "Loading Screen"
+ }
+------
+
+(file
+  (dot_mod
+    (identifier)
+    (assign_equal)
+    (tags_keyword)
+    (tags_keyword)
+    (tags_keyword)
+    (tags_keyword) ))
+
+
+====================
+[mod](dependencies)
 ====================
 dependencies={
 	"Better UI 2"
