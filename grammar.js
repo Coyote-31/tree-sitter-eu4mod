@@ -78,7 +78,10 @@ module.exports = grammar({
     ), $.statement),
 
     _spriteTypes_type: $ => alias(choice(
-      $._spriteType
+      $._spriteType,
+      $._textSpriteType,
+      $._corneredTileSpriteType,
+      $._maskedShieldType,
     ), $.type_definition),
 
     //---------//
@@ -98,7 +101,7 @@ module.exports = grammar({
       repeat(
         alias(choice(
           $._statement_name,
-          $._statement_gfx_texturefile,
+          $._statement_gfx_textureFile,
           $._statement_gfx_noOfFrames,
           $._statement_gfx_overlay_frames_per_row,
           $._statement_gfx_overlay_rows,
@@ -108,6 +111,68 @@ module.exports = grammar({
       '}'
     ),
 
+    // textSpriteType
+
+    _textSpriteType: $ => seq(
+      alias('textSpriteType', $.identifier),
+      $.assign_equal,
+      $._textSpriteType_block
+    ),
+
+    _textSpriteType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_name,
+          $._statement_gfx_textureFile,
+          $._statement_gfx_noOfFrames,
+          $._statement_gfx_effectFile,
+          $._statement_gfx_clicksound
+        ), $.statement)),
+      '}'
+    ),
+
+    // corneredTileSpriteType
+
+    _corneredTileSpriteType: $ => seq(
+      alias('corneredTileSpriteType', $.identifier),
+      $.assign_equal,
+      $._corneredTileSpriteType_block
+    ),
+
+    _corneredTileSpriteType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_name,
+          $._statement_gfx_size,
+          $._statement_gfx_textureFile,
+          $._statement_gfx_borderSize,
+          $._statement_gfx_allwaystransparent,
+          $._statement_gfx_noOfFrames
+        ), $.statement)),
+      '}'
+    ),
+
+    // maskedShieldType
+
+    _maskedShieldType: $ => seq(
+      alias('maskedShieldType', $.identifier),
+      $.assign_equal,
+      $._maskedShieldType_block
+    ),
+
+    _maskedShieldType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_name,
+          $._statement_gfx_textureFile,
+          $._statement_gfx_noOfFrames,
+          $._statement_gfx_effectFile
+        ), $.statement)),
+      '}'
+    ),
 
     //==============================//
     //          STATEMENTS          //
@@ -133,7 +198,34 @@ module.exports = grammar({
       ))
     ),
 
-    _entry_x: $ => seq(
+    _statement_xy_integer: $ => choice(
+      seq($._entry_x_integer, $._entry_y_integer),
+      seq($._entry_y_integer, $._entry_x_integer)
+    ),
+
+
+    _entry_x_integer: $ => seq(
+      alias('x', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.integer
+      ))
+    ),
+
+    _entry_y_integer: $ => seq(
+      alias('y', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.integer
+      ))
+    ),
+
+    _statement_xy_precision_1: $ => choice(
+      seq($._entry_x_precision_1, $._entry_y_precision_1),
+      seq($._entry_y_precision_1, $._entry_x_precision_1)
+    ),
+
+    _entry_x_precision_1: $ => seq(
       alias('x', $.identifier),
       optional(seq(
         $.assign_equal,
@@ -141,7 +233,7 @@ module.exports = grammar({
       ))
     ),
 
-    _entry_y: $ => seq(
+    _entry_y_precision_1: $ => seq(
       alias('y', $.identifier),
       optional(seq(
         $.assign_equal,
@@ -301,8 +393,8 @@ module.exports = grammar({
       ))
     ),
 
-   _statement_gfx_texturefile: $ => seq(
-      alias('texturefile', $.identifier),
+   _statement_gfx_textureFile: $ => seq(
+      alias(/texture[Ff]ile[\d]*/, $.identifier),
       optional(seq(
         $.assign_equal,
         alias(token(seq(
@@ -425,10 +517,7 @@ module.exports = grammar({
       optional(seq(
         $.assign_equal,
         '{',
-        choice(
-          seq($._entry_x, $._entry_y),
-          seq($._entry_y, $._entry_x)
-        ),
+        $._statement_xy_precision_1,
         '}'
       ))
     ),
@@ -437,7 +526,7 @@ module.exports = grammar({
       alias('animationblendmode', $.identifier),
       optional(seq(
         $.assign_equal,
-        choice('"add"', '"multiply"', '"overlay"')
+        alias(choice('"add"', '"multiply"', '"overlay"'), $.string)
       ))
     ),
 
@@ -445,7 +534,7 @@ module.exports = grammar({
       alias('animationtype', $.identifier),
       optional(seq(
         $.assign_equal,
-        choice('"scrolling"', '"rotating"', '"pulsing"')
+        alias(choice('"scrolling"', '"rotating"', '"pulsing"'), $.string)
       ))
     ),
 
@@ -458,6 +547,43 @@ module.exports = grammar({
         '}'
       ))
     ),
+
+    _statement_gfx_size: $ => seq(
+      alias('size', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        $._statement_xy_integer,
+        '}'
+      ))
+    ),
+
+    _statement_gfx_borderSize: $ => seq(
+      alias('borderSize', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        $._statement_xy_integer,
+        '}'
+      ))
+    ),
+
+    _statement_gfx_allwaystransparent: $ => seq(
+      alias('allwaystransparent', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._yes_no
+      ))
+    ),
+
+    _statement_gfx_clicksound: $ => seq(
+      alias('clicksound', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias(choice('click'), $.keywords)
+      ))
+    ),
+
 
     //======================================================//
     //     Default grammar to find not handled keywords:    //

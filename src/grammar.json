@@ -160,6 +160,18 @@
           {
             "type": "SYMBOL",
             "name": "_spriteType"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_textSpriteType"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_corneredTileSpriteType"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_maskedShieldType"
           }
         ]
       },
@@ -208,7 +220,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "_statement_gfx_texturefile"
+                  "name": "_statement_gfx_textureFile"
                 },
                 {
                   "type": "SYMBOL",
@@ -229,6 +241,210 @@
                 {
                   "type": "SYMBOL",
                   "name": "_statement_gfx_animation"
+                }
+              ]
+            },
+            "named": true,
+            "value": "statement"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_textSpriteType": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "textSpriteType"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_textSpriteType_block"
+        }
+      ]
+    },
+    "_textSpriteType_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_name"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_textureFile"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_noOfFrames"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_effectFile"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_clicksound"
+                }
+              ]
+            },
+            "named": true,
+            "value": "statement"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_corneredTileSpriteType": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "corneredTileSpriteType"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_corneredTileSpriteType_block"
+        }
+      ]
+    },
+    "_corneredTileSpriteType_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_name"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_size"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_textureFile"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_borderSize"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_allwaystransparent"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_noOfFrames"
+                }
+              ]
+            },
+            "named": true,
+            "value": "statement"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_maskedShieldType": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "maskedShieldType"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_maskedShieldType_block"
+        }
+      ]
+    },
+    "_maskedShieldType_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_name"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_textureFile"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_noOfFrames"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_effectFile"
                 }
               ]
             },
@@ -312,7 +528,139 @@
         }
       ]
     },
-    "_entry_x": {
+    "_statement_xy_integer": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_entry_x_integer"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_entry_y_integer"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_entry_y_integer"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_entry_x_integer"
+            }
+          ]
+        }
+      ]
+    },
+    "_entry_x_integer": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "x"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "integer"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_entry_y_integer": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "y"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "integer"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_xy_precision_1": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_entry_x_precision_1"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_entry_y_precision_1"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_entry_y_precision_1"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_entry_x_precision_1"
+            }
+          ]
+        }
+      ]
+    },
+    "_entry_x_precision_1": {
       "type": "SEQ",
       "members": [
         {
@@ -347,7 +695,7 @@
         }
       ]
     },
-    "_entry_y": {
+    "_entry_y_precision_1": {
       "type": "SEQ",
       "members": [
         {
@@ -1169,14 +1517,14 @@
         }
       ]
     },
-    "_statement_gfx_texturefile": {
+    "_statement_gfx_textureFile": {
       "type": "SEQ",
       "members": [
         {
           "type": "ALIAS",
           "content": {
-            "type": "STRING",
-            "value": "texturefile"
+            "type": "PATTERN",
+            "value": "texture[Ff]ile[\\d]*"
           },
           "named": true,
           "value": "identifier"
@@ -1710,35 +2058,8 @@
                   "value": "{"
                 },
                 {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SEQ",
-                      "members": [
-                        {
-                          "type": "SYMBOL",
-                          "name": "_entry_x"
-                        },
-                        {
-                          "type": "SYMBOL",
-                          "name": "_entry_y"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "SEQ",
-                      "members": [
-                        {
-                          "type": "SYMBOL",
-                          "name": "_entry_y"
-                        },
-                        {
-                          "type": "SYMBOL",
-                          "name": "_entry_x"
-                        }
-                      ]
-                    }
-                  ]
+                  "type": "SYMBOL",
+                  "name": "_statement_xy_precision_1"
                 },
                 {
                   "type": "STRING",
@@ -1776,21 +2097,26 @@
                   "name": "assign_equal"
                 },
                 {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "STRING",
-                      "value": "\"add\""
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "\"multiply\""
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "\"overlay\""
-                    }
-                  ]
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": "\"add\""
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "\"multiply\""
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "\"overlay\""
+                      }
+                    ]
+                  },
+                  "named": true,
+                  "value": "string"
                 }
               ]
             },
@@ -1824,21 +2150,26 @@
                   "name": "assign_equal"
                 },
                 {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "STRING",
-                      "value": "\"scrolling\""
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "\"rotating\""
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "\"pulsing\""
-                    }
-                  ]
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": "\"scrolling\""
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "\"rotating\""
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "\"pulsing\""
+                      }
+                    ]
+                  },
+                  "named": true,
+                  "value": "string"
                 }
               ]
             },
@@ -1885,6 +2216,172 @@
                 {
                   "type": "STRING",
                   "value": "}"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_size": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "size"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "STRING",
+                  "value": "{"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_xy_integer"
+                },
+                {
+                  "type": "STRING",
+                  "value": "}"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_borderSize": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "borderSize"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "STRING",
+                  "value": "{"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_xy_integer"
+                },
+                {
+                  "type": "STRING",
+                  "value": "}"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_allwaystransparent": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "allwaystransparent"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_yes_no"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_clicksound": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "clicksound"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": "click"
+                      }
+                    ]
+                  },
+                  "named": true,
+                  "value": "keywords"
                 }
               ]
             },

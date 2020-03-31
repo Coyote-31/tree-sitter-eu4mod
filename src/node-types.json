@@ -132,6 +132,10 @@
           "named": true
         },
         {
+          "type": "keywords",
+          "named": true
+        },
+        {
           "type": "name_identifier",
           "named": true
         },
@@ -210,30 +214,6 @@
     }
   },
   {
-    "type": "\"add\"",
-    "named": false
-  },
-  {
-    "type": "\"multiply\"",
-    "named": false
-  },
-  {
-    "type": "\"overlay\"",
-    "named": false
-  },
-  {
-    "type": "\"pulsing\"",
-    "named": false
-  },
-  {
-    "type": "\"rotating\"",
-    "named": false
-  },
-  {
-    "type": "\"scrolling\"",
-    "named": false
-  },
-  {
     "type": "angle",
     "named": true
   },
@@ -259,6 +239,10 @@
   },
   {
     "type": "integer",
+    "named": true
+  },
+  {
+    "type": "keywords",
     "named": true
   },
   {
