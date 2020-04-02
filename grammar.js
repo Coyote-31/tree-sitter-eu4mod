@@ -84,6 +84,7 @@ module.exports = grammar({
       $._textSpriteType,
       $._corneredTileSpriteType,
       $._maskedShieldType,
+      $._frameAnimatedSpriteType
     ), $.type_definition),
 
     // objectTypes
@@ -146,7 +147,8 @@ module.exports = grammar({
           $._statement_gfx_overlay_frames_per_row,
           $._statement_gfx_overlay_rows,
           $._statement_gfx_effectFile,
-          $._statement_gfx_animation
+          $._statement_gfx_animation,
+          $._statement_gfx_allwaystransparent
         ), $.statement)),
       '}'
     ),
@@ -163,7 +165,7 @@ module.exports = grammar({
       '{',
       repeat(
         alias(choice(
-          $._statement_name,
+          $._statement_gfx_name,
           $._statement_gfx_textureFile,
           $._statement_gfx_noOfFrames,
           $._statement_gfx_effectFile,
@@ -184,7 +186,7 @@ module.exports = grammar({
       '{',
       repeat(
         alias(choice(
-          $._statement_name,
+          $._statement_gfx_name,
           $._statement_gfx_size,
           $._statement_gfx_textureFile,
           $._statement_gfx_borderSize,
@@ -227,7 +229,7 @@ module.exports = grammar({
       '{',
       repeat(
         alias(choice(
-          $._statement_name,
+          $._statement_gfx_name,
           $._statement_gfx_speed,
           $._statement_gfx_textblock
         ), $.statement)),
@@ -263,12 +265,37 @@ module.exports = grammar({
       '{',
       repeat(
         alias(choice(
-          $._statement_name,
-          $._statement_mod_path,
+          $._statement_gfx_name,
+          $._statement_gfx_path,
           $._statement_gfx_bitmapfont_color,
           $._statement_gfx_bitmapfont_border_color,
           $._textcolors,
           $._statement_gfx_cursor_offset
+        ), $.statement)),
+      '}'
+    ),
+
+    // frameAnimatedSpriteType
+
+    _frameAnimatedSpriteType: $ => seq(
+      alias('frameAnimatedSpriteType', $.identifier),
+      $.assign_equal,
+      $._frameAnimatedSpriteType_block
+    ),
+
+    _frameAnimatedSpriteType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_gfx_name,
+          $._statement_gfx_textureFile,
+          $._statement_gfx_noOfFrames,
+          $._statement_gfx_effectFile,
+          $._statement_gfx_animation_rate_fps,
+          $._statement_gfx_looping,
+          $._statement_gfx_play_on_show,
+          $._statement_gfx_pause_on_loop,
+          $._statement_gfx_allwaystransparent
         ), $.statement)),
       '}'
     ),
@@ -613,7 +640,7 @@ module.exports = grammar({
       alias('animationlooping', $.identifier),
       optional(seq(
         $.assign_equal,
-        $._yes_no
+        $._boolean_yes_no
       ))
     ),
 
@@ -691,7 +718,7 @@ module.exports = grammar({
       alias('allwaystransparent', $.identifier),
       optional(seq(
         $.assign_equal,
-        $._yes_no
+        $._boolean_yes_no
       ))
     ),
 
@@ -699,7 +726,7 @@ module.exports = grammar({
       alias('legacy_lazy_load', $.identifier),
       optional(seq(
         $.assign_equal,
-        $._yes_no
+        $._boolean_yes_no
       ))
     ),
 
@@ -832,6 +859,39 @@ module.exports = grammar({
       ))
     ),
 
+    _statement_gfx_animation_rate_fps: $ => seq(
+      alias('animation_rate_fps', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._integer_positive
+      ))
+    ),
+
+    _statement_gfx_looping: $ => seq(
+      alias('looping', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._boolean_yes_no
+      ))
+    ),
+
+    _statement_gfx_play_on_show: $ => seq(
+      alias('play_on_show', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._boolean_yes_no
+      ))
+    ),
+
+    _statement_gfx_pause_on_loop: $ => seq(
+      alias('pause_on_loop', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._float_positive
+      ))
+    ),
+
+
     //==============================//
     //            TOKENS            //
     //==============================//
@@ -888,7 +948,7 @@ module.exports = grammar({
 
     boolean: $ => choice('true', 'false'),
 
-    _yes_no: $ => alias(choice('yes', 'no'), $.boolean),
+    _boolean_yes_no: $ => alias(choice('yes', 'no'), $.boolean),
 
     comment: $ => /\#[^\n]*/,
 

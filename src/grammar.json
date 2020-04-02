@@ -180,6 +180,10 @@
           {
             "type": "SYMBOL",
             "name": "_maskedShieldType"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_frameAnimatedSpriteType"
           }
         ]
       },
@@ -365,6 +369,10 @@
                 {
                   "type": "SYMBOL",
                   "name": "_statement_gfx_animation"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_allwaystransparent"
                 }
               ]
             },
@@ -416,7 +424,7 @@
               "members": [
                 {
                   "type": "SYMBOL",
-                  "name": "_statement_name"
+                  "name": "_statement_gfx_name"
                 },
                 {
                   "type": "SYMBOL",
@@ -484,7 +492,7 @@
               "members": [
                 {
                   "type": "SYMBOL",
-                  "name": "_statement_name"
+                  "name": "_statement_gfx_name"
                 },
                 {
                   "type": "SYMBOL",
@@ -624,7 +632,7 @@
               "members": [
                 {
                   "type": "SYMBOL",
-                  "name": "_statement_name"
+                  "name": "_statement_gfx_name"
                 },
                 {
                   "type": "SYMBOL",
@@ -736,11 +744,11 @@
               "members": [
                 {
                   "type": "SYMBOL",
-                  "name": "_statement_name"
+                  "name": "_statement_gfx_name"
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "_statement_mod_path"
+                  "name": "_statement_gfx_path"
                 },
                 {
                   "type": "SYMBOL",
@@ -757,6 +765,90 @@
                 {
                   "type": "SYMBOL",
                   "name": "_statement_gfx_cursor_offset"
+                }
+              ]
+            },
+            "named": true,
+            "value": "statement"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_frameAnimatedSpriteType": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "frameAnimatedSpriteType"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_frameAnimatedSpriteType_block"
+        }
+      ]
+    },
+    "_frameAnimatedSpriteType_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_name"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_textureFile"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_noOfFrames"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_effectFile"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_animation_rate_fps"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_looping"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_play_on_show"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_pause_on_loop"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_allwaystransparent"
                 }
               ]
             },
@@ -2400,7 +2492,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "_yes_no"
+                  "name": "_boolean_yes_no"
                 }
               ]
             },
@@ -2769,7 +2861,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "_yes_no"
+                  "name": "_boolean_yes_no"
                 }
               ]
             },
@@ -2804,7 +2896,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "_yes_no"
+                  "name": "_boolean_yes_no"
                 }
               ]
             },
@@ -3431,6 +3523,146 @@
         }
       ]
     },
+    "_statement_gfx_animation_rate_fps": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "animation_rate_fps"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_integer_positive"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_looping": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "looping"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_boolean_yes_no"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_play_on_show": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "play_on_show"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_boolean_yes_no"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_pause_on_loop": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "pause_on_loop"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_float_positive"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
     "identifier": {
       "type": "PATTERN",
       "value": "[a-z_][a-zA-Z0-9_]*"
@@ -3665,7 +3897,7 @@
         }
       ]
     },
-    "_yes_no": {
+    "_boolean_yes_no": {
       "type": "ALIAS",
       "content": {
         "type": "CHOICE",
