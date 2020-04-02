@@ -244,6 +244,10 @@
           {
             "type": "SYMBOL",
             "name": "_animatedmaptext"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_pdxmesh"
           }
         ]
       },
@@ -377,6 +381,10 @@
                 {
                   "type": "SYMBOL",
                   "name": "_statement_gfx_allwaystransparent"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_transparencecheck"
                 }
               ]
             },
@@ -941,6 +949,70 @@
                 {
                   "type": "SYMBOL",
                   "name": "_statement_gfx_horizontal"
+                }
+              ]
+            },
+            "named": true,
+            "value": "statement"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_pdxmesh": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "pdxmesh"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_pdxmesh_block"
+        }
+      ]
+    },
+    "_pdxmesh_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_name"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_file"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_pdxmesh_animation"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_scale"
                 }
               ]
             },
@@ -4021,6 +4093,253 @@
           "content": {
             "type": "STRING",
             "value": "horizontal"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_boolean_yes_no"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_file": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "file"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[^\\\"\\n]+"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ".mesh"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        }
+                      ]
+                    }
+                  },
+                  "named": true,
+                  "value": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_pdxmesh_animation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "animation"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "STRING",
+                  "value": "{"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_animation_id"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_animation_type"
+                },
+                {
+                  "type": "STRING",
+                  "value": "}"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_animation_id": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "id"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_animation_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "type"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_scale": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "scale"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_float_positive"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_transparencecheck": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "transparencecheck"
           },
           "named": true,
           "value": "identifier"

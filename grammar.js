@@ -104,6 +104,7 @@ module.exports = grammar({
 
     _objectTypes_type: $ => alias(choice(
       $._animatedmaptext,
+      $._pdxmesh,
     ), $.type_definition),
 
     // bitmapfonts
@@ -149,7 +150,8 @@ module.exports = grammar({
           $._statement_gfx_overlay_rows,
           $._statement_gfx_effectFile,
           $._statement_gfx_animation,
-          $._statement_gfx_allwaystransparent
+          $._statement_gfx_allwaystransparent,
+          $._statement_gfx_transparencecheck
         ), $.statement)),
       '}'
     ),
@@ -303,6 +305,8 @@ module.exports = grammar({
       '}'
     ),
 
+    // progressbartype
+
     _progressbartype: $ => seq(
       alias('progressbartype', $.identifier),
       $.assign_equal,
@@ -321,6 +325,26 @@ module.exports = grammar({
           $._statement_gfx_size,
           $._statement_gfx_effectFile,
           $._statement_gfx_horizontal
+        ), $.statement)),
+      '}'
+    ),
+
+    // pdxmesh
+
+    _pdxmesh: $ => seq(
+      alias('pdxmesh', $.identifier),
+      $.assign_equal,
+      $._pdxmesh_block
+    ),
+
+    _pdxmesh_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_gfx_name,
+          $._statement_gfx_file,
+          $._statement_gfx_pdxmesh_animation,
+          $._statement_gfx_scale,
         ), $.statement)),
       '}'
     ),
@@ -975,6 +999,62 @@ module.exports = grammar({
       ))
     ),
 
+    _statement_gfx_file: $ => seq(
+      alias('file', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias(token(seq(
+          '"',
+          /[^\"\n]+/,
+          '.mesh',
+          '"'
+        )), $.string)
+      ))
+    ),
+
+    _statement_gfx_pdxmesh_animation: $ => seq(
+      alias('animation', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        $._statement_gfx_animation_id,
+        $._statement_gfx_animation_type,
+        '}'
+      ))
+    ),
+
+    _statement_gfx_animation_id: $ => seq(
+      alias('id', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gfx_animation_type: $ => seq(
+      alias('type', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+
+    _statement_gfx_scale: $ => seq(
+      alias('scale', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._float_positive
+      ))
+    ),
+
+    _statement_gfx_transparencecheck: $ => seq(
+      alias('transparencecheck', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._boolean_yes_no
+      ))
+    ),
 
     //==============================//
     //            TOKENS            //
