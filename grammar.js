@@ -84,7 +84,8 @@ module.exports = grammar({
       $._textSpriteType,
       $._corneredTileSpriteType,
       $._maskedShieldType,
-      $._frameAnimatedSpriteType
+      $._frameAnimatedSpriteType,
+      $._progressbartype
     ), $.type_definition),
 
     // objectTypes
@@ -210,7 +211,9 @@ module.exports = grammar({
       repeat(
         alias(choice(
           $._statement_gfx_name,
-          $._statement_gfx_textureFile,
+          $._statement_gfx_textureFile1,
+          $._statement_gfx_textureFile2,
+          $._statement_gfx_textureFile3,
           $._statement_gfx_noOfFrames,
           $._statement_gfx_effectFile
         ), $.statement)),
@@ -296,6 +299,28 @@ module.exports = grammar({
           $._statement_gfx_play_on_show,
           $._statement_gfx_pause_on_loop,
           $._statement_gfx_allwaystransparent
+        ), $.statement)),
+      '}'
+    ),
+
+    _progressbartype: $ => seq(
+      alias('progressbartype', $.identifier),
+      $.assign_equal,
+      $._progressbartype_block
+    ),
+
+    _progressbartype_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_gfx_name,
+          $._statement_gfx_color,
+          $._statement_gfx_colortwo,
+          $._statement_gfx_textureFile1,
+          $._statement_gfx_textureFile2,
+          $._statement_gfx_size,
+          $._statement_gfx_effectFile,
+          $._statement_gfx_horizontal
         ), $.statement)),
       '}'
     ),
@@ -540,7 +565,7 @@ module.exports = grammar({
     ),
 
    _statement_gfx_textureFile: $ => seq(
-      alias(/texture[Ff]ile[\d]*/, $.identifier),
+      alias(/texture[Ff]ile/, $.identifier),
       optional(seq(
         $.assign_equal,
         alias(token(seq(
@@ -551,6 +576,45 @@ module.exports = grammar({
         )), $.string)
       ))
     ),
+
+    _statement_gfx_textureFile1: $ => seq(
+       alias(/texture[Ff]ile1/, $.identifier),
+       optional(seq(
+         $.assign_equal,
+         alias(token(seq(
+           '"',
+           /[^\"\n]+/,
+           choice('.dds', '.tga'),
+           '"'
+         )), $.string)
+       ))
+     ),
+
+     _statement_gfx_textureFile2: $ => seq(
+        alias(/texture[Ff]ile2/, $.identifier),
+        optional(seq(
+          $.assign_equal,
+          alias(token(seq(
+            '"',
+            /[^\"\n]+/,
+            choice('.dds', '.tga'),
+            '"'
+          )), $.string)
+        ))
+      ),
+
+      _statement_gfx_textureFile3: $ => seq(
+         alias(/texture[Ff]ile3/, $.identifier),
+         optional(seq(
+           $.assign_equal,
+           alias(token(seq(
+             '"',
+             /[^\"\n]+/,
+             choice('.dds', '.tga'),
+             '"'
+           )), $.string)
+         ))
+       ),
 
    _statement_gfx_noOfFrames: $ => seq(
       alias('noOfFrames', $.identifier),
@@ -788,6 +852,18 @@ module.exports = grammar({
       ))
     ),
 
+    _statement_gfx_colortwo: $ => seq(
+      alias('colortwo', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        $._float_positive,
+        $._float_positive,
+        $._float_positive,
+        '}'
+      ))
+    ),
+
     _statement_gfx_font: $ => seq(
       alias('font', $.identifier),
       optional(seq(
@@ -888,6 +964,14 @@ module.exports = grammar({
       optional(seq(
         $.assign_equal,
         $._float_positive
+      ))
+    ),
+
+    _statement_gfx_horizontal: $ => seq(
+      alias('horizontal', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._boolean_yes_no
       ))
     ),
 
