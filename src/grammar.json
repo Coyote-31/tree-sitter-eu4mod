@@ -188,6 +188,14 @@
           {
             "type": "SYMBOL",
             "name": "_progressbartype"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_PieChartType"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_LineChartType"
           }
         ]
       },
@@ -248,6 +256,18 @@
           {
             "type": "SYMBOL",
             "name": "_pdxmesh"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_pdxparticle"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_arrowType"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_tradeRouteType"
           }
         ]
       },
@@ -376,7 +396,23 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "_statement_gfx_clicksound"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_norefcount"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_legacy_lazy_load"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "_statement_gfx_animation"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_alwaystransparent"
                 },
                 {
                   "type": "SYMBOL",
@@ -385,6 +421,14 @@
                 {
                   "type": "SYMBOL",
                   "name": "_statement_gfx_transparencecheck"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_loadType"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_alphamaskfile"
                 }
               ]
             },
@@ -448,6 +492,26 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "_statement_gfx_overlay_frames_per_row"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_overlay_rows"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_loadType"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_transparencecheck"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_allwaystransparent"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "_statement_gfx_effectFile"
                 },
                 {
@@ -508,7 +572,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "_statement_gfx_size"
+                  "name": "_statement_gfx_size_xy"
                 },
                 {
                   "type": "SYMBOL",
@@ -529,6 +593,18 @@
                 {
                   "type": "SYMBOL",
                   "name": "_statement_gfx_noOfFrames"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_norefcount"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_loadType"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_effectFile"
                 }
               ]
             },
@@ -601,6 +677,18 @@
                 {
                   "type": "SYMBOL",
                   "name": "_statement_gfx_effectFile"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_overlay_frames_per_row"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_overlay_rows"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_transparencecheck"
                 }
               ]
             },
@@ -764,6 +852,10 @@
               "members": [
                 {
                   "type": "SYMBOL",
+                  "name": "_textcolors"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "_statement_gfx_name"
                 },
                 {
@@ -780,11 +872,11 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "_textcolors"
+                  "name": "_statement_gfx_cursor_offset"
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "_statement_gfx_cursor_offset"
+                  "name": "_statement_gfx_effect_bool"
                 }
               ]
             },
@@ -848,6 +940,14 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "_statement_gfx_overlay_frames_per_row"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_overlay_rows"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "_statement_gfx_effectFile"
                 },
                 {
@@ -869,6 +969,14 @@
                 {
                   "type": "SYMBOL",
                   "name": "_statement_gfx_allwaystransparent"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_transparencecheck"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_loadType"
                 }
               ]
             },
@@ -940,7 +1048,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "_statement_gfx_size"
+                  "name": "_statement_gfx_size_xy"
                 },
                 {
                   "type": "SYMBOL",
@@ -949,6 +1057,10 @@
                 {
                   "type": "SYMBOL",
                   "name": "_statement_gfx_horizontal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_loadType"
                 }
               ]
             },
@@ -1000,6 +1112,14 @@
               "members": [
                 {
                   "type": "SYMBOL",
+                  "name": "_statement_gfx_pdxmesh_animation"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_pdxmesh_meshsettings"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "_statement_gfx_name"
                 },
                 {
@@ -1008,11 +1128,327 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "_statement_gfx_pdxmesh_animation"
+                  "name": "_statement_gfx_scale"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_cull_distance"
+                }
+              ]
+            },
+            "named": true,
+            "value": "statement"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_pdxparticle": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "pdxparticle"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_pdxparticle_block"
+        }
+      ]
+    },
+    "_pdxparticle_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_name"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_type"
                 },
                 {
                   "type": "SYMBOL",
                   "name": "_statement_gfx_scale"
+                }
+              ]
+            },
+            "named": true,
+            "value": "statement"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_arrowType": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "arrowType"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_arrowType_block"
+        }
+      ]
+    },
+    "_arrowType_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_name"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_texture"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_normal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_specular"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_effect"
+                }
+              ]
+            },
+            "named": true,
+            "value": "statement"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_tradeRouteType": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "tradeRouteType"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_tradeRouteType_block"
+        }
+      ]
+    },
+    "_tradeRouteType_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_name"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_textureFile"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_textureFile2"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_textureFile3"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_effect"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_cull_distance"
+                }
+              ]
+            },
+            "named": true,
+            "value": "statement"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_PieChartType": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "PieChartType"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_PieChartType_block"
+        }
+      ]
+    },
+    "_PieChartType_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_name"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_size_integer"
+                }
+              ]
+            },
+            "named": true,
+            "value": "statement"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_LineChartType": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "LineChartType"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_LineChartType_block"
+        }
+      ]
+    },
+    "_LineChartType_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_name"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_size_xy"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_linewidth"
                 }
               ]
             },
@@ -2076,7 +2512,7 @@
                             },
                             {
                               "type": "PATTERN",
-                              "value": "[a-zA-Z0-9_]*"
+                              "value": "[a-zA-Z0-9_:.'-]*"
                             },
                             {
                               "type": "STRING",
@@ -2101,7 +2537,7 @@
                             },
                             {
                               "type": "PATTERN",
-                              "value": "[a-zA-Z0-9_]*"
+                              "value": "[a-zA-Z0-9_:.'-]*"
                             },
                             {
                               "type": "STRING",
@@ -2479,6 +2915,18 @@
               "type": "BLANK"
             }
           ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ";"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -2625,8 +3073,17 @@
                           "value": "[^\\\"\\n]+"
                         },
                         {
-                          "type": "STRING",
-                          "value": ".lua"
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "STRING",
+                              "value": ".lua"
+                            },
+                            {
+                              "type": "STRING",
+                              "value": ".shader"
+                            }
+                          ]
                         },
                         {
                           "type": "STRING",
@@ -3122,7 +3579,7 @@
         }
       ]
     },
-    "_statement_gfx_size": {
+    "_statement_gfx_size_xy": {
       "type": "SEQ",
       "members": [
         {
@@ -3155,6 +3612,41 @@
                 {
                   "type": "STRING",
                   "value": "}"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_size_integer": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "size"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_integer_positive"
                 }
               ]
             },
@@ -3198,6 +3690,41 @@
                 {
                   "type": "STRING",
                   "value": "}"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_alwaystransparent": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "alwaystransparent"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_boolean_yes_no"
                 }
               ]
             },
@@ -3423,7 +3950,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "_statement_gfx_size"
+                "name": "_statement_gfx_size_xy"
               },
               {
                 "type": "SYMBOL",
@@ -3725,46 +4252,8 @@
                   "name": "assign_equal"
                 },
                 {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "TOKEN",
-                    "content": {
-                      "type": "SEQ",
-                      "members": [
-                        {
-                          "type": "PATTERN",
-                          "value": "\\d+"
-                        },
-                        {
-                          "type": "CHOICE",
-                          "members": [
-                            {
-                              "type": "SEQ",
-                              "members": [
-                                {
-                                  "type": "STRING",
-                                  "value": "."
-                                },
-                                {
-                                  "type": "PATTERN",
-                                  "value": "\\d+"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "BLANK"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "STRING",
-                          "value": "f"
-                        }
-                      ]
-                    }
-                  },
-                  "named": true,
-                  "value": "float"
+                  "type": "SYMBOL",
+                  "name": "_float_positive"
                 }
               ]
             },
@@ -4297,6 +4786,404 @@
         }
       ]
     },
+    "_statement_gfx_pdxmesh_meshsettings": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "meshsettings"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "STRING",
+                  "value": "{"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_name"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_meshsettings_index"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_meshsettings_texture_diffuse"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_meshsettings_texture_normal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_meshsettings_texture_specular"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_meshsettings_shader"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gfx_meshsettings_shader_file"
+                },
+                {
+                  "type": "STRING",
+                  "value": "}"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_meshsettings_index": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "index"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_integer_positive"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_meshsettings_texture_diffuse": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "texture_diffuse"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[^\\\"\\n]+"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ".dds"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        }
+                      ]
+                    }
+                  },
+                  "named": true,
+                  "value": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_meshsettings_texture_normal": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "texture_normal"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[^\\\"\\n]+"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ".dds"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        }
+                      ]
+                    }
+                  },
+                  "named": true,
+                  "value": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_meshsettings_texture_specular": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "texture_specular"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[^\\\"\\n]+"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ".dds"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        }
+                      ]
+                    }
+                  },
+                  "named": true,
+                  "value": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_meshsettings_shader": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "shader"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "PdxMeshStandard"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        }
+                      ]
+                    }
+                  },
+                  "named": true,
+                  "value": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_meshsettings_shader_file": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "shader_file"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[^\\\"\\n]+"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ".shader"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        }
+                      ]
+                    }
+                  },
+                  "named": true,
+                  "value": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
     "_statement_gfx_scale": {
       "type": "SEQ",
       "members": [
@@ -4357,6 +5244,495 @@
                 {
                   "type": "SYMBOL",
                   "name": "_boolean_yes_no"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_loadType": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "loadType"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": "\"INGAME\""
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "\"FRONTEND\""
+                      }
+                    ]
+                  },
+                  "named": true,
+                  "value": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_norefcount": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "norefcount"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_boolean_yes_no"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_texture": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "texture"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[^\\\"\\n]+"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ".dds"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        }
+                      ]
+                    }
+                  },
+                  "named": true,
+                  "value": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_normal": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "normal"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[^\\\"\\n]+"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ".dds"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        }
+                      ]
+                    }
+                  },
+                  "named": true,
+                  "value": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_specular": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "specular"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[^\\\"\\n]+"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ".dds"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        }
+                      ]
+                    }
+                  },
+                  "named": true,
+                  "value": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_effect": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "effect"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[^\\\"\\n]+"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ".lua"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        }
+                      ]
+                    }
+                  },
+                  "named": true,
+                  "value": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_effect_bool": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "effect"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_boolean_yes_no"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_alphamaskfile": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "alphamaskfile"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "[^\\\"\\n]+"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ".tga"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "\""
+                        }
+                      ]
+                    }
+                  },
+                  "named": true,
+                  "value": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_linewidth": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "linewidth"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_integer_positive"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gfx_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "type"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "string"
                 }
               ]
             },
@@ -4468,6 +5844,18 @@
                 "type": "BLANK"
               }
             ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "f"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
           }
         ]
       }
@@ -4479,18 +5867,6 @@
         "content": {
           "type": "SEQ",
           "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "-"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
             {
               "type": "PATTERN",
               "value": "\\d+"
@@ -4510,6 +5886,18 @@
                       "value": "\\d+"
                     }
                   ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "f"
                 },
                 {
                   "type": "BLANK"

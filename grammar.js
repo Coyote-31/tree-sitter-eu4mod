@@ -85,7 +85,9 @@ module.exports = grammar({
       $._corneredTileSpriteType,
       $._maskedShieldType,
       $._frameAnimatedSpriteType,
-      $._progressbartype
+      $._progressbartype,
+      $._PieChartType,
+      $._LineChartType
     ), $.type_definition),
 
     // objectTypes
@@ -105,6 +107,9 @@ module.exports = grammar({
     _objectTypes_type: $ => alias(choice(
       $._animatedmaptext,
       $._pdxmesh,
+      $._pdxparticle,
+      $._arrowType,
+      $._tradeRouteType
     ), $.type_definition),
 
     // bitmapfonts
@@ -149,9 +154,15 @@ module.exports = grammar({
           $._statement_gfx_overlay_frames_per_row,
           $._statement_gfx_overlay_rows,
           $._statement_gfx_effectFile,
+          $._statement_gfx_clicksound,
+          $._statement_gfx_norefcount,
+          $._statement_gfx_legacy_lazy_load,
           $._statement_gfx_animation,
+          $._statement_gfx_alwaystransparent,
           $._statement_gfx_allwaystransparent,
-          $._statement_gfx_transparencecheck
+          $._statement_gfx_transparencecheck,
+          $._statement_gfx_loadType,
+          $._statement_gfx_alphamaskfile
         ), $.statement)),
       '}'
     ),
@@ -171,6 +182,11 @@ module.exports = grammar({
           $._statement_gfx_name,
           $._statement_gfx_textureFile,
           $._statement_gfx_noOfFrames,
+          $._statement_gfx_overlay_frames_per_row,
+          $._statement_gfx_overlay_rows,
+          $._statement_gfx_loadType,
+          $._statement_gfx_transparencecheck,
+          $._statement_gfx_allwaystransparent,
           $._statement_gfx_effectFile,
           $._statement_gfx_clicksound
         ), $.statement)),
@@ -190,12 +206,15 @@ module.exports = grammar({
       repeat(
         alias(choice(
           $._statement_gfx_name,
-          $._statement_gfx_size,
+          $._statement_gfx_size_xy,
           $._statement_gfx_textureFile,
           $._statement_gfx_borderSize,
           $._statement_gfx_allwaystransparent,
           $._statement_gfx_legacy_lazy_load,
-          $._statement_gfx_noOfFrames
+          $._statement_gfx_noOfFrames,
+          $._statement_gfx_norefcount,
+          $._statement_gfx_loadType,
+          $._statement_gfx_effectFile
         ), $.statement)),
       '}'
     ),
@@ -217,7 +236,10 @@ module.exports = grammar({
           $._statement_gfx_textureFile2,
           $._statement_gfx_textureFile3,
           $._statement_gfx_noOfFrames,
-          $._statement_gfx_effectFile
+          $._statement_gfx_effectFile,
+          $._statement_gfx_overlay_frames_per_row,
+          $._statement_gfx_overlay_rows,
+          $._statement_gfx_transparencecheck
         ), $.statement)),
       '}'
     ),
@@ -270,12 +292,13 @@ module.exports = grammar({
       '{',
       repeat(
         alias(choice(
+          $._textcolors,
           $._statement_gfx_name,
           $._statement_gfx_path,
           $._statement_gfx_bitmapfont_color,
           $._statement_gfx_bitmapfont_border_color,
-          $._textcolors,
-          $._statement_gfx_cursor_offset
+          $._statement_gfx_cursor_offset,
+          $._statement_gfx_effect_bool,
         ), $.statement)),
       '}'
     ),
@@ -295,12 +318,16 @@ module.exports = grammar({
           $._statement_gfx_name,
           $._statement_gfx_textureFile,
           $._statement_gfx_noOfFrames,
+          $._statement_gfx_overlay_frames_per_row,
+          $._statement_gfx_overlay_rows,
           $._statement_gfx_effectFile,
           $._statement_gfx_animation_rate_fps,
           $._statement_gfx_looping,
           $._statement_gfx_play_on_show,
           $._statement_gfx_pause_on_loop,
-          $._statement_gfx_allwaystransparent
+          $._statement_gfx_allwaystransparent,
+          $._statement_gfx_transparencecheck,
+          $._statement_gfx_loadType
         ), $.statement)),
       '}'
     ),
@@ -322,9 +349,10 @@ module.exports = grammar({
           $._statement_gfx_colortwo,
           $._statement_gfx_textureFile1,
           $._statement_gfx_textureFile2,
-          $._statement_gfx_size,
+          $._statement_gfx_size_xy,
           $._statement_gfx_effectFile,
-          $._statement_gfx_horizontal
+          $._statement_gfx_horizontal,
+          $._statement_gfx_loadType
         ), $.statement)),
       '}'
     ),
@@ -341,10 +369,111 @@ module.exports = grammar({
       '{',
       repeat(
         alias(choice(
+          $._statement_gfx_pdxmesh_animation,
+          $._statement_gfx_pdxmesh_meshsettings,
           $._statement_gfx_name,
           $._statement_gfx_file,
-          $._statement_gfx_pdxmesh_animation,
           $._statement_gfx_scale,
+          $._statement_gfx_cull_distance
+        ), $.statement)),
+      '}'
+    ),
+
+    // pdxparticle
+
+    _pdxparticle: $ => seq(
+      alias('pdxparticle', $.identifier),
+      $.assign_equal,
+      $._pdxparticle_block
+    ),
+
+    _pdxparticle_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_gfx_name,
+          $._statement_gfx_type,
+          $._statement_gfx_scale
+        ), $.statement)),
+      '}'
+    ),
+
+    // arrowType
+
+    _arrowType: $ => seq(
+      alias('arrowType', $.identifier),
+      $.assign_equal,
+      $._arrowType_block
+    ),
+
+    _arrowType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_gfx_name,
+          $._statement_gfx_texture,
+          $._statement_gfx_normal,
+          $._statement_gfx_specular,
+          $._statement_gfx_effect
+        ), $.statement)),
+      '}'
+    ),
+
+    // tradeRouteType
+
+    _tradeRouteType: $ => seq(
+      alias('tradeRouteType', $.identifier),
+      $.assign_equal,
+      $._tradeRouteType_block
+    ),
+
+    _tradeRouteType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_gfx_name,
+          $._statement_gfx_textureFile,
+          $._statement_gfx_textureFile2,
+          $._statement_gfx_textureFile3,
+          $._statement_gfx_effect,
+          $._statement_gfx_cull_distance
+        ), $.statement)),
+      '}'
+    ),
+
+    // PieChartType
+
+    _PieChartType: $ => seq(
+      alias('PieChartType', $.identifier),
+      $.assign_equal,
+      $._PieChartType_block
+    ),
+
+    _PieChartType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_gfx_name,
+          $._statement_gfx_size_integer
+        ), $.statement)),
+      '}'
+    ),
+
+    // LineChartType
+
+    _LineChartType: $ => seq(
+      alias('LineChartType', $.identifier),
+      $.assign_equal,
+      $._LineChartType_block
+    ),
+
+    _LineChartType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_gfx_name,
+          $._statement_gfx_size_xy,
+          $._statement_gfx_linewidth
         ), $.statement)),
       '}'
     ),
@@ -563,8 +692,8 @@ module.exports = grammar({
       optional(seq(
         $.assign_equal,
         choice(
-          alias(token(seq('"', /[a-zA-Z0-9_]*/, '"')), $.name_value),
-          alias(token(seq('"GFX_', /[a-zA-Z0-9_]*/, '"')), $.name_gfx_value)
+          alias(token(seq('"', /[a-zA-Z0-9_:.'-]*/, '"')), $.name_value),
+          alias(token(seq('"GFX_', /[a-zA-Z0-9_:.'-]*/, '"')), $.name_gfx_value)
         )
       ))
     ),
@@ -628,17 +757,18 @@ module.exports = grammar({
       ),
 
       _statement_gfx_textureFile3: $ => seq(
-         alias(/texture[Ff]ile3/, $.identifier),
-         optional(seq(
-           $.assign_equal,
-           alias(token(seq(
-             '"',
-             /[^\"\n]+/,
-             choice('.dds', '.tga'),
-             '"'
-           )), $.string)
-         ))
-       ),
+        alias(/texture[Ff]ile3/, $.identifier),
+        optional(seq(
+          $.assign_equal,
+          alias(token(seq(
+            '"',
+            /[^\"\n]+/,
+            choice('.dds', '.tga'),
+            '"'
+          )), $.string)
+        )),
+        optional(';')
+      ),
 
    _statement_gfx_noOfFrames: $ => seq(
       alias('noOfFrames', $.identifier),
@@ -671,7 +801,7 @@ module.exports = grammar({
          alias(token(seq(
            '"',
            /[^\"\n]+/,
-           '.lua',
+           choice('.lua', '.shader'),
            '"'
          )), $.string)
        ))
@@ -782,13 +912,21 @@ module.exports = grammar({
       ))
     ),
 
-    _statement_gfx_size: $ => seq(
+    _statement_gfx_size_xy: $ => seq(
       alias('size', $.identifier),
       optional(seq(
         $.assign_equal,
         '{',
         $._statement_xy_integer,
         '}'
+      ))
+    ),
+
+    _statement_gfx_size_integer: $ => seq(
+      alias('size', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._integer_positive
       ))
     ),
 
@@ -799,6 +937,14 @@ module.exports = grammar({
         '{',
         $._statement_xy_integer,
         '}'
+      ))
+    ),
+
+    _statement_gfx_alwaystransparent: $ => seq(
+      alias('alwaystransparent', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._boolean_yes_no
       ))
     ),
 
@@ -849,7 +995,7 @@ module.exports = grammar({
         $._statement_gfx_color,
         $._statement_gfx_font,
         $._statement_gfx_position,
-        $._statement_gfx_size,
+        $._statement_gfx_size_xy,
         $._statement_gfx_format,
         $._statement_gfx_cull_distance,
       )),
@@ -918,14 +1064,7 @@ module.exports = grammar({
       alias('cull_distance', $.identifier),
       optional(seq(
         $.assign_equal,
-        alias(token(seq(
-          /\d+/,
-          optional(seq(
-            '.',
-            /\d+/
-          )),
-          'f'
-        )), $.float),
+        $._float_positive,
       ))
     ),
 
@@ -1039,6 +1178,94 @@ module.exports = grammar({
       ))
     ),
 
+    _statement_gfx_pdxmesh_meshsettings: $ => seq(
+      alias('meshsettings', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        $._statement_gfx_name,
+        $._statement_gfx_meshsettings_index,
+        $._statement_gfx_meshsettings_texture_diffuse,
+        $._statement_gfx_meshsettings_texture_normal,
+        $._statement_gfx_meshsettings_texture_specular,
+        $._statement_gfx_meshsettings_shader,
+        $._statement_gfx_meshsettings_shader_file,
+        '}'
+      ))
+    ),
+
+    _statement_gfx_meshsettings_index: $ => seq(
+      alias('index', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._integer_positive
+      ))
+    ),
+
+    _statement_gfx_meshsettings_texture_diffuse: $ => seq(
+      alias('texture_diffuse', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias(token(seq(
+          '"',
+          /[^\"\n]+/,
+          '.dds',
+          '"'
+        )), $.string)
+      ))
+    ),
+
+    _statement_gfx_meshsettings_texture_normal: $ => seq(
+      alias('texture_normal', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias(token(seq(
+          '"',
+          /[^\"\n]+/,
+          '.dds',
+          '"'
+        )), $.string)
+      ))
+    ),
+
+    _statement_gfx_meshsettings_texture_specular: $ => seq(
+      alias('texture_specular', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias(token(seq(
+          '"',
+          /[^\"\n]+/,
+          '.dds',
+          '"'
+        )), $.string)
+      ))
+    ),
+
+    _statement_gfx_meshsettings_shader: $ => seq(
+      alias('shader', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias(token(seq(
+          '"',
+          'PdxMeshStandard',
+          '"'
+        )), $.string)
+      ))
+    ),
+
+    _statement_gfx_meshsettings_shader_file: $ => seq(
+      alias('shader_file', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias(token(seq(
+          '"',
+          /[^\"\n]+/,
+          '.shader',
+          '"'
+        )), $.string)
+      ))
+    ),
+
 
     _statement_gfx_scale: $ => seq(
       alias('scale', $.identifier),
@@ -1053,6 +1280,111 @@ module.exports = grammar({
       optional(seq(
         $.assign_equal,
         $._boolean_yes_no
+      ))
+    ),
+
+    _statement_gfx_loadType: $ => seq(
+      alias('loadType', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias(choice('"INGAME"', '"FRONTEND"'), $.string)
+      ))
+    ),
+
+    _statement_gfx_norefcount: $ => seq(
+      alias('norefcount', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._boolean_yes_no
+      ))
+    ),
+
+    _statement_gfx_texture: $ => seq(
+      alias('texture', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias(token(seq(
+          '"',
+          /[^\"\n]+/,
+          '.dds',
+          '"'
+        )), $.string)
+      ))
+    ),
+
+    _statement_gfx_normal: $ => seq(
+      alias('normal', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias(token(seq(
+          '"',
+          /[^\"\n]+/,
+          '.dds',
+          '"'
+        )), $.string)
+      ))
+    ),
+
+    _statement_gfx_specular: $ => seq(
+      alias('specular', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias(token(seq(
+          '"',
+          /[^\"\n]+/,
+          '.dds',
+          '"'
+        )), $.string)
+      ))
+    ),
+
+    _statement_gfx_effect: $ => seq(
+      alias('effect', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias(token(seq(
+          '"',
+          /[^\"\n]+/,
+          '.lua',
+          '"'
+        )), $.string)
+      ))
+    ),
+
+    _statement_gfx_effect_bool: $ => seq(
+      alias('effect', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._boolean_yes_no
+      ))
+    ),
+
+    _statement_gfx_alphamaskfile: $ => seq(
+      alias('alphamaskfile', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias(token(seq(
+          '"',
+          /[^\"\n]+/,
+          '.tga',
+          '"'
+        )), $.string)
+      ))
+    ),
+
+    _statement_gfx_linewidth: $ => seq(
+      alias('linewidth', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._integer_positive
+      ))
+    ),
+
+    _statement_gfx_type: $ => seq(
+      alias('type', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
       ))
     ),
 
@@ -1079,16 +1411,17 @@ module.exports = grammar({
       optional(seq(
         '.',
         /\d+/
-      ))
+      )),
+      optional('f')
     )),
 
     _float_positive: $ => alias(token(seq(
-      optional('-'),
       /\d+/,
       optional(seq(
         '.',
         /\d+/
-      ))
+      )),
+      optional('f')
     )), $.float),
 
     integer: $ => token(seq(
