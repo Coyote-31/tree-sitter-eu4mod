@@ -31,7 +31,7 @@
     "test": "tree-sitter test && tree-sitter parse test/examples/* --quiet --time",
     "test-windows": "tree-sitter test",
     "gt": "tree-sitter generate && npm test",
-    "gtp": "tree-sitter generate && npm test && tree-sitter parse test/private/* --quiet --time",
+    "gtp": "tree-sitter generate && npm test && tree-sitter parse test/private/gfx/* --quiet --time",
     "gtb": "tree-sitter generate && npm test && node-gyp build"
   },
   "repository": {
