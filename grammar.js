@@ -174,7 +174,7 @@ module.exports = grammar({
 
     _guiTypes_type: $ => alias(choice(
       $._windowType,
-    //  $._textBoxType,
+      $._textBoxType,
     //  $._iconType,
     //  $._scrollbarType,
     ), $.type_definition),
@@ -671,6 +671,30 @@ module.exports = grammar({
     ),
 
     // textBoxType
+
+    _textBoxType: $ => seq(
+      alias('textBoxType', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._textBoxType_block
+      ))
+    ),
+
+    _textBoxType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_name,
+          $._statement_gui_position,
+          $._statement_gui_textureFile,
+          $._statement_gui_font,
+          $._statement_gui_borderSize,
+          $._statement_gui_maxWidth,
+          $._statement_gui_maxHeight,
+          $._statement_gui_text,
+        ), $.statement)),
+      '}'
+    ),
 
     // iconType
 
