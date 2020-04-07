@@ -15,6 +15,21 @@
     }
   },
   {
+    "type": "dot_gui",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "types_definition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "dot_mod",
     "named": true,
     "fields": {},
@@ -63,6 +78,10 @@
       "types": [
         {
           "type": "dot_gfx",
+          "named": true
+        },
+        {
+          "type": "dot_gui",
           "named": true
         },
         {

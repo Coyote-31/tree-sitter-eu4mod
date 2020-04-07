@@ -16,6 +16,7 @@ module.exports = grammar({
     file: $ => choice(
       $.dot_mod,
       $.dot_gfx,
+      $.dot_gui
     ),
 
 
@@ -54,16 +55,33 @@ module.exports = grammar({
       $._bitmapfonts
     ), $.types_definition),
 
+    //===============================================//
+    //        GUI -> Rules for *.gui files :         //
+    //===============================================//
+
+    dot_gui: $ => repeat1(
+        $._gui_types_definition
+    ),
+
+    _gui_types_definition: $ => alias(choice(
+      $._guiTypes,
+    ), $.types_definition),
+
     //---------//
     // TYPES :
     //---------//
+
+    // ----------
+    // GFX types :
 
     // spriteTypes
 
     _spriteTypes: $ => seq(
       alias('spriteTypes', $.identifier),
-      $.assign_equal,
-      $._spriteTypes_block
+      optional(seq(
+        $.assign_equal,
+        $._spriteTypes_block
+      ))
     ),
 
     _spriteTypes_block: $ => seq(
@@ -94,8 +112,10 @@ module.exports = grammar({
 
     _objectTypes: $ => seq(
       alias('objectTypes', $.identifier),
-      $.assign_equal,
-      $._objectTypes_block
+      optional(seq(
+        $.assign_equal,
+        $._objectTypes_block
+      ))
     ),
 
     _objectTypes_block: $ => seq(
@@ -116,8 +136,10 @@ module.exports = grammar({
 
     _bitmapfonts: $ => seq(
       alias('bitmapfonts', $.identifier),
-      $.assign_equal,
-      $._bitmapfonts_block
+      optional(seq(
+        $.assign_equal,
+        $._bitmapfonts_block
+      ))
     ),
 
     _bitmapfonts_block: $ => seq(
@@ -131,17 +153,47 @@ module.exports = grammar({
       $._textcolors
     ), $.type_definition),
 
+    // ----------
+    // GUI types :
+
+    // objectTypes
+
+    _guiTypes: $ => seq(
+      alias('guiTypes', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._guiTypes_block
+      ))
+    ),
+
+    _guiTypes_block: $ => seq(
+      '{',
+      repeat($._guiTypes_type),
+      '}'
+    ),
+
+    _guiTypes_type: $ => alias(choice(
+      $._windowType,
+    //  $._textBoxType,
+    //  $._iconType,
+    //  $._scrollbarType,
+    ), $.type_definition),
 
     //---------//
     // TYPE :
     //---------//
 
+    // ----------
+    // GFX type :
+
     // spriteType
 
     _spriteType: $ => seq(
       alias('spriteType', $.identifier),
-      $.assign_equal,
-      $._spriteType_block
+      optional(seq(
+        $.assign_equal,
+        $._spriteType_block
+      ))
     ),
 
     _spriteType_block: $ => seq(
@@ -171,8 +223,10 @@ module.exports = grammar({
 
     _textSpriteType: $ => seq(
       alias('textSpriteType', $.identifier),
-      $.assign_equal,
-      $._textSpriteType_block
+      optional(seq(
+        $.assign_equal,
+        $._textSpriteType_block
+      ))
     ),
 
     _textSpriteType_block: $ => seq(
@@ -197,8 +251,10 @@ module.exports = grammar({
 
     _corneredTileSpriteType: $ => seq(
       alias('corneredTileSpriteType', $.identifier),
-      $.assign_equal,
-      $._corneredTileSpriteType_block
+      optional(seq(
+        $.assign_equal,
+        $._corneredTileSpriteType_block
+      ))
     ),
 
     _corneredTileSpriteType_block: $ => seq(
@@ -223,8 +279,10 @@ module.exports = grammar({
 
     _maskedShieldType: $ => seq(
       alias('maskedShieldType', $.identifier),
-      $.assign_equal,
-      $._maskedShieldType_block
+      optional(seq(
+        $.assign_equal,
+        $._maskedShieldType_block
+      ))
     ),
 
     _maskedShieldType_block: $ => seq(
@@ -248,8 +306,10 @@ module.exports = grammar({
 
     _animatedmaptext: $ => seq(
       alias('animatedmaptext', $.identifier),
-      $.assign_equal,
-      $._animatedmaptext_block
+      optional(seq(
+        $.assign_equal,
+        $._animatedmaptext_block
+      ))
     ),
 
     _animatedmaptext_block: $ => seq(
@@ -267,8 +327,10 @@ module.exports = grammar({
 
     _textcolors: $ => seq(
       alias('textcolors', $.identifier),
-      $.assign_equal,
-      $._textcolors_block
+      optional(seq(
+        $.assign_equal,
+        $._textcolors_block
+      ))
     ),
 
     _textcolors_block: $ => seq(
@@ -284,8 +346,10 @@ module.exports = grammar({
 
     _bitmapfont: $ => seq(
       alias('bitmapfont', $.identifier),
-      $.assign_equal,
-      $._bitmapfont_block
+      optional(seq(
+        $.assign_equal,
+        $._bitmapfont_block
+      ))
     ),
 
     _bitmapfont_block: $ => seq(
@@ -307,8 +371,10 @@ module.exports = grammar({
 
     _frameAnimatedSpriteType: $ => seq(
       alias('frameAnimatedSpriteType', $.identifier),
-      $.assign_equal,
-      $._frameAnimatedSpriteType_block
+      optional(seq(
+        $.assign_equal,
+        $._frameAnimatedSpriteType_block
+      ))
     ),
 
     _frameAnimatedSpriteType_block: $ => seq(
@@ -336,8 +402,10 @@ module.exports = grammar({
 
     _progressbartype: $ => seq(
       alias('progressbartype', $.identifier),
-      $.assign_equal,
-      $._progressbartype_block
+      optional(seq(
+        $.assign_equal,
+        $._progressbartype_block
+      ))
     ),
 
     _progressbartype_block: $ => seq(
@@ -361,8 +429,10 @@ module.exports = grammar({
 
     _pdxmesh: $ => seq(
       alias('pdxmesh', $.identifier),
-      $.assign_equal,
-      $._pdxmesh_block
+      optional(seq(
+        $.assign_equal,
+        $._pdxmesh_block
+      ))
     ),
 
     _pdxmesh_block: $ => seq(
@@ -383,8 +453,10 @@ module.exports = grammar({
 
     _pdxparticle: $ => seq(
       alias('pdxparticle', $.identifier),
-      $.assign_equal,
-      $._pdxparticle_block
+      optional(seq(
+        $.assign_equal,
+        $._pdxparticle_block
+      ))
     ),
 
     _pdxparticle_block: $ => seq(
@@ -402,8 +474,10 @@ module.exports = grammar({
 
     _arrowType: $ => seq(
       alias('arrowType', $.identifier),
-      $.assign_equal,
-      $._arrowType_block
+      optional(seq(
+        $.assign_equal,
+        $._arrowType_block
+      ))
     ),
 
     _arrowType_block: $ => seq(
@@ -423,8 +497,10 @@ module.exports = grammar({
 
     _tradeRouteType: $ => seq(
       alias('tradeRouteType', $.identifier),
-      $.assign_equal,
-      $._tradeRouteType_block
+      optional(seq(
+        $.assign_equal,
+        $._tradeRouteType_block
+      ))
     ),
 
     _tradeRouteType_block: $ => seq(
@@ -445,8 +521,10 @@ module.exports = grammar({
 
     _PieChartType: $ => seq(
       alias('PieChartType', $.identifier),
-      $.assign_equal,
-      $._PieChartType_block
+      optional(seq(
+        $.assign_equal,
+        $._PieChartType_block
+      ))
     ),
 
     _PieChartType_block: $ => seq(
@@ -463,8 +541,10 @@ module.exports = grammar({
 
     _LineChartType: $ => seq(
       alias('LineChartType', $.identifier),
-      $.assign_equal,
-      $._LineChartType_block
+      optional(seq(
+        $.assign_equal,
+        $._LineChartType_block
+      ))
     ),
 
     _LineChartType_block: $ => seq(
@@ -477,6 +557,65 @@ module.exports = grammar({
         ), $.statement)),
       '}'
     ),
+
+    // ----------
+    // GUI type :
+
+    // windowType
+
+    _windowType: $ => seq(
+      alias('windowType', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._windowType_block
+      ))
+    ),
+
+    _windowType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._listBoxType,
+        //  $._editBoxType,
+          $._statement_name,
+          $._statement_gui_backGround,
+          $._statement_gui_position,
+          $._statement_gui_size,
+          $._statement_gui_moveable,
+          $._statement_gui_orientation
+        ), $.statement)),
+      '}'
+    ),
+
+    // listBoxType
+
+    _listBoxType: $ => seq(
+      alias('listBoxType', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._listBoxType_block
+      ))
+    ),
+
+    _listBoxType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_gfx_name,
+          $._statement_gfx_size_xy,
+          $._statement_gfx_linewidth
+        ), $.statement)),
+      '}'
+    ),
+
+    // editBoxType
+
+    // textBoxType
+
+    // iconType
+
+    // scrollbarType
+
 
     //==============================//
     //          STATEMENTS          //
@@ -1388,6 +1527,55 @@ module.exports = grammar({
       ))
     ),
 
+    //-------------------------------------//
+    //  GUI statements [_statement_gui_X]  //
+    //-------------------------------------//
+
+    _statement_gui_backGround: $ => seq(
+      alias('backGround', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_position: $ => seq(
+      alias('position', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        $._statement_xy_integer,
+        '}'
+      ))
+    ),
+
+    _statement_gui_size: $ => seq(
+      alias('size', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        $._statement_xy_integer,
+        '}'
+      ))
+    ),
+
+    _statement_gui_moveable: $ => seq(
+      alias('moveable', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._boolean_0_1
+      ))
+    ),
+
+    _statement_gui_orientation: $ => seq(
+      alias('orientation', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._orientation_value
+      ))
+    ),
+
+
     //==============================//
     //            TOKENS            //
     //==============================//
@@ -1447,7 +1635,22 @@ module.exports = grammar({
 
     _boolean_yes_no: $ => alias(choice('yes', 'no'), $.boolean),
 
+    _boolean_0_1: $ => alias(choice('0', '1'), $.boolean),
+
     comment: $ => /\#[^\n]*/,
+
+    _orientation_value: $ => alias(token(
+      seq(
+        '"',
+        choice(
+          'CENTER',
+          'UPPER_LEFT',
+          'LOWER_LEFT',
+          'UPPER_RIGHT',
+          'LOWER_RIGHT'
+        ),
+        '"'
+      )), $.string),
 
     _eol: $ => token(/\r?\n/),
 
