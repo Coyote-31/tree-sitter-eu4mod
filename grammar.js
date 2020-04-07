@@ -156,7 +156,7 @@ module.exports = grammar({
     // ----------
     // GUI types :
 
-    // objectTypes
+    // guiTypes
 
     _guiTypes: $ => seq(
       alias('guiTypes', $.identifier),
@@ -576,7 +576,8 @@ module.exports = grammar({
       repeat(
         alias(choice(
           $._listBoxType,
-        //  $._editBoxType,
+          $._editBoxType,
+          $._instantTextBoxType,
           $._statement_name,
           $._statement_gui_backGround,
           $._statement_gui_position,
@@ -601,14 +602,73 @@ module.exports = grammar({
       '{',
       repeat(
         alias(choice(
-          $._statement_gfx_name,
-          $._statement_gfx_size_xy,
-          $._statement_gfx_linewidth
+          $._statement_name,
+          $._statement_gui_background,
+          $._statement_gui_position,
+          $._statement_gui_orientation,
+          $._statement_gui_priority,
+          $._statement_gui_size,
+          $._statement_gui_borderSize,
+          $._statement_gui_scrollbartype,
+          $._statement_gui_allwaystransparent,
         ), $.statement)),
       '}'
     ),
 
     // editBoxType
+
+    _editBoxType: $ => seq(
+      alias('editBoxType', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._editBoxType_block
+      ))
+    ),
+
+    _editBoxType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_name,
+          $._statement_gui_position,
+          $._statement_gui_textureFile,
+          $._statement_gui_font,
+          $._statement_gui_borderSize,
+          $._statement_gui_cursor,
+          $._statement_gui_size,
+          $._statement_gui_text,
+          $._statement_gui_orientation,
+          $._statement_gui_instantTextBoxType
+        ), $.statement)),
+      '}'
+    ),
+
+    // instantTextBoxType
+
+    _instantTextBoxType: $ => seq(
+      alias('instantTextBoxType', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._instantTextBoxType_block
+      ))
+    ),
+
+    _instantTextBoxType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_name,
+          $._statement_gui_position,
+          $._statement_gui_textureFile,
+          $._statement_gui_font,
+          $._statement_gui_borderSize,
+          $._statement_gui_maxWidth,
+          $._statement_gui_maxHeight,
+          $._statement_gui_fixedsize,
+          $._statement_gui_orientation
+        ), $.statement)),
+      '}'
+    ),
 
     // textBoxType
 
@@ -1539,6 +1599,14 @@ module.exports = grammar({
       ))
     ),
 
+    _statement_gui_background: $ => seq(
+      alias('background', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
     _statement_gui_position: $ => seq(
       alias('position', $.identifier),
       optional(seq(
@@ -1551,6 +1619,16 @@ module.exports = grammar({
 
     _statement_gui_size: $ => seq(
       alias('size', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        $._statement_xy_integer,
+        '}'
+      ))
+    ),
+
+    _statement_gui_borderSize: $ => seq(
+      alias('borderSize', $.identifier),
       optional(seq(
         $.assign_equal,
         '{',
@@ -1575,6 +1653,100 @@ module.exports = grammar({
       ))
     ),
 
+    _statement_gui_priority: $ => seq(
+      alias('priority', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._integer_positive
+      ))
+    ),
+
+    _statement_gui_scrollbartype: $ => seq(
+      alias('scrollbartype', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_allwaystransparent: $ => seq(
+      alias('allwaystransparent', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._boolean_yes_no
+      ))
+    ),
+
+    _statement_gui_textureFile: $ => seq(
+      alias('textureFile', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias(token(seq(
+          '"',
+          /[^\"\n]+/,
+          choice('.dds', '.tga'),
+          '"'
+        )), $.string)
+      ))
+    ),
+
+    _statement_gui_font: $ => seq(
+      alias('font', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_cursor: $ => seq(
+      alias('cursor', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        $._statement_xy_integer,
+        '}'
+      ))
+    ),
+
+    _statement_gui_text: $ => seq(
+      alias('text', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_instantTextBoxType: $ => seq(
+      alias('instantTextBoxType', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._boolean_yes_no
+      ))
+    ),
+
+    _statement_gui_maxWidth: $ => seq(
+      alias('maxWidth', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._integer_positive
+      ))
+    ),
+
+    _statement_gui_maxHeight: $ => seq(
+      alias('maxHeight', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._integer_positive
+      ))
+    ),
+
+    _statement_gui_fixedsize: $ => seq(
+      alias('fixedsize', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._boolean_yes_no
+      ))
+    ),
 
     //==============================//
     //            TOKENS            //
