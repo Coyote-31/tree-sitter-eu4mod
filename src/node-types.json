@@ -229,6 +229,10 @@
     "named": true
   },
   {
+    "type": "centre",
+    "named": false
+  },
+  {
     "type": "dependencies",
     "named": true
   },

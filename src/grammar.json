@@ -465,6 +465,14 @@
           {
             "type": "SYMBOL",
             "name": "_textBoxType"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_iconType"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_scrollbarType"
           }
         ]
       },
@@ -1853,6 +1861,10 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "_iconType"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "_instantTextBoxType"
                 },
                 {
@@ -2156,6 +2168,10 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "_statement_gui_text"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "_statement_gui_borderSize"
                 },
                 {
@@ -2168,11 +2184,19 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "_statement_gui_format"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "_statement_gui_fixedsize"
                 },
                 {
                   "type": "SYMBOL",
                   "name": "_statement_gui_orientation"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_truncate"
                 }
               ]
             },
@@ -2266,6 +2290,297 @@
                 {
                   "type": "SYMBOL",
                   "name": "_statement_gui_text"
+                }
+              ]
+            },
+            "named": true,
+            "value": "statement"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_iconType": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "iconType"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_iconType_block"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_iconType_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_name"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_spriteType"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_position"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_orientation"
+                }
+              ]
+            },
+            "named": true,
+            "value": "statement"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_scrollbarType": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "scrollbarType"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_scrollbarType_block"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_scrollbarType_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_guiButtonType"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_name"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_slider"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_track"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_leftbutton"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_rightbutton"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_size"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_position"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_priority"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_borderSize"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_maxValue"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_minValue"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_stepSize"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_startValue"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_horizontal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_scroll_speed"
+                }
+              ]
+            },
+            "named": true,
+            "value": "statement"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_guiButtonType": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "guiButtonType"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_guiButtonType_block"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_guiButtonType_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_name"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_quadTextureSprite"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_position"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_parent"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_tooltip"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_tooltipText"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_delayedTooltipText"
                 }
               ]
             },
@@ -6800,8 +7115,8 @@
         {
           "type": "ALIAS",
           "content": {
-            "type": "STRING",
-            "value": "orientation"
+            "type": "PATTERN",
+            "value": "[Oo]rientation"
           },
           "named": true,
           "value": "identifier"
@@ -6968,19 +7283,32 @@
                           "value": "\""
                         },
                         {
-                          "type": "PATTERN",
-                          "value": "[^\\\"\\n]+"
-                        },
-                        {
                           "type": "CHOICE",
                           "members": [
                             {
-                              "type": "STRING",
-                              "value": ".dds"
+                              "type": "SEQ",
+                              "members": [
+                                {
+                                  "type": "PATTERN",
+                                  "value": "[^\\\"\\n]+"
+                                },
+                                {
+                                  "type": "CHOICE",
+                                  "members": [
+                                    {
+                                      "type": "STRING",
+                                      "value": ".dds"
+                                    },
+                                    {
+                                      "type": "STRING",
+                                      "value": ".tga"
+                                    }
+                                  ]
+                                }
+                              ]
                             },
                             {
-                              "type": "STRING",
-                              "value": ".tga"
+                              "type": "BLANK"
                             }
                           ]
                         },
@@ -7246,6 +7574,641 @@
                 {
                   "type": "SYMBOL",
                   "name": "_boolean_yes_no"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_spriteType": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "spriteType"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_format": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "format"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "centre"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_truncate": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "truncate"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_boolean_yes_no"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_slider": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "slider"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_track": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "track"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_leftbutton": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "leftbutton"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_rightbutton": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "rightbutton"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_maxValue": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "maxValue"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "integer"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_minValue": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "minValue"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "integer"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_stepSize": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "stepSize"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_float_positive"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_startValue": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "startValue"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "float"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_horizontal": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "horizontal"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_integer_positive"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_quadTextureSprite": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "quadTextureSprite"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_parent": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "parent"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_scroll_speed": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "scroll_speed"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_float_positive"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_tooltip": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "tooltip"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_tooltipText": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "tooltipText"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_delayedTooltipText": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "delayedTooltipText"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "string"
                 }
               ]
             },
@@ -7562,15 +8525,19 @@
                 },
                 {
                   "type": "STRING",
+                  "value": "CENTER_UP"
+                },
+                {
+                  "type": "STRING",
                   "value": "UPPER_LEFT"
                 },
                 {
                   "type": "STRING",
-                  "value": "LOWER_LEFT"
+                  "value": "UPPER_RIGHT"
                 },
                 {
                   "type": "STRING",
-                  "value": "UPPER_RIGHT"
+                  "value": "LOWER_LEFT"
                 },
                 {
                   "type": "STRING",

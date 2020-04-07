@@ -175,8 +175,8 @@ module.exports = grammar({
     _guiTypes_type: $ => alias(choice(
       $._windowType,
       $._textBoxType,
-    //  $._iconType,
-    //  $._scrollbarType,
+      $._iconType,
+      $._scrollbarType,
     ), $.type_definition),
 
     //---------//
@@ -577,6 +577,7 @@ module.exports = grammar({
         alias(choice(
           $._listBoxType,
           $._editBoxType,
+          $._iconType,
           $._instantTextBoxType,
           $._statement_name,
           $._statement_gui_backGround,
@@ -661,11 +662,14 @@ module.exports = grammar({
           $._statement_gui_position,
           $._statement_gui_textureFile,
           $._statement_gui_font,
+          $._statement_gui_text,
           $._statement_gui_borderSize,
           $._statement_gui_maxWidth,
           $._statement_gui_maxHeight,
+          $._statement_gui_format,
           $._statement_gui_fixedsize,
-          $._statement_gui_orientation
+          $._statement_gui_orientation,
+          $._statement_gui_truncate
         ), $.statement)),
       '}'
     ),
@@ -698,7 +702,84 @@ module.exports = grammar({
 
     // iconType
 
+    _iconType: $ => seq(
+      alias('iconType', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._iconType_block
+      ))
+    ),
+
+    _iconType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_name,
+          $._statement_gui_spriteType,
+          $._statement_gui_position,
+          $._statement_gui_orientation
+        ), $.statement)),
+      '}'
+    ),
+
     // scrollbarType
+
+    _scrollbarType: $ => seq(
+      alias('scrollbarType', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._scrollbarType_block
+      ))
+    ),
+
+    _scrollbarType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._guiButtonType,
+          $._statement_name,
+          $._statement_gui_slider,
+          $._statement_gui_track,
+          $._statement_gui_leftbutton,
+          $._statement_gui_rightbutton,
+          $._statement_gui_size,
+          $._statement_gui_position,
+          $._statement_gui_priority,
+          $._statement_gui_borderSize,
+          $._statement_gui_maxValue,
+          $._statement_gui_minValue,
+          $._statement_gui_stepSize,
+          $._statement_gui_startValue,
+          $._statement_gui_horizontal,
+          $._statement_gui_scroll_speed,
+        ), $.statement)),
+      '}'
+    ),
+
+    // guiButtonType
+
+    _guiButtonType: $ => seq(
+      alias('guiButtonType', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._guiButtonType_block
+      ))
+    ),
+
+    _guiButtonType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_name,
+          $._statement_gui_quadTextureSprite,
+          $._statement_gui_position,
+          $._statement_gui_parent,
+          $._statement_gui_tooltip,
+          $._statement_gui_tooltipText,
+          $._statement_gui_delayedTooltipText
+        ), $.statement)),
+      '}'
+    ),
 
 
     //==============================//
@@ -1670,7 +1751,7 @@ module.exports = grammar({
     ),
 
     _statement_gui_orientation: $ => seq(
-      alias('orientation', $.identifier),
+      alias(/[Oo]rientation/, $.identifier),
       optional(seq(
         $.assign_equal,
         $._orientation_value
@@ -1707,8 +1788,10 @@ module.exports = grammar({
         $.assign_equal,
         alias(token(seq(
           '"',
-          /[^\"\n]+/,
-          choice('.dds', '.tga'),
+          optional(seq(
+            /[^\"\n]+/,
+            choice('.dds', '.tga')
+          )),
           '"'
         )), $.string)
       ))
@@ -1771,6 +1854,151 @@ module.exports = grammar({
         $._boolean_yes_no
       ))
     ),
+
+    _statement_gui_spriteType: $ => seq(
+      alias('spriteType', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_format: $ => seq(
+      alias('format', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        choice('centre')
+      ))
+    ),
+
+    _statement_gui_truncate: $ => seq(
+      alias('truncate', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._boolean_yes_no
+      ))
+    ),
+
+    _statement_gui_slider: $ => seq(
+      alias('slider', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_track: $ => seq(
+      alias('track', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_leftbutton: $ => seq(
+      alias('leftbutton', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_rightbutton: $ => seq(
+      alias('rightbutton', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_maxValue: $ => seq(
+      alias('maxValue', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.integer
+      ))
+    ),
+
+    _statement_gui_minValue: $ => seq(
+      alias('minValue', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.integer
+      ))
+    ),
+
+    _statement_gui_stepSize: $ => seq(
+      alias('stepSize', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._float_positive
+      ))
+    ),
+
+    _statement_gui_startValue: $ => seq(
+      alias('startValue', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.float
+      ))
+    ),
+
+    _statement_gui_horizontal: $ => seq(
+      alias('horizontal', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._integer_positive
+      ))
+    ),
+
+    _statement_gui_quadTextureSprite: $ => seq(
+      alias('quadTextureSprite', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_parent: $ => seq(
+      alias('parent', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_scroll_speed: $ => seq(
+      alias('scroll_speed', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._float_positive
+      ))
+    ),
+
+    _statement_gui_tooltip: $ => seq(
+      alias('tooltip', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_tooltipText: $ => seq(
+      alias('tooltipText', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_delayedTooltipText: $ => seq(
+      alias('delayedTooltipText', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
 
     //==============================//
     //            TOKENS            //
@@ -1840,9 +2068,10 @@ module.exports = grammar({
         '"',
         choice(
           'CENTER',
+          'CENTER_UP',
           'UPPER_LEFT',
-          'LOWER_LEFT',
           'UPPER_RIGHT',
+          'LOWER_LEFT',
           'LOWER_RIGHT'
         ),
         '"'
