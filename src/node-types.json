@@ -229,10 +229,6 @@
     "named": true
   },
   {
-    "type": "centre",
-    "named": false
-  },
-  {
     "type": "dependencies",
     "named": true
   },
@@ -290,6 +286,10 @@
   },
   {
     "type": "}",
+    "named": false
+  },
+  {
+    "type": "ยง",
     "named": false
   }
 ]

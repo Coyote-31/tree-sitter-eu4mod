@@ -177,6 +177,10 @@ module.exports = grammar({
       $._textBoxType,
       $._iconType,
       $._scrollbarType,
+      $._smoothListboxType,
+      $._positionType,
+      $._guiButtonType,
+      $._eu3dialogtype
     ), $.type_definition),
 
     //---------//
@@ -240,6 +244,7 @@ module.exports = grammar({
           $._statement_gfx_overlay_rows,
           $._statement_gfx_loadType,
           $._statement_gfx_transparencecheck,
+          $._statement_gfx_alwaystransparent,
           $._statement_gfx_allwaystransparent,
           $._statement_gfx_effectFile,
           $._statement_gfx_clicksound
@@ -265,6 +270,7 @@ module.exports = grammar({
           $._statement_gfx_size_xy,
           $._statement_gfx_textureFile,
           $._statement_gfx_borderSize,
+          $._statement_gfx_alwaystransparent,
           $._statement_gfx_allwaystransparent,
           $._statement_gfx_legacy_lazy_load,
           $._statement_gfx_noOfFrames,
@@ -391,6 +397,7 @@ module.exports = grammar({
           $._statement_gfx_looping,
           $._statement_gfx_play_on_show,
           $._statement_gfx_pause_on_loop,
+          $._statement_gfx_alwaystransparent,
           $._statement_gfx_allwaystransparent,
           $._statement_gfx_transparencecheck,
           $._statement_gfx_loadType
@@ -558,13 +565,14 @@ module.exports = grammar({
       '}'
     ),
 
+
     // ----------
     // GUI type :
 
     // windowType
 
     _windowType: $ => seq(
-      alias('windowType', $.identifier),
+      alias(/[Ww]indowType/, $.identifier),
       optional(seq(
         $.assign_equal,
         $._windowType_block
@@ -575,16 +583,36 @@ module.exports = grammar({
       '{',
       repeat(
         alias(choice(
+          $._windowType,
           $._listBoxType,
           $._editBoxType,
           $._iconType,
           $._instantTextBoxType,
+          $._smoothListboxType,
+          $._guiButtonType,
+          $._overlappingElementsBoxType,
+          $._browserType,
+          $._checkboxType,
+          $._scrollbarType,
+          $._textBoxType,
+          $._gridBoxType,
           $._statement_name,
           $._statement_gui_backGround,
           $._statement_gui_position,
           $._statement_gui_size,
           $._statement_gui_moveable,
-          $._statement_gui_orientation
+          $._statement_gui_orientation,
+          $._statement_gui_dontRender,
+          $._statement_gui_horizontalBorder,
+          $._statement_gui_verticalBorder,
+          $._statement_gui_fullScreen,
+          $._statement_gui_upsound,
+          $._statement_gui_downsound,
+          $._statement_gui_show_position,
+          $._statement_gui_hide_position,
+          $._statement_gui_animation_type,
+          $._statement_gui_animation_time,
+
         ), $.statement)),
       '}'
     ),
@@ -592,7 +620,7 @@ module.exports = grammar({
     // listBoxType
 
     _listBoxType: $ => seq(
-      alias('listBoxType', $.identifier),
+      alias(/list[Bb]oxType/, $.identifier),
       optional(seq(
         $.assign_equal,
         $._listBoxType_block
@@ -603,15 +631,21 @@ module.exports = grammar({
       '{',
       repeat(
         alias(choice(
+          $._if_resolution,
           $._statement_name,
+          $._statement_gui_backGround,
           $._statement_gui_background,
           $._statement_gui_position,
           $._statement_gui_orientation,
+          $._statement_gui_horizontal,
           $._statement_gui_priority,
           $._statement_gui_size,
           $._statement_gui_borderSize,
           $._statement_gui_scrollbartype,
+          $._statement_gui_alwaystransparent,
           $._statement_gui_allwaystransparent,
+          $._statement_gui_spacing,
+          $._statement_gui_offset
         ), $.statement)),
       '}'
     ),
@@ -639,7 +673,8 @@ module.exports = grammar({
           $._statement_gui_size,
           $._statement_gui_text,
           $._statement_gui_orientation,
-          $._statement_gui_instantTextBoxType
+          $._statement_gui_instantTextBoxType,
+          $._statement_gui_ignore_tab_navigation
         ), $.statement)),
       '}'
     ),
@@ -658,6 +693,7 @@ module.exports = grammar({
       '{',
       repeat(
         alias(choice(
+          $._if_resolution,
           $._statement_name,
           $._statement_gui_position,
           $._statement_gui_textureFile,
@@ -669,7 +705,12 @@ module.exports = grammar({
           $._statement_gui_format,
           $._statement_gui_fixedsize,
           $._statement_gui_orientation,
-          $._statement_gui_truncate
+          $._statement_gui_truncate,
+          $._statement_gui_fixedsize,
+          $._statement_gui_alwaystransparent,
+          $._statement_gui_allwaystransparent,
+          $._statement_gui_hint_tag,
+          $._statement_gui_scrollbartype
         ), $.statement)),
       '}'
     ),
@@ -690,12 +731,14 @@ module.exports = grammar({
         alias(choice(
           $._statement_name,
           $._statement_gui_position,
+          $._statement_gui_orientation,
           $._statement_gui_textureFile,
-          $._statement_gui_font,
           $._statement_gui_borderSize,
           $._statement_gui_maxWidth,
           $._statement_gui_maxHeight,
           $._statement_gui_text,
+          $._statement_gui_font,
+          $._statement_gui_format
         ), $.statement)),
       '}'
     ),
@@ -714,10 +757,21 @@ module.exports = grammar({
       '{',
       repeat(
         alias(choice(
+          $._if_resolution,
           $._statement_name,
           $._statement_gui_spriteType,
           $._statement_gui_position,
-          $._statement_gui_orientation
+          $._statement_gui_orientation,
+          $._statement_gui_rotation,
+          $._statement_gui_frame,
+          $._statement_gui_alwaystransparent,
+          $._statement_gui_allwaystransparent,
+          $._statement_gui_scale,
+          $._statement_gui_hint_tag,
+          $._statement_gui_tooltip,
+          $._statement_gui_tooltipText,
+          $._statement_gui_delayedTooltipText,
+          $._statement_gui_quadTextureSprite
         ), $.statement)),
       '}'
     ),
@@ -770,13 +824,253 @@ module.exports = grammar({
       '{',
       repeat(
         alias(choice(
+          $._if_resolution,
           $._statement_name,
           $._statement_gui_quadTextureSprite,
           $._statement_gui_position,
+          $._statement_gui_orientation,
           $._statement_gui_parent,
           $._statement_gui_tooltip,
           $._statement_gui_tooltipText,
-          $._statement_gui_delayedTooltipText
+          $._statement_gui_delayedTooltipText,
+          $._statement_gui_buttonText,
+          $._statement_gui_buttonFont,
+          $._statement_gui_shortcut,
+          $._statement_gui_extra_shortcut,
+          $._statement_gui_size,
+          $._statement_gui_scale,
+          $._statement_gui_max_height,
+          $._statement_gui_min_height,
+          $._statement_gui_spriteType,
+          $._statement_gui_clicksound,
+          $._statement_gui_hint_tag,
+          $._statement_gui_frame,
+          $._statement_gui_text,
+        ), $.statement)),
+      '}'
+    ),
+
+    // smoothListboxType
+
+    _smoothListboxType: $ => seq(
+      alias('smoothListboxType', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._smoothListboxType_block
+      ))
+    ),
+
+    _smoothListboxType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._if_resolution,
+          $._statement_name,
+          $._statement_gui_position,
+          $._statement_gui_backGround,
+          $._statement_gui_size,
+          $._statement_gui_orientation,
+          $._statement_gui_horizontal,
+          $._statement_gui_spacing,
+          $._statement_gui_scrollbartype,
+          $._statement_gui_borderSize
+        ), $.statement)),
+      '}'
+    ),
+
+    // if_resolution
+
+    _if_resolution: $ => seq(
+      alias('if_resolution', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        repeat(
+          alias(choice(
+            $._statement_gui_spriteType,
+            $._statement_gui_position,
+            $._statement_gui_size,
+            $._statement_gui_min_height,
+            $._statement_gui_maxHeight,
+            $._statement_gui_max_height,
+            $._statement_gui_maxWidth,
+            $._statement_gui_quadTextureSprite,
+            $._statement_gui_buttonText
+          ), $.statement)),
+        '}'
+      ))
+    ),
+
+    // positionType
+
+    _positionType: $ => seq(
+      alias('positionType', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._positionType_block
+      ))
+    ),
+
+    _positionType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_name,
+          $._statement_gui_position
+        ), $.statement)),
+      '}'
+    ),
+
+      // overlappingElementsBoxType
+
+      _overlappingElementsBoxType: $ => seq(
+        alias(/[Oo]verlappingElementsBoxType/, $.identifier),
+        optional(seq(
+          $.assign_equal,
+          $._overlappingElementsBoxType_block
+        ))
+      ),
+
+      _overlappingElementsBoxType_block: $ => seq(
+        '{',
+        repeat(
+          alias(choice(
+            $._statement_name,
+            $._statement_gui_position,
+            $._statement_gui_size,
+            $._statement_gui_orientation,
+            $._statement_gui_format,
+            $._statement_gui_spacing,
+            $._statement_gui_hint_tag
+          ), $.statement)),
+        '}'
+      ),
+
+      // browserType
+
+      _browserType: $ => seq(
+        alias('browserType', $.identifier),
+        optional(seq(
+          $.assign_equal,
+          $._browserType_block
+        ))
+      ),
+
+      _browserType_block: $ => seq(
+        '{',
+        repeat(
+          alias(choice(
+            $._statement_name,
+            $._statement_gui_position,
+            $._statement_gui_size,
+            $._statement_gui_spriteType
+          ), $.statement)),
+        '}'
+      ),
+
+      // eu3dialogtype
+
+      _eu3dialogtype: $ => seq(
+        alias('eu3dialogtype', $.identifier),
+        optional(seq(
+          $.assign_equal,
+          $._eu3dialogtype_block
+        ))
+      ),
+
+      _eu3dialogtype_block: $ => seq(
+        '{',
+        repeat(
+          alias(choice(
+            $._windowType,
+            $._iconType,
+            $._instantTextBoxType,
+            $._guiButtonType,
+            $._shieldtype,
+            $._checkboxType,
+            $._listBoxType,
+            $._scrollbarType,
+            $._overlappingElementsBoxType,
+            $._statement_name,
+            $._statement_gui_backGround,
+            $._statement_gui_position,
+            $._statement_gui_size,
+            $._statement_gui_moveable,
+            $._statement_gui_dontRender,
+            $._statement_gui_horizontalBorder,
+            $._statement_gui_verticalBorder,
+            $._statement_gui_fullScreen
+          ), $.statement)),
+        '}'
+      ),
+
+    // shieldtype
+
+    _shieldtype: $ => seq(
+      alias('shieldtype', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._shieldtype_block
+      ))
+    ),
+
+    _shieldtype_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_name,
+          $._statement_gui_position,
+          $._statement_gui_spriteType
+        ), $.statement)),
+      '}'
+    ),
+
+    // checkboxType
+
+    _checkboxType: $ => seq(
+      alias('checkboxType', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._checkboxType_block
+      ))
+    ),
+
+    _checkboxType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._if_resolution,
+          $._statement_name,
+          $._statement_gui_position,
+          $._statement_gui_quadTextureSprite,
+          $._statement_gui_tooltip,
+          $._statement_gui_tooltipText,
+          $._statement_gui_delayedTooltipText,
+          $._statement_gui_buttonFont
+        ), $.statement)),
+      '}'
+    ),
+
+    // gridBoxType
+
+    _gridBoxType: $ => seq(
+      alias('gridBoxType', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._gridBoxType_block
+      ))
+    ),
+
+    _gridBoxType_block: $ => seq(
+      '{',
+      repeat(
+        alias(choice(
+          $._statement_name,
+          $._statement_gui_position,
+          $._statement_gui_size_width_height,
+          $._statement_gui_format,
+          $._statement_gui_slotsize,
+          $._statement_gui_max_slots_horizontal
         ), $.statement)),
       '}'
     ),
@@ -807,8 +1101,8 @@ module.exports = grammar({
     ),
 
     _statement_xy_integer: $ => choice(
-      seq($._entry_x_integer, $._entry_y_integer),
-      seq($._entry_y_integer, $._entry_x_integer)
+      seq($._entry_x_integer, optional('ยง'), $._entry_y_integer),
+      seq($._entry_y_integer, optional('ยง'), $._entry_x_integer)
     ),
 
 
@@ -829,8 +1123,8 @@ module.exports = grammar({
     ),
 
     _statement_xy_float: $ => choice(
-      seq($._entry_x_float, $._entry_y_float),
-      seq($._entry_y_float, $._entry_x_float)
+      seq($._entry_x_float, optional('ยง'), $._entry_y_float),
+      seq($._entry_y_float, optional('ยง'), $._entry_x_float)
     ),
 
 
@@ -849,6 +1143,28 @@ module.exports = grammar({
         $.float
       ))
     ),
+
+    _statement_width_height_integer: $ => choice(
+      seq($._entry_width_integer, $._entry_height_integer),
+      seq($._entry_height_integer, $._entry_width_integer)
+    ),
+
+    _entry_width_integer: $ => seq(
+      alias('width', $.keyword),
+      optional(seq(
+        $.assign_equal,
+        $.integer
+      ))
+    ),
+
+    _entry_height_integer: $ => seq(
+      alias('height', $.keyword),
+      optional(seq(
+        $.assign_equal,
+        $.integer
+      ))
+    ),
+
 
     //-------------------------------------//
     //  MOD statements [_statement_mod_X]  //
@@ -1245,7 +1561,7 @@ module.exports = grammar({
     ),
 
     _statement_gfx_alwaystransparent: $ => seq(
-      alias('alwaystransparent', $.identifier),
+      alias(/always[Tt]ransparent/, $.identifier),
       optional(seq(
         $.assign_equal,
         $._boolean_yes_no
@@ -1272,7 +1588,7 @@ module.exports = grammar({
       alias('clicksound', $.identifier),
       optional(seq(
         $.assign_equal,
-        alias(choice('click'), $.keyword)
+        alias($.identifier, $.keyword)
       ))
     ),
 
@@ -1360,7 +1676,12 @@ module.exports = grammar({
       alias('format', $.identifier),
       optional(seq(
         $.assign_equal,
-        alias(choice('centre'), $.keyword)
+        alias(choice(
+          'centre',
+          'center',
+          'left',
+          'right'
+        ), $.keyword)
       ))
     ),
 
@@ -1732,6 +2053,16 @@ module.exports = grammar({
       ))
     ),
 
+    _statement_gui_size_width_height: $ => seq(
+      alias('size', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        $._statement_width_height_integer,
+        '}'
+      ))
+    ),
+
     _statement_gui_borderSize: $ => seq(
       alias('borderSize', $.identifier),
       optional(seq(
@@ -1771,6 +2102,14 @@ module.exports = grammar({
       optional(seq(
         $.assign_equal,
         $.string
+      ))
+    ),
+
+    _statement_gui_alwaystransparent: $ => seq(
+      alias(/always[Tt]ransparent/, $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._boolean_yes_no
       ))
     ),
 
@@ -1832,7 +2171,7 @@ module.exports = grammar({
     ),
 
     _statement_gui_maxWidth: $ => seq(
-      alias('maxWidth', $.identifier),
+      alias(/max[Ww]idth/, $.identifier),
       optional(seq(
         $.assign_equal,
         $._integer_positive
@@ -1840,7 +2179,23 @@ module.exports = grammar({
     ),
 
     _statement_gui_maxHeight: $ => seq(
-      alias('maxHeight', $.identifier),
+      alias(/max[Hh]eight/, $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._integer_positive
+      ))
+    ),
+
+    _statement_gui_min_height: $ => seq(
+      alias('min_height', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._integer_positive
+      ))
+    ),
+
+    _statement_gui_max_height: $ => seq(
+      alias('max_height', $.identifier),
       optional(seq(
         $.assign_equal,
         $._integer_positive
@@ -1856,7 +2211,7 @@ module.exports = grammar({
     ),
 
     _statement_gui_spriteType: $ => seq(
-      alias('spriteType', $.identifier),
+      alias(/[Ss]priteType/, $.identifier),
       optional(seq(
         $.assign_equal,
         $.string
@@ -1867,7 +2222,13 @@ module.exports = grammar({
       alias('format', $.identifier),
       optional(seq(
         $.assign_equal,
-        choice('centre')
+        alias(choice(
+          'centre',
+          'center',
+          'left',
+          'right',
+          '"UPPER_LEFT"' //// TODO: Verify validity and extend
+        ), $.keyword)
       ))
     ),
 
@@ -1999,12 +2360,223 @@ module.exports = grammar({
       ))
     ),
 
+    _statement_gui_dontRender: $ => seq(
+      alias('dontRender', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_horizontalBorder: $ => seq(
+      alias('horizontalBorder', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_verticalBorder: $ => seq(
+      alias('verticalBorder', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_fullScreen: $ => seq(
+      alias(/full[Ss]creen/, $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._boolean_yes_no
+      ))
+    ),
+
+    _statement_gui_spacing: $ => seq(
+      alias('spacing', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.float
+      ))
+    ),
+
+    _statement_gui_buttonText: $ => seq(
+      alias('buttonText', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_buttonFont: $ => seq(
+      alias('buttonFont', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_shortcut: $ => seq(
+      alias('shortcut', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_extra_shortcut: $ => seq(
+      alias('extra_shortcut', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_fixedsize: $ => seq(
+      alias('fixedsize', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._boolean_yes_no
+      ))
+    ),
+
+    _statement_gui_upsound: $ => seq(
+      alias('upsound', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        choice(
+          $.string,
+          alias($.identifier, $.keyword))
+      ))
+    ),
+
+    _statement_gui_downsound: $ => seq(
+      alias('downsound', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        choice(
+          $.string,
+          alias($.identifier, $.keyword))
+      ))
+    ),
+
+    _statement_gui_frame: $ => seq(
+      alias('frame', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._integer_positive
+      ))
+    ),
+
+    _statement_gui_hint_tag: $ => seq(
+      alias('hint_tag', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.string
+      ))
+    ),
+
+    _statement_gui_clicksound: $ => seq(
+      alias('clicksound', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias($.identifier, $.keyword)
+      ))
+    ),
+
+    _statement_gui_ignore_tab_navigation: $ => seq(
+      alias('ignore_tab_navigation', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._boolean_yes_no
+      ))
+    ),
+
+    _statement_gui_show_position: $ => seq(
+      alias('show_position', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        $._statement_xy_integer,
+        '}'
+      ))
+    ),
+
+    _statement_gui_hide_position: $ => seq(
+      alias('hide_position', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        $._statement_xy_integer,
+        '}'
+      ))
+    ),
+
+    _statement_gui_animation_type: $ => seq(
+      alias('animation_type', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        alias('"decelerated"', $.string)
+      ))
+    ),
+
+    _statement_gui_animation_time: $ => seq(
+      alias('animation_time', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._integer_positive
+      ))
+    ),
+
+    _statement_gui_scale: $ => seq(
+      alias('scale', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._float_positive
+      ))
+    ),
+
+    _statement_gui_rotation: $ => seq(
+      alias('rotation', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $.float
+      ))
+    ),
+
+    _statement_gui_offset: $ => seq(
+      alias('offset', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        $._statement_xy_integer,
+        '}'
+      ))
+    ),
+
+    _statement_gui_slotsize: $ => seq(
+      alias('slotsize', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        $._statement_width_height_integer,
+        '}'
+      ))
+    ),
+
+    _statement_gui_max_slots_horizontal: $ => seq(
+      alias('max_slots_horizontal', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._integer_positive
+      ))
+    ),
 
     //==============================//
     //            TOKENS            //
     //==============================//
 
-    identifier: $ => /[a-z_][a-zA-Z0-9_]*/,
+    identifier: $ => /[a-zA-Z0-9_]+/,
 
     assign_equal: $ => '=',
 
@@ -2067,12 +2639,16 @@ module.exports = grammar({
       seq(
         '"',
         choice(
+          'LEFT',
+          'RIGHT',
           'CENTER',
           'CENTER_UP',
+          'CENTER_LEFT',
+          'CENTER_RIGHT',
           'UPPER_LEFT',
           'UPPER_RIGHT',
           'LOWER_LEFT',
-          'LOWER_RIGHT'
+          'LOWER_RIGHT' //// TODO: Complete
         ),
         '"'
       )), $.string),
