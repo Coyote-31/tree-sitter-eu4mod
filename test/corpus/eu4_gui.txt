@@ -35,3 +35,50 @@ guiTypes = {
 					(identifier) (assign_equal) (boolean))
 				(statement
 					(identifier) (assign_equal) (string)) ))))
+
+
+========================
+[gui](instantTextBoxType) basic
+========================
+guiTypes = {
+	windowType = {
+		instantTextBoxType = {
+			name = "title_label"
+			position = { x = 140 y =15 }
+			font = "vic_29s"
+			borderSize = {x = 0 y = 0}
+			text = "ACHIEVEMENTS"
+			maxWidth = 500
+			maxHeight = 32
+			format = centre
+}}}
+------
+
+(file
+  (dot_gui
+		(types_definition
+			(identifier) (assign_equal)
+			(type_definition
+				(identifier) (assign_equal)
+				(statement
+					(identifier) (assign_equal)
+					(statement
+						(name_identifier) (assign_equal) (name_value))
+					(statement
+						(identifier) (assign_equal)
+							(keyword) (assign_equal) (integer)
+							(keyword) (assign_equal) (integer))
+					(statement
+						(identifier) (assign_equal) (string))
+					(statement
+						(identifier) (assign_equal)
+							(keyword) (assign_equal) (integer)
+							(keyword) (assign_equal) (integer))
+					(statement
+						(identifier) (assign_equal) (string))
+					(statement
+						(identifier) (assign_equal) (integer))
+					(statement
+						(identifier) (assign_equal) (integer))
+					(statement
+						(identifier) (assign_equal) (keyword)) )))))
