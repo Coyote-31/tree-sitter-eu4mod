@@ -582,7 +582,7 @@ module.exports = grammar({
 
     _windowType_block: $ => seq(
       '{',
-      repeat(
+      repeat(choice(
         alias(choice(
           $._if_resolution,
           $._windowType,
@@ -598,7 +598,9 @@ module.exports = grammar({
           $._scrollbarType,
           $._textBoxType,
           $._gridBoxType,
-          $._positionType,
+          $._positionType
+        ), $.type_definition),
+        alias(choice(
           $._statement_name,
           $._statement_gui_background,
           $._statement_gui_position,
@@ -617,8 +619,8 @@ module.exports = grammar({
           $._statement_gui_animation_time,
           $._statement_gui_click_to_front,
           $._statement_gui_priority
-
-        ), $.statement)),
+        ), $.statement)
+      )),
       '}'
     ),
 
@@ -634,9 +636,11 @@ module.exports = grammar({
 
     _listBoxType_block: $ => seq(
       '{',
-      repeat(
+      repeat(choice(
         alias(choice(
           $._if_resolution,
+        ), $.type_definition),
+        alias(choice(
           $._statement_name,
           $._statement_gui_background,
           $._statement_gui_position,
@@ -651,7 +655,8 @@ module.exports = grammar({
           $._statement_gui_spacing,
           $._statement_gui_offset,
           $._statement_gui_step
-        ), $.statement)),
+        ), $.statement)
+      )),
       '}'
     ),
 
@@ -697,9 +702,11 @@ module.exports = grammar({
 
     _instantTextBoxType_block: $ => seq(
       '{',
-      repeat(
+      repeat(choice(
         alias(choice(
           $._if_resolution,
+        ), $.type_definition),
+        alias(choice(
           $._statement_name,
           $._statement_gui_position,
           $._statement_gui_textureFile,
@@ -719,7 +726,8 @@ module.exports = grammar({
           $._statement_gui_hint_tag,
           $._statement_gui_scrollbartype,
           $._statement_gui_text_color_code
-        ), $.statement)),
+        ), $.statement)
+      )),
       '}'
     ),
 
@@ -763,9 +771,11 @@ module.exports = grammar({
 
     _iconType_block: $ => seq(
       '{',
-      repeat(
+      repeat(choice(
         alias(choice(
           $._if_resolution,
+        ), $.type_definition),
+        alias(choice(
           $._statement_name,
           $._statement_gui_spriteType,
           $._statement_gui_position,
@@ -782,7 +792,8 @@ module.exports = grammar({
           $._statement_gui_pdx_tooltip_delayed,
           $._statement_gui_quadTextureSprite,
           $._statement_gui_buttonMesh,
-        ), $.statement)),
+        ), $.statement)
+      )),
       '}'
     ),
 
@@ -798,9 +809,11 @@ module.exports = grammar({
 
     _scrollbarType_block: $ => seq(
       '{',
-      repeat(
+      repeat(choice(
         alias(choice(
           $._guiButtonType,
+        ), $.type_definition),
+        alias(choice(
           $._statement_name,
           $._statement_gui_slider,
           $._statement_gui_track,
@@ -816,7 +829,8 @@ module.exports = grammar({
           $._statement_gui_startValue,
           $._statement_gui_horizontal,
           $._statement_gui_scroll_speed,
-        ), $.statement)),
+        ), $.statement)
+      )),
       '}'
     ),
 
@@ -832,9 +846,11 @@ module.exports = grammar({
 
     _guiButtonType_block: $ => seq(
       '{',
-      repeat(
+      repeat(choice(
         alias(choice(
           $._if_resolution,
+        ), $.type_definition),
+        alias(choice(
           $._statement_name,
           $._statement_gui_quadTextureSprite,
           $._statement_gui_position,
@@ -863,7 +879,8 @@ module.exports = grammar({
           $._statement_gui_web_link,
           $._statement_gui_format,
           $._statement_gui_alwaystransparent
-        ), $.statement)),
+        ), $.statement)
+      )),
       '}'
     ),
 
@@ -879,9 +896,11 @@ module.exports = grammar({
 
     _smoothListboxType_block: $ => seq(
       '{',
-      repeat(
+      repeat(choice(
         alias(choice(
           $._if_resolution,
+        ), $.type_definition),
+        alias(choice(
           $._statement_name,
           $._statement_gui_position,
           $._statement_gui_background,
@@ -891,7 +910,8 @@ module.exports = grammar({
           $._statement_gui_spacing,
           $._statement_gui_scrollbartype,
           $._statement_gui_borderSize
-        ), $.statement)),
+        ), $.statement)
+      )),
       '}'
     ),
 
@@ -999,7 +1019,7 @@ module.exports = grammar({
 
       _eu3dialogtype_block: $ => seq(
         '{',
-        repeat(
+        repeat(choice(
           alias(choice(
             $._windowType,
             $._iconType,
@@ -1010,7 +1030,9 @@ module.exports = grammar({
             $._listBoxType,
             $._scrollbarType,
             $._overlappingElementsBoxType,
-            $._editBoxType,
+            $._editBoxType
+          ), $.type_definition),
+          alias(choice(
             $._statement_name,
             $._statement_gui_background,
             $._statement_gui_position,
@@ -1021,7 +1043,8 @@ module.exports = grammar({
             $._statement_gui_horizontalBorder,
             $._statement_gui_verticalBorder,
             $._statement_gui_fullScreen
-          ), $.statement)),
+          ), $.statement)
+        )),
         '}'
       ),
 
@@ -1058,9 +1081,11 @@ module.exports = grammar({
 
     _checkboxType_block: $ => seq(
       '{',
-      repeat(
+      repeat(choice(
         alias(choice(
           $._if_resolution,
+        ), $.type_definition),
+        alias(choice(
           $._statement_name,
           $._statement_gui_position,
           $._statement_gui_orientation,
@@ -1074,7 +1099,8 @@ module.exports = grammar({
           $._statement_gui_buttonFont,
           $._statement_gui_alwaystransparent,
           $._statement_gui_shortcut
-        ), $.statement)),
+        ), $.statement)
+      )),
       '}'
     ),
 
@@ -1114,12 +1140,14 @@ module.exports = grammar({
 
     _extendedScrollbarType_block: $ => seq(
       '{',
-      repeat(
+      repeat(choice(
         alias(choice(
           $._slider,
           $._track,
           $._decreaseButton,
           $._increaseButton,
+        ), $.type_definition),
+        alias(choice(
           $._statement_name,
           $._statement_gui_position,
           $._statement_gui_size_width_height,
@@ -1129,7 +1157,8 @@ module.exports = grammar({
           $._statement_gui_minValue,
           $._statement_gui_stepSize,
           $._statement_gui_horizontal_bool
-        ), $.statement)),
+        ), $.statement)
+      )),
       '}'
     ),
 
@@ -1238,7 +1267,7 @@ module.exports = grammar({
 
     _containerWindowType_block: $ => seq(
       '{',
-      repeat(
+      repeat(choice(
         alias(choice(
           $._containerWindowType,
           $._background,
@@ -1248,7 +1277,9 @@ module.exports = grammar({
           $._extendedScrollbarType,
           $._gridBoxType,
           $._smoothListboxType,
-          $._editBoxType,
+          $._editBoxType
+        ), $.type_definition),
+        alias(choice(
           $._statement_name,
           $._statement_gui_position,
           $._statement_gui_show_position,
@@ -1264,7 +1295,8 @@ module.exports = grammar({
           $._statement_gui_moveable,
           $._statement_gui_margin,
           $._statement_gui_verticalScrollbar
-        ), $.statement)),
+        ), $.statement)
+      )),
       '}'
     ),
 

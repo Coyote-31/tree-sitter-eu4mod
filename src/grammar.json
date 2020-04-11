@@ -1879,146 +1879,161 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "ALIAS",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_if_resolution"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_if_resolution"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_windowType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_listBoxType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_editBoxType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_iconType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_instantTextBoxType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_smoothListboxType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_guiButtonType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_overlappingElementsBoxType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_browserType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_checkboxType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_scrollbarType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_textBoxType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_gridBoxType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_positionType"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_windowType"
+                "named": true,
+                "value": "type_definition"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_name"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_background"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_position"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_size"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_moveable"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_orientation"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_dontRender"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_horizontalBorder"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_verticalBorder"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_fullScreen"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_upsound"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_downsound"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_show_position"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_hide_position"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_animation_type"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_animation_time"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_click_to_front"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_priority"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_listBoxType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_editBoxType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_iconType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_instantTextBoxType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_smoothListboxType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_guiButtonType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_overlappingElementsBoxType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_browserType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_checkboxType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_scrollbarType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_textBoxType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_gridBoxType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_positionType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_name"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_background"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_position"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_size"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_moveable"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_orientation"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_dontRender"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_horizontalBorder"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_verticalBorder"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_fullScreen"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_upsound"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_downsound"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_show_position"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_hide_position"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_animation_type"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_animation_time"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_click_to_front"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_priority"
-                }
-              ]
-            },
-            "named": true,
-            "value": "statement"
+                "named": true,
+                "value": "statement"
+              }
+            ]
           }
         },
         {
@@ -2072,74 +2087,89 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "ALIAS",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_if_resolution"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_if_resolution"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_name"
+                "named": true,
+                "value": "type_definition"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_name"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_background"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_position"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_orientation"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_horizontal"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_priority"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_size"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_borderSize"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_scrollbartype"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_scrollbar_side"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_alwaystransparent"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_spacing"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_offset"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_step"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_background"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_position"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_orientation"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_horizontal"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_priority"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_size"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_borderSize"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_scrollbartype"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_scrollbar_side"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_alwaystransparent"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_spacing"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_offset"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_step"
-                }
-              ]
-            },
-            "named": true,
-            "value": "statement"
+                "named": true,
+                "value": "statement"
+              }
+            ]
           }
         },
         {
@@ -2302,94 +2332,109 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "ALIAS",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_if_resolution"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_if_resolution"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_name"
+                "named": true,
+                "value": "type_definition"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_name"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_position"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_textureFile"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_font"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_text"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_pdx_tooltip"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_pdx_tooltip_delayed"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_borderSize"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_maxWidth"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_maxHeight"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_format"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_fixedsize"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_orientation"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_truncate"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_fixedsize"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_alwaystransparent"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_hint_tag"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_scrollbartype"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_text_color_code"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_position"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_textureFile"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_font"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_text"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_pdx_tooltip"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_pdx_tooltip_delayed"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_borderSize"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_maxWidth"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_maxHeight"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_format"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_fixedsize"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_orientation"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_truncate"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_fixedsize"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_alwaystransparent"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_hint_tag"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_scrollbartype"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_text_color_code"
-                }
-              ]
-            },
-            "named": true,
-            "value": "statement"
+                "named": true,
+                "value": "statement"
+              }
+            ]
           }
         },
         {
@@ -2544,82 +2589,97 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "ALIAS",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_if_resolution"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_if_resolution"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_name"
+                "named": true,
+                "value": "type_definition"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_name"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_spriteType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_position"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_orientation"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_rotation"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_frame"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_alwaystransparent"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_scale"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_hint_tag"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_tooltip"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_tooltipText"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_delayedTooltipText"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_pdx_tooltip"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_pdx_tooltip_delayed"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_quadTextureSprite"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_buttonMesh"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_spriteType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_position"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_orientation"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_rotation"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_frame"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_alwaystransparent"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_scale"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_hint_tag"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_tooltip"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_tooltipText"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_delayedTooltipText"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_pdx_tooltip"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_pdx_tooltip_delayed"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_quadTextureSprite"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_buttonMesh"
-                }
-              ]
-            },
-            "named": true,
-            "value": "statement"
+                "named": true,
+                "value": "statement"
+              }
+            ]
           }
         },
         {
@@ -2673,78 +2733,93 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "ALIAS",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_guiButtonType"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_guiButtonType"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_name"
+                "named": true,
+                "value": "type_definition"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_name"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_slider"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_track"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_leftbutton"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_rightbutton"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_size"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_position"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_priority"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_borderSize"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_maxValue"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_minValue"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_stepSize"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_startValue"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_horizontal"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_scroll_speed"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_slider"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_track"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_leftbutton"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_rightbutton"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_size"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_position"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_priority"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_borderSize"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_maxValue"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_minValue"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_stepSize"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_startValue"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_horizontal"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_scroll_speed"
-                }
-              ]
-            },
-            "named": true,
-            "value": "statement"
+                "named": true,
+                "value": "statement"
+              }
+            ]
           }
         },
         {
@@ -2798,130 +2873,145 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "ALIAS",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_if_resolution"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_if_resolution"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_name"
+                "named": true,
+                "value": "type_definition"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_name"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_quadTextureSprite"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_position"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_orientation"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_parent"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_tooltip"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_tooltipText"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_pdx_tooltip"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_pdx_tooltip_delayed"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_delayedTooltipText"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_buttonText"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_buttonFont"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_shortcut"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_extra_shortcut"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_size"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_borderSize"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_scale"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_max_height"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_min_height"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_spriteType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_clicksound"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_hint_tag"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_frame"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_text"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_font"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_web_link"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_format"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_alwaystransparent"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_quadTextureSprite"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_position"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_orientation"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_parent"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_tooltip"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_tooltipText"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_pdx_tooltip"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_pdx_tooltip_delayed"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_delayedTooltipText"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_buttonText"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_buttonFont"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_shortcut"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_extra_shortcut"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_size"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_borderSize"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_scale"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_max_height"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_min_height"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_spriteType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_clicksound"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_hint_tag"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_frame"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_text"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_font"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_web_link"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_format"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_alwaystransparent"
-                }
-              ]
-            },
-            "named": true,
-            "value": "statement"
+                "named": true,
+                "value": "statement"
+              }
+            ]
           }
         },
         {
@@ -2975,54 +3065,69 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "ALIAS",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_if_resolution"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_if_resolution"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_name"
+                "named": true,
+                "value": "type_definition"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_name"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_position"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_background"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_size"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_orientation"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_horizontal"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_spacing"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_scrollbartype"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_borderSize"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_position"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_background"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_size"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_orientation"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_horizontal"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_spacing"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_scrollbartype"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_borderSize"
-                }
-              ]
-            },
-            "named": true,
-            "value": "statement"
+                "named": true,
+                "value": "statement"
+              }
+            ]
           }
         },
         {
@@ -3407,94 +3512,109 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "ALIAS",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_windowType"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_windowType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_iconType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_instantTextBoxType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_guiButtonType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_shieldtype"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_checkboxType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_listBoxType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_scrollbarType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_overlappingElementsBoxType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_editBoxType"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_iconType"
+                "named": true,
+                "value": "type_definition"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_name"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_background"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_position"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_orientation"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_size"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_moveable"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_dontRender"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_horizontalBorder"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_verticalBorder"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_fullScreen"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_instantTextBoxType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_guiButtonType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_shieldtype"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_checkboxType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_listBoxType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_scrollbarType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_overlappingElementsBoxType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_editBoxType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_name"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_background"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_position"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_orientation"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_size"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_moveable"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_dontRender"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_horizontalBorder"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_verticalBorder"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_fullScreen"
-                }
-              ]
-            },
-            "named": true,
-            "value": "statement"
+                "named": true,
+                "value": "statement"
+              }
+            ]
           }
         },
         {
@@ -3621,70 +3741,85 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "ALIAS",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_if_resolution"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_if_resolution"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_name"
+                "named": true,
+                "value": "type_definition"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_name"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_position"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_orientation"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_quadTextureSprite"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_tooltip"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_tooltipText"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_delayedTooltipText"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_pdx_tooltip"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_pdx_tooltip_delayed"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_buttonText"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_buttonFont"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_alwaystransparent"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_shortcut"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_position"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_orientation"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_quadTextureSprite"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_tooltip"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_tooltipText"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_delayedTooltipText"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_pdx_tooltip"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_pdx_tooltip_delayed"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_buttonText"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_buttonFont"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_alwaystransparent"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_shortcut"
-                }
-              ]
-            },
-            "named": true,
-            "value": "statement"
+                "named": true,
+                "value": "statement"
+              }
+            ]
           }
         },
         {
@@ -3823,66 +3958,81 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "ALIAS",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_slider"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_slider"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_track"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_decreaseButton"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_increaseButton"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_track"
+                "named": true,
+                "value": "type_definition"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_name"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_position"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_size_width_height"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_startValue"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_tileSize"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_maxValue"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_minValue"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_stepSize"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_horizontal_bool"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_decreaseButton"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_increaseButton"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_name"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_position"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_size_width_height"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_startValue"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_tileSize"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_maxValue"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_minValue"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_stepSize"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_horizontal_bool"
-                }
-              ]
-            },
-            "named": true,
-            "value": "statement"
+                "named": true,
+                "value": "statement"
+              }
+            ]
           }
         },
         {
@@ -4264,110 +4414,125 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "ALIAS",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_containerWindowType"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_containerWindowType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_background"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_buttonType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_instantTextBoxType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_iconType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_extendedScrollbarType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_gridBoxType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_smoothListboxType"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_editBoxType"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_background"
+                "named": true,
+                "value": "type_definition"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_name"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_position"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_show_position"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_show_animation_type"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_hide_animation_type"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_animation_time"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_orientation"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_size_width_height"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_origo"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_fade_time"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_fade_type"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_click_to_front"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_moveable"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_margin"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_verticalScrollbar"
+                    }
+                  ]
                 },
-                {
-                  "type": "SYMBOL",
-                  "name": "_buttonType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_instantTextBoxType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_iconType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_extendedScrollbarType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_gridBoxType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_smoothListboxType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_editBoxType"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_name"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_position"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_show_position"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_show_animation_type"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_hide_animation_type"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_animation_time"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_orientation"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_size_width_height"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_origo"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_fade_time"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_fade_type"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_click_to_front"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_moveable"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_margin"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_statement_gui_verticalScrollbar"
-                }
-              ]
-            },
-            "named": true,
-            "value": "statement"
+                "named": true,
+                "value": "statement"
+              }
+            ]
           }
         },
         {
