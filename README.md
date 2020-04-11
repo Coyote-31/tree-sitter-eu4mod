@@ -23,7 +23,7 @@ Extension | Supported
 :---:   |   :---:
 .mod    |    ✅
 .gfx    |    ✅
-.gui    |    ❌
+.gui    |    ✅
 
 
 ### Which text editor use this package :
@@ -59,6 +59,10 @@ If you have any issue or find a bug please :
 
 - **[Tree Sitter](https://tree-sitter.github.io/tree-sitter/)** (documentation web site)
 - **[language-eu4mod](https://github.com/Coyote-31/language-eu4mod#README.md)**  (GitHub)
+- **EU4 definition** :
+  - **[GUI/GFX Xyloz](https://eu4.paradoxwikis.com/User:Xyloz/sandbox)** (eu4.paradoxwikis)
+  - **[Interface modding](https://eu4.paradoxwikis.com/Interface_modding)**  (eu4.paradoxwikis)
+  - **[Graphical asset modding](https://eu4.paradoxwikis.com/Graphical_asset_modding)**  (eu4.paradoxwikis)
 
 
 ## ©️ License
