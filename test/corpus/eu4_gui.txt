@@ -82,3 +82,32 @@ guiTypes = {
 						(identifier) (assign_equal) (integer))
 					(statement
 						(identifier) (assign_equal) (keyword)) )))))
+
+========================
+[gui](iconType) position no-equal
+========================
+guiTypes = {
+
+	iconType =
+	{
+		name = "TutorialPagePictureItem"
+		position { x = 0 y = 0 }
+		spriteType = "GFX_tutorial_exclamation"
+	}
+}
+------
+
+(file
+  (dot_gui
+		(types_definition
+			(identifier) (assign_equal)
+			(type_definition
+				(identifier) (assign_equal)
+				(statement
+					(name_identifier) (assign_equal) (name_value))
+				(statement
+					(identifier)
+						(keyword) (assign_equal) (integer)
+						(keyword) (assign_equal) (integer))
+				(statement
+					(identifier) (assign_equal) (string)) ))))
