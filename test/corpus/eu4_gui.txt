@@ -60,7 +60,7 @@ guiTypes = {
 			(identifier) (assign_equal)
 			(type_definition
 				(identifier) (assign_equal)
-				(statement
+				(type_definition
 					(identifier) (assign_equal)
 					(statement
 						(name_identifier) (assign_equal) (name_value))
