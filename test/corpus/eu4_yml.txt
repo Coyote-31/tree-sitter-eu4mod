@@ -1,0 +1,24 @@
+====================
+[yml](l_french)
+====================
+l_french:
+ BOLD:0 "Hardie"
+------
+
+(file
+  (dot_yml
+    (localization_language_name) (assign_colon)
+    (identifier) (assign_colon) (index) (localization_string) ))
+
+
+====================
+[yml](l_french) not commented
+====================
+l_french:
+ MS_CHANNEL_PLAYER:0 "#Channelname/Playerlist"
+------
+
+(file
+  (dot_yml
+    (localization_language_name) (assign_colon)
+    (identifier) (assign_colon) (index) (localization_string) ))
