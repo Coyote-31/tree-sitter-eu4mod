@@ -16,7 +16,8 @@ module.exports = grammar({
     file: $ => choice(
       $.dot_mod,
       $.dot_gfx,
-      $.dot_gui
+      $.dot_gui,
+      $.dot_yml
     ),
 
 
@@ -66,6 +67,67 @@ module.exports = grammar({
     _gui_types_definition: $ => alias(choice(
       $._guiTypes,
     ), $.types_definition),
+
+    //===============================================//
+    //        YML -> Rules for *.yml files :         //
+    //===============================================//
+
+    dot_yml: $ => seq(
+        $.localization_language_name,
+        $.assign_colon,
+        repeat(seq(
+          $._eol,
+          ' ',
+          $._localization_entry
+        )),
+        optional($._eol)
+    ),
+
+    localization_language_name: $ => seq(
+      'l_',
+      /[a-z]+/
+    ),
+
+    _localization_entry: $ => seq(
+      alias(/[a-zA-Z0-9_-]+/, $.identifier),
+      $.assign_colon,
+      alias(/[0-9]/, $.index),
+      ' ',
+      $.localization_string
+    ),
+
+    localization_string: $ => seq(
+      choice(
+        '"',
+        '"#'
+      ),
+      repeat(choice(
+        /[^§\"\n]+/,
+        alias(/§[WBGRbgYM!]/, $.localization_color),
+        $._localization_formatting,
+      )),
+      '"'
+    ),
+
+    _localization_formatting: $ => seq(
+        alias('$', $.formatting_boundary),
+        alias(/[A-Z]+/, $.formatting_variable),
+        optional(seq(
+          alias('|', $.formatting_delimiter),
+          $.formatting_rule
+        )),
+        alias('$', $.formatting_boundary)
+      ),
+
+    formatting_rule: $ => repeat1(choice(
+        '%',
+        '*',
+        '=',
+        /[0-9]/,
+        /[WBGRbgY]/,
+        '+',
+        '-'
+    )),
 
     //---------//
     // TYPES :
@@ -3069,6 +3131,8 @@ module.exports = grammar({
 
     assign_equal: $ => '=',
 
+    assign_colon: $ => token.immediate(':'),
+
     string: $ => /"[^\"\n]*"/,
 
     number: $ => token(seq(
@@ -3122,7 +3186,7 @@ module.exports = grammar({
 
     _boolean_0_1: $ => alias(choice('0', '1'), $.boolean),
 
-    comment: $ => /\#[^\n]*/,
+    comment: $ => token(prec(1, /#.*/)),
 
     _orientation_value_string: $ => alias(token(
       seq(

@@ -1,5 +1,10 @@
 [
   {
+    "type": "assign_equal",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "dot_gfx",
     "named": true,
     "fields": {},
@@ -69,6 +74,37 @@
     }
   },
   {
+    "type": "dot_yml",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assign_colon",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "index",
+          "named": true
+        },
+        {
+          "type": "localization_language_name",
+          "named": true
+        },
+        {
+          "type": "localization_string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "file",
     "named": true,
     "fields": {},
@@ -86,6 +122,51 @@
         },
         {
           "type": "dot_mod",
+          "named": true
+        },
+        {
+          "type": "dot_yml",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "formatting_rule",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "localization_language_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "localization_string",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "formatting_boundary",
+          "named": true
+        },
+        {
+          "type": "formatting_delimiter",
+          "named": true
+        },
+        {
+          "type": "formatting_rule",
+          "named": true
+        },
+        {
+          "type": "formatting_variable",
+          "named": true
+        },
+        {
+          "type": "localization_color",
           "named": true
         }
       ]
@@ -213,6 +294,18 @@
     }
   },
   {
+    "type": " ",
+    "named": false
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "\"#",
+    "named": false
+  },
+  {
     "type": "%",
     "named": false
   },
@@ -221,7 +314,23 @@
     "named": false
   },
   {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
     "type": ";",
+    "named": false
+  },
+  {
+    "type": "=",
     "named": false
   },
   {
@@ -229,7 +338,7 @@
     "named": true
   },
   {
-    "type": "assign_equal",
+    "type": "assign_colon",
     "named": true
   },
   {
@@ -253,6 +362,18 @@
     "named": true
   },
   {
+    "type": "formatting_boundary",
+    "named": true
+  },
+  {
+    "type": "formatting_delimiter",
+    "named": true
+  },
+  {
+    "type": "formatting_variable",
+    "named": true
+  },
+  {
     "type": "hexadecimal",
     "named": true
   },
@@ -261,11 +382,23 @@
     "named": true
   },
   {
+    "type": "index",
+    "named": true
+  },
+  {
     "type": "integer",
     "named": true
   },
   {
     "type": "keyword",
+    "named": true
+  },
+  {
+    "type": "l_",
+    "named": false
+  },
+  {
+    "type": "localization_color",
     "named": true
   },
   {

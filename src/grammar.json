@@ -15,6 +15,10 @@
         {
           "type": "SYMBOL",
           "name": "dot_gui"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dot_yml"
         }
       ]
     },
@@ -119,6 +123,240 @@
       },
       "named": true,
       "value": "types_definition"
+    },
+    "dot_yml": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "localization_language_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_colon"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_eol"
+              },
+              {
+                "type": "STRING",
+                "value": " "
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_localization_entry"
+              }
+            ]
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_eol"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "localization_language_name": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "l_"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[a-z]+"
+        }
+      ]
+    },
+    "_localization_entry": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[a-zA-Z0-9_-]+"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_colon"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[0-9]"
+          },
+          "named": true,
+          "value": "index"
+        },
+        {
+          "type": "STRING",
+          "value": " "
+        },
+        {
+          "type": "SYMBOL",
+          "name": "localization_string"
+        }
+      ]
+    },
+    "localization_string": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "\""
+            },
+            {
+              "type": "STRING",
+              "value": "\"#"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[^§\\\"\\n]+"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "§[WBGRbgYM!]"
+                },
+                "named": true,
+                "value": "localization_color"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_localization_formatting"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\""
+        }
+      ]
+    },
+    "_localization_formatting": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "$"
+          },
+          "named": true,
+          "value": "formatting_boundary"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[A-Z]+"
+          },
+          "named": true,
+          "value": "formatting_variable"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "STRING",
+                    "value": "|"
+                  },
+                  "named": true,
+                  "value": "formatting_delimiter"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "formatting_rule"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "$"
+          },
+          "named": true,
+          "value": "formatting_boundary"
+        }
+      ]
+    },
+    "formatting_rule": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "%"
+          },
+          {
+            "type": "STRING",
+            "value": "*"
+          },
+          {
+            "type": "STRING",
+            "value": "="
+          },
+          {
+            "type": "PATTERN",
+            "value": "[0-9]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[WBGRbgY]"
+          },
+          {
+            "type": "STRING",
+            "value": "+"
+          },
+          {
+            "type": "STRING",
+            "value": "-"
+          }
+        ]
+      }
     },
     "_spriteTypes": {
       "type": "SEQ",
@@ -12498,6 +12736,13 @@
       "type": "STRING",
       "value": "="
     },
+    "assign_colon": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": ":"
+      }
+    },
     "string": {
       "type": "PATTERN",
       "value": "\"[^\\\"\\n]*\""
@@ -12773,8 +13018,15 @@
       "value": "boolean"
     },
     "comment": {
-      "type": "PATTERN",
-      "value": "\\#[^\\n]*"
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "PATTERN",
+          "value": "#.*"
+        }
+      }
     },
     "_orientation_value_string": {
       "type": "ALIAS",
