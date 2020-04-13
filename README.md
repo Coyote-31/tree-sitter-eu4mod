@@ -24,7 +24,7 @@ Extension | Supported
 .mod    |    ✅
 .gfx    |    ✅
 .gui    |    ✅
-.yml    |    ❌
+.yml    |    ✅
 
 
 ### Which text editor use this package :
