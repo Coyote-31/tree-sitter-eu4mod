@@ -33,6 +33,7 @@
     "gt": "tree-sitter generate && npm test",
     "gt-gfx": "tree-sitter generate && npm test && tree-sitter parse test/private/gfx/* --quiet --time",
     "gt-gui": "tree-sitter generate && npm test && tree-sitter parse test/private/gui/* --quiet --time",
+    "gt-yml": "tree-sitter generate && npm test && tree-sitter parse test/private/yml/* --quiet --time",
     "gtb": "tree-sitter generate && npm test && node-gyp build"
   },
   "repository": {
