@@ -22,3 +22,19 @@ l_french:
   (dot_yml
     (localization_language_name) (assign_colon)
     (identifier) (assign_colon) (index) (localization_string) ))
+
+
+====================
+[yml](formatting) simple
+====================
+l_french:
+ EMBARGO_AGAINST:0 "$WHO$ impose l'embargo à $AGAINST$."
+------
+
+(file
+  (dot_yml
+    (localization_language_name) (assign_colon)
+    (identifier) (assign_colon) (index)
+    (localization_string
+      (formatting_boundary) (formatting_variable) (formatting_boundary)
+      (formatting_boundary) (formatting_variable) (formatting_boundary) )))
