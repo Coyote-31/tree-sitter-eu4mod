@@ -1,10 +1,5 @@
 [
   {
-    "type": "assign_equal",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "dot_gfx",
     "named": true,
     "fields": {},
@@ -130,11 +125,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "formatting_rule",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "localization_language_name",
@@ -314,23 +304,7 @@
     "named": false
   },
   {
-    "type": "*",
-    "named": false
-  },
-  {
-    "type": "+",
-    "named": false
-  },
-  {
-    "type": "-",
-    "named": false
-  },
-  {
     "type": ";",
-    "named": false
-  },
-  {
-    "type": "=",
     "named": false
   },
   {
@@ -339,6 +313,10 @@
   },
   {
     "type": "assign_colon",
+    "named": true
+  },
+  {
+    "type": "assign_equal",
     "named": true
   },
   {
@@ -367,6 +345,10 @@
   },
   {
     "type": "formatting_delimiter",
+    "named": true
+  },
+  {
+    "type": "formatting_rule",
     "named": true
   },
   {

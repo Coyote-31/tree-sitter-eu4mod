@@ -239,8 +239,8 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "PATTERN",
-                "value": "[^§\\\"\\n]+"
+                "type": "SYMBOL",
+                "name": "_localization_formatting"
               },
               {
                 "type": "ALIAS",
@@ -252,8 +252,8 @@
                 "value": "localization_color"
               },
               {
-                "type": "SYMBOL",
-                "name": "_localization_formatting"
+                "type": "PATTERN",
+                "value": "[^$§\\\"\\n]+"
               }
             ]
           }
@@ -280,7 +280,7 @@
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "[A-Z]+"
+            "value": "[A-Za-z0-9_]+"
           },
           "named": true,
           "value": "formatting_variable"
@@ -323,39 +323,42 @@
       ]
     },
     "formatting_rule": {
-      "type": "REPEAT1",
+      "type": "TOKEN",
       "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "%"
-          },
-          {
-            "type": "STRING",
-            "value": "*"
-          },
-          {
-            "type": "STRING",
-            "value": "="
-          },
-          {
-            "type": "PATTERN",
-            "value": "[0-9]"
-          },
-          {
-            "type": "PATTERN",
-            "value": "[WBGRbgY]"
-          },
-          {
-            "type": "STRING",
-            "value": "+"
-          },
-          {
-            "type": "STRING",
-            "value": "-"
-          }
-        ]
+        "type": "REPEAT1",
+        "content": {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "%"
+            },
+            {
+              "type": "STRING",
+              "value": "*"
+            },
+            {
+              "type": "STRING",
+              "value": "="
+            },
+            {
+              "type": "PATTERN",
+              "value": "[0-9]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[WBGRbgY]"
+            },
+            {
+              "type": "STRING",
+              "value": "+"
+            },
+            {
+              "type": "STRING",
+              "value": "-"
+            }
+          ]
+        }
       }
     },
     "_spriteTypes": {

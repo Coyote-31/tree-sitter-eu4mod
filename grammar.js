@@ -102,16 +102,16 @@ module.exports = grammar({
         '"#'
       ),
       repeat(choice(
-        /[^§\"\n]+/,
-        alias(/§[WBGRbgYM!]/, $.localization_color),
         $._localization_formatting,
+        alias(/§[WBGRbgYM!]/, $.localization_color),
+        /[^$§\"\n]+/,
       )),
       '"'
     ),
 
     _localization_formatting: $ => seq(
         alias('$', $.formatting_boundary),
-        alias(/[A-Z]+/, $.formatting_variable),
+        alias(/[A-Za-z0-9_]+/, $.formatting_variable),
         optional(seq(
           alias('|', $.formatting_delimiter),
           $.formatting_rule
@@ -119,7 +119,7 @@ module.exports = grammar({
         alias('$', $.formatting_boundary)
       ),
 
-    formatting_rule: $ => repeat1(choice(
+    formatting_rule: $ => token(repeat1(choice(
         '%',
         '*',
         '=',
@@ -127,7 +127,7 @@ module.exports = grammar({
         /[WBGRbgY]/,
         '+',
         '-'
-    )),
+    ))),
 
     //---------//
     // TYPES :
