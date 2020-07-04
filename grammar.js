@@ -72,16 +72,21 @@ module.exports = grammar({
     //        YML -> Rules for *.yml files :         //
     //===============================================//
 
-    dot_yml: $ => seq(
+    dot_yml: $ => repeat1(seq(
       $.localization_language_name,
       $.assign_colon,
-      token.immediate(/ *[\r?\n]/),
+      repeat1(token.immediate(/[ \s]*[\r?\n]/)),
       repeat(seq(
         token.immediate(' '),
         $._localization_entry,
-        token.immediate(/ *[\r?\n]/)
+        repeat1(token.immediate(/[ \s]*[\r?\n]/))
+      )),
+      repeat(choice(
+        token.immediate(' '),
+        token.immediate(/[ \s]/),
+        token.immediate(/[\r?\n]/)
       ))
-    ),
+    )),
 
     localization_language_name: $ => token(seq(
       'l_',
@@ -91,13 +96,11 @@ module.exports = grammar({
     _localization_entry: $ => seq(
       alias(token.immediate(/[a-zA-Z0-9_\.-]+/), $.identifier),
       $.assign_colon,
-      alias(token.immediate(/[0-9]/), $.index),
+      optional(alias(token.immediate(/[0-9]+/), $.index)),
       token.immediate(' '),
       $.localization_string,
-      optional(seq(
-        repeat(token.immediate(" ")),
-        prec(2, $.comment)
-      ))
+      repeat(token.immediate(' ')),
+      optional(prec(2, $.comment))
     ),
 
     localization_string: $ => prec.left(seq(
@@ -107,8 +110,8 @@ module.exports = grammar({
         $._localization_formatting,
         alias(token.immediate(/\#/), $.formatting_boundary),
         alias(token.immediate(/\#Channel[a-zA-Z\/]+/), $.formatting_boundary),
-        alias(token.immediate(/§[WBGRbglYMO!]+/), $.localization_color),
-        token.immediate(/[^$§"\#\r\n]+/),
+        alias(token.immediate(/§[WBGRbglYMO!]*/), $.localization_color),
+        token.immediate(/[^$§"\#\r\n]+/)
       )),
       token.immediate('"'),
     )),
@@ -116,9 +119,10 @@ module.exports = grammar({
     _localization_formatting: $ => seq(
         alias(token.immediate('$'), $.formatting_boundary),
         alias(token.immediate(/[A-Za-z0-9_]+/), $.formatting_variable),
-        optional(seq(
+        repeat(seq(
           alias(token.immediate('|'), $.formatting_delimiter),
-          optional($.formatting_rule)
+          optional($.formatting_rule),
+          optional(alias(token.immediate(/§[WBGRbglYMO!]*/), $.localization_color),)
         )),
         alias(token.immediate('$'), $.formatting_boundary)
       ),
@@ -128,7 +132,7 @@ module.exports = grammar({
         '*',
         '=',
         /[0-9]/,
-        /[WBGRbgY]/,
+        /[WBGRbgYH]/,
         '+',
         '-'
     ))),
