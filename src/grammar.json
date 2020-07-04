@@ -329,6 +329,10 @@
                   "name": "_localization_formatting"
                 },
                 {
+                  "type": "SYMBOL",
+                  "name": "_localization_scope"
+                },
+                {
                   "type": "ALIAS",
                   "content": {
                     "type": "IMMEDIATE_TOKEN",
@@ -380,7 +384,7 @@
                   "type": "IMMEDIATE_TOKEN",
                   "content": {
                     "type": "PATTERN",
-                    "value": "[^\\\\$§\"\\#\\r\\n]+"
+                    "value": "[^\\[\\[\\\\$§\"\\#\\r\\n]+"
                   }
                 }
               ]
@@ -395,6 +399,68 @@
           }
         ]
       }
+    },
+    "_localization_scope": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "IMMEDIATE_TOKEN",
+            "content": {
+              "type": "PATTERN",
+              "value": "\\["
+            }
+          },
+          "named": true,
+          "value": "formatting_boundary"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "IMMEDIATE_TOKEN",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "PATTERN",
+                  "value": "[a-zA-Z0-9_@]+"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "PATTERN",
+                        "value": "\\."
+                      },
+                      {
+                        "type": "PATTERN",
+                        "value": "[a-zA-Z0-9_]+"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "named": true,
+          "value": "formatting_variable"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "IMMEDIATE_TOKEN",
+            "content": {
+              "type": "PATTERN",
+              "value": "\\]"
+            }
+          },
+          "named": true,
+          "value": "formatting_boundary"
+        }
+      ]
     },
     "_localization_formatting": {
       "type": "SEQ",

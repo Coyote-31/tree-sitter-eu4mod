@@ -113,4 +113,22 @@ l_french:
   (dot_yml
     (localization_language_name) (assign_colon)
     (identifier) (assign_colon) (index)
-    (localization_string (localization_color) )))
+    (localization_string (localization_color)) ))
+
+
+====================
+[yml](formatting) scopes
+====================
+l_french:
+ SUB_VIEW_SURVEY_CLOSE:0 "Économie [Root.GetName]"
+ SUB_VIEW_SURVEY_CONFIRM:0 "Économie [From.Monarch.GetTitle] another word"
+
+------
+
+(file
+  (dot_yml
+    (localization_language_name) (assign_colon)
+    (identifier) (assign_colon) (index)
+    (localization_string (formatting_boundary) (formatting_variable) (formatting_boundary))
+    (identifier) (assign_colon) (index)
+    (localization_string (formatting_boundary) (formatting_variable) (formatting_boundary)) ))
