@@ -2,13 +2,47 @@
 [yml](l_french)
 ====================
 l_french:
- BOLD:0 "Hardie"
+ BOLD:0 "Hardié"
+
 ------
 
 (file
   (dot_yml
     (localization_language_name) (assign_colon)
     (identifier) (assign_colon) (index) (localization_string) ))
+
+
+====================
+[yml](l_french) double
+====================
+l_french:
+ janissary_regiment:0 "Janissaires"
+ LEDGER_SCORE_TC:0 "Score commun"
+
+------
+
+(file
+  (dot_yml
+    (localization_language_name) (assign_colon)
+    (identifier) (assign_colon) (index) (localization_string)
+    (identifier) (assign_colon) (index) (localization_string) ))
+
+
+====================
+[yml](l_french) commented
+====================
+l_french:
+ PARL_TITLE_TEXT:0 "Something" # PLEASE DON'T CHANGE
+
+------
+
+(file
+  (dot_yml
+    (localization_language_name) (assign_colon)
+    (identifier) (assign_colon) (index)
+    (localization_string) (comment) ))
+
+
 
 
 ====================
@@ -16,12 +50,17 @@ l_french:
 ====================
 l_french:
  MS_CHANNEL_PLAYER:0 "#Channelname/Playerlist"
+ CREATING_PROVINCE:0 "Création des provinces (#)"
+
 ------
 
 (file
   (dot_yml
     (localization_language_name) (assign_colon)
-    (identifier) (assign_colon) (index) (localization_string) ))
+    (identifier) (assign_colon) (index)
+    (localization_string (formatting_boundary))
+    (identifier) (assign_colon) (index)
+    (localization_string (formatting_boundary)) ))
 
 
 ====================
@@ -29,6 +68,7 @@ l_french:
 ====================
 l_french:
  EMBARGO_AGAINST:0 "$WHO$ impose l'embargo à $AGAINST$."
+
 ------
 
 (file
@@ -38,3 +78,24 @@ l_french:
     (localization_string
       (formatting_boundary) (formatting_variable) (formatting_boundary)
       (formatting_boundary) (formatting_variable) (formatting_boundary) )))
+
+
+====================
+[yml](formatting) nested
+====================
+l_french:
+ EMBARGO_AGAINST:0 "Il impose "nested String" à qui"
+ EMBARGO_AGAINST:1 "Il impose "$WHO$" à qui"
+
+------
+
+(file
+  (dot_yml
+    (localization_language_name) (assign_colon)
+    (identifier) (assign_colon) (index)
+    (localization_string
+      (localization_string ))
+    (identifier) (assign_colon) (index)
+    (localization_string
+      (localization_string
+        (formatting_boundary) (formatting_variable) (formatting_boundary) ))))

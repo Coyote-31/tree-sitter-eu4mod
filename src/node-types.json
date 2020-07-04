@@ -81,6 +81,10 @@
           "named": true
         },
         {
+          "type": "comment",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -127,7 +131,7 @@
     }
   },
   {
-    "type": "localization_language_name",
+    "type": "formatting_rule",
     "named": true,
     "fields": {}
   },
@@ -157,6 +161,10 @@
         },
         {
           "type": "localization_color",
+          "named": true
+        },
+        {
+          "type": "localization_string",
           "named": true
         }
       ]
@@ -292,10 +300,6 @@
     "named": false
   },
   {
-    "type": "\"#",
-    "named": false
-  },
-  {
     "type": "%",
     "named": false
   },
@@ -328,6 +332,10 @@
     "named": true
   },
   {
+    "type": "comment",
+    "named": true
+  },
+  {
     "type": "dependencies",
     "named": true
   },
@@ -345,10 +353,6 @@
   },
   {
     "type": "formatting_delimiter",
-    "named": true
-  },
-  {
-    "type": "formatting_rule",
     "named": true
   },
   {
@@ -376,11 +380,11 @@
     "named": true
   },
   {
-    "type": "l_",
-    "named": false
+    "type": "localization_color",
+    "named": true
   },
   {
-    "type": "localization_color",
+    "type": "localization_language_name",
     "named": true
   },
   {
