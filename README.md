@@ -1,4 +1,4 @@
-# **`tree-sitter-eu4mod`** [Alpha]
+# **`tree-sitter-eu4mod`**
 
 [![npm](https://img.shields.io/npm/v/tree-sitter-eu4mod?color=%23147dce&logo=npm)](https://www.npmjs.com/package/tree-sitter-eu4mod) [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Coyote-31/tree-sitter-eu4mod/Node.js%20CI?label=Node.js%20CI&logo=github)](https://github.com/Coyote-31/tree-sitter-eu4mod/actions?query=workflow%3A%22Node.js+CI%22) [![GitHub](https://img.shields.io/github/license/Coyote-31/tree-sitter-eu4mod?color=%230f1014)](https://github.com/Coyote-31/tree-sitter-eu4mod/blob/master/LICENSE)
 
@@ -7,7 +7,7 @@
 
 ## 📄 Description
 
-This package is a global **grammar parser** for **EU4** files. Focusing on developers working on EU4 mods and providing them a grammar parser able to handle any file in EU4 directory for modding purpose.
+This package is a global **grammar parser** for **EU4** files. Focusing on developers working on EU4 mods and providing them a grammar parser able to handle any extension's file listed below in EU4 directory for modding purpose.
 
 
 ### How to install :
@@ -52,8 +52,7 @@ Link | Info
 ## 🐛 Any issue or bug **[report here](https://github.com/Coyote-31/tree-sitter-eu4mod/issues)**
 If you have any issue or find a bug please :
 
-**[Open an issue on GitHub](https://github.com/Coyote-31/tree-sitter-eu4mod/issues)** | ![GitHub issues](https://img.shields.io/github/issues/Coyote-31/tree-sitter-eu4mod?logo=github)
-:---:     |   :---:
+- **[Open an issue on GitHub](https://github.com/Coyote-31/tree-sitter-eu4mod/issues)** : ![GitHub issues](https://img.shields.io/github/issues/Coyote-31/tree-sitter-eu4mod?logo=github)
 
 
 ## 🔍 See also
