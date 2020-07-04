@@ -1,7 +1,7 @@
 {
   "name": "tree-sitter-eu4mod",
-  "version": "0.6.1",
-  "description": "Global parser for Europa Universalis IV grammar syntax. [Alpha]",
+  "version": "1.0.0",
+  "description": "Global parser for Europa Universalis IV grammar syntax.",
   "main": "index.js",
   "keywords": [
     "parser",
@@ -17,12 +17,12 @@
   },
   "homepage": "https://github.com/Coyote-31/tree-sitter-eu4mod/#readme",
   "dependencies": {
-    "nan": "^2.14.0"
+    "nan": "^2.14.1"
   },
   "devDependencies": {
     "prebuild": "^10.0.0",
-    "prebuild-install": "^5.3.3",
-    "tree-sitter-cli": "^0.16.5"
+    "prebuild-install": "^5.3.5",
+    "tree-sitter-cli": "^0.16.8"
   },
   "scripts": {
     "install": "prebuild-install || node-gyp rebuild",
