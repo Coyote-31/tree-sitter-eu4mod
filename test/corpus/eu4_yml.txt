@@ -99,3 +99,18 @@ l_french:
     (localization_string
       (localization_string
         (formatting_boundary) (formatting_variable) (formatting_boundary) ))))
+
+
+====================
+[yml](formatting) \n
+====================
+l_french:
+ HEADER_ECONOMY:0 "Économie \n"
+
+------
+
+(file
+  (dot_yml
+    (localization_language_name) (assign_colon)
+    (identifier) (assign_colon) (index)
+    (localization_string (localization_color) )))

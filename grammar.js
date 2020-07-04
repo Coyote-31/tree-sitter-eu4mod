@@ -108,10 +108,11 @@ module.exports = grammar({
       repeat(choice(
         $.localization_string,
         $._localization_formatting,
+        alias(token.immediate(/\\[n\\\"]/), $.localization_color),
         alias(token.immediate(/\#/), $.formatting_boundary),
         alias(token.immediate(/\#Channel[a-zA-Z\/]+/), $.formatting_boundary),
         alias(token.immediate(/§[WBGRbglYMO!]*/), $.localization_color),
-        token.immediate(/[^$§"\#\r\n]+/)
+        token.immediate(/[^\\$§"\#\r\n]+/)
       )),
       token.immediate('"'),
     )),

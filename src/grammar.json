@@ -334,6 +334,18 @@
                     "type": "IMMEDIATE_TOKEN",
                     "content": {
                       "type": "PATTERN",
+                      "value": "\\\\[n\\\\\\\"]"
+                    }
+                  },
+                  "named": true,
+                  "value": "localization_color"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "IMMEDIATE_TOKEN",
+                    "content": {
+                      "type": "PATTERN",
                       "value": "\\#"
                     }
                   },
@@ -368,7 +380,7 @@
                   "type": "IMMEDIATE_TOKEN",
                   "content": {
                     "type": "PATTERN",
-                    "value": "[^$§\"\\#\\r\\n]+"
+                    "value": "[^\\\\$§\"\\#\\r\\n]+"
                   }
                 }
               ]
