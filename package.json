@@ -20,9 +20,9 @@
     "nan": "^2.14.1"
   },
   "devDependencies": {
-    "prebuild": "^10.0.0",
+    "prebuild": "^10.0.1",
     "prebuild-install": "^5.3.5",
-    "tree-sitter-cli": "^0.16.8"
+    "tree-sitter-cli": "^0.17.1"
   },
   "scripts": {
     "install": "prebuild-install || node-gyp rebuild",
