@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-eu4mod",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Global parser for Europa Universalis IV grammar syntax.",
   "main": "index.js",
   "keywords": [
@@ -22,11 +22,11 @@
   "devDependencies": {
     "prebuild": "^10.0.1",
     "prebuild-install": "^5.3.5",
-    "tree-sitter-cli": "^0.17.1"
+    "tree-sitter-cli": "0.16.8"
   },
   "scripts": {
     "install": "prebuild-install || node-gyp rebuild",
-    "prebuild": "prebuild -t 6.1.12 -r electron",
+    "prebuild": "prebuild -t 5.0.13 -r electron",
     "build": "tree-sitter generate && node-gyp build",
     "test": "tree-sitter test && tree-sitter parse test/examples/* --quiet --time",
     "test-windows": "tree-sitter test",

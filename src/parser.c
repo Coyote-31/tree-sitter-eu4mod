@@ -13,7 +13,7 @@
 #pragma GCC optimize ("O0")
 #endif
 
-#define LANGUAGE_VERSION 12
+#define LANGUAGE_VERSION 11
 #define STATE_COUNT 1205
 #define LARGE_STATE_COUNT 17
 #define SYMBOL_COUNT 639
@@ -4562,29 +4562,6 @@ static TSSymbol ts_alias_sequences[7][MAX_ALIAS_SEQUENCE_LENGTH] = {
   [6] = {
     [3] = alias_sym_keyword,
   },
-};
-
-static uint16_t ts_non_terminal_alias_map[] = {
-  sym__textcolors, 3,
-    sym__textcolors,
-    alias_sym_statement,
-    alias_sym_type_definition,
-  sym__statement_name, 2,
-    sym__statement_name,
-    alias_sym_statement,
-  sym__statement_gfx_name, 2,
-    sym__statement_gfx_name,
-    alias_sym_statement,
-  sym__statement_gfx_size_xy, 2,
-    sym__statement_gfx_size_xy,
-    alias_sym_statement,
-  sym__statement_gfx_color, 2,
-    sym__statement_gfx_color,
-    alias_sym_statement,
-  sym__statement_gfx_cull_distance, 2,
-    sym__statement_gfx_cull_distance,
-    alias_sym_statement,
-  0,
 };
 
 static bool ts_lex(TSLexer *lexer, TSStateId state) {
@@ -46250,8 +46227,6 @@ extern const TSLanguage *tree_sitter_eu4mod(void) {
     .alias_count = ALIAS_COUNT,
     .token_count = TOKEN_COUNT,
     .large_state_count = LARGE_STATE_COUNT,
-    .alias_map = ts_non_terminal_alias_map,
-    .state_count = STATE_COUNT,
     .symbol_metadata = ts_symbol_metadata,
     .parse_table = (const unsigned short *)ts_parse_table,
     .small_parse_table = (const uint16_t *)ts_small_parse_table,
