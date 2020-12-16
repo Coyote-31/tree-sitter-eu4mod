@@ -3604,6 +3604,10 @@
                     {
                       "type": "SYMBOL",
                       "name": "_statement_gui_borderSize"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_statement_gui_offset"
                     }
                   ]
                 },

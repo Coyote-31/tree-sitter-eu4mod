@@ -995,7 +995,8 @@ module.exports = grammar({
           $._statement_gui_horizontal,
           $._statement_gui_spacing,
           $._statement_gui_scrollbartype,
-          $._statement_gui_borderSize
+          $._statement_gui_borderSize,
+          $._statement_gui_offset
         ), $.statement)
       )),
       '}'
