@@ -252,7 +252,9 @@ module.exports = grammar({
 
     _guiTypes_block: $ => seq(
       '{',
-      repeat($._guiTypes_type),
+      repeat(choice(
+        $._guiTypes_type,
+        $._if_resolution_block)),
       '}'
     ),
 
@@ -1006,7 +1008,7 @@ module.exports = grammar({
       optional(seq(
         $.assign_equal,
         '{',
-        repeat(
+        repeat(choice(
           alias(choice(
             $._statement_gui_spriteType,
             $._statement_gui_position,
@@ -1018,11 +1020,92 @@ module.exports = grammar({
             $._statement_gui_quadTextureSprite,
             $._statement_gui_buttonText,
             $._statement_gui_show_position,
-            $._statement_gui_hide_position
-          ), $.statement)),
+            $._statement_gui_hide_position,
+          ), $.statement),
+          alias(choice(
+            $._listBoxType,
+            $._editBoxType,
+            $._iconType,
+            $._instantTextBoxType,
+            $._smoothListboxType,
+            $._guiButtonType,
+            $._overlappingElementsBoxType,
+            $._browserType,
+            $._checkboxType,
+            $._scrollbarType,
+            $._textBoxType,
+            $._gridBoxType,
+            $._positionType
+          ), $.type_definition),
+        )),
         '}'
       ))
     ),
+
+    // if_resolution_block
+
+    _if_resolution_block: $ => seq(
+      alias('if_resolution', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        '{',
+        repeat(choice(
+          alias(choice(
+            $._listBoxType,
+            $._editBoxType,
+            $._iconType,
+            $._instantTextBoxType,
+            $._smoothListboxType,
+            $._guiButtonType,
+            $._overlappingElementsBoxType,
+            $._browserType,
+            $._checkboxType,
+            $._scrollbarType,
+            $._textBoxType,
+            $._gridBoxType,
+            $._positionType
+          ), $.type_definition),
+          alias(choice(
+            $._statement_gui_min_height,
+            $._statement_gui_maxHeight,
+            $._statement_gui_max_height,
+            $._statement_gui_maxWidth,
+            $._statement_name,
+            $._statement_gui_background,
+            $._statement_gui_position,
+            $._statement_gui_size,
+            $._statement_gui_moveable,
+            $._statement_gui_orientation,
+            $._statement_gui_dontRender,
+            $._statement_gui_horizontalBorder,
+            $._statement_gui_verticalBorder,
+            $._statement_gui_fullScreen,
+            $._statement_gui_upsound,
+            $._statement_gui_downsound,
+            $._statement_gui_show_position,
+            $._statement_gui_hide_position,
+            $._statement_gui_animation_type,
+            $._statement_gui_animation_time,
+            $._statement_gui_click_to_front,
+            $._statement_gui_priority,
+            $._statement_gui_spriteType,
+            $._statement_gui_position,
+            $._statement_gui_size,
+            $._statement_gui_min_height,
+            $._statement_gui_maxHeight,
+            $._statement_gui_max_height,
+            $._statement_gui_maxWidth,
+            $._statement_gui_quadTextureSprite,
+            $._statement_gui_buttonText,
+            $._statement_gui_show_position,
+            $._statement_gui_hide_position,
+          ), $.statement)
+        )),
+        '}'
+      ))
+    ),
+
+
 
     // positionType
 
