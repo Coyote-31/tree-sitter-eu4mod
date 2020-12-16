@@ -3463,6 +3463,10 @@
                     },
                     {
                       "type": "SYMBOL",
+                      "name": "_statement_gui_no_clicksound"
+                    },
+                    {
+                      "type": "SYMBOL",
                       "name": "_statement_gui_hint_tag"
                     },
                     {
@@ -12236,6 +12240,41 @@
                       "name": "string"
                     }
                   ]
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_no_clicksound": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "no_clicksound"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_boolean_yes_no"
                 }
               ]
             },

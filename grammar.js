@@ -958,6 +958,7 @@ module.exports = grammar({
           $._statement_gui_min_height,
           $._statement_gui_spriteType,
           $._statement_gui_clicksound,
+          $._statement_gui_no_clicksound,
           $._statement_gui_hint_tag,
           $._statement_gui_frame,
           $._statement_gui_text,
@@ -2986,6 +2987,14 @@ module.exports = grammar({
           alias($.identifier, $.keyword),
           $.string
         )
+      ))
+    ),
+
+    _statement_gui_no_clicksound: $ => seq(
+      alias('no_clicksound', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._boolean_yes_no
       ))
     ),
 
