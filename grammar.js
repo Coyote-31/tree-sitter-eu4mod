@@ -1291,7 +1291,8 @@ module.exports = grammar({
           $._statement_gui_size_width_height,
           $._statement_gui_format,
           $._statement_gui_slotsize,
-          $._statement_gui_max_slots_horizontal
+          $._statement_gui_max_slots_horizontal,
+          $._statement_gui_max_slots_vertical
         ), $.statement)),
       '}'
     ),
@@ -3075,6 +3076,14 @@ module.exports = grammar({
 
     _statement_gui_max_slots_horizontal: $ => seq(
       alias('max_slots_horizontal', $.identifier),
+      optional(seq(
+        $.assign_equal,
+        $._integer_positive
+      ))
+    ),
+
+    _statement_gui_max_slots_vertical: $ => seq(
+      alias('max_slots_vertical', $.identifier),
       optional(seq(
         $.assign_equal,
         $._integer_positive

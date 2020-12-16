@@ -4705,6 +4705,10 @@
                 {
                   "type": "SYMBOL",
                   "name": "_statement_gui_max_slots_horizontal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_gui_max_slots_vertical"
                 }
               ]
             },
@@ -12615,6 +12619,41 @@
           "content": {
             "type": "STRING",
             "value": "max_slots_horizontal"
+          },
+          "named": true,
+          "value": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_equal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_integer_positive"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_statement_gui_max_slots_vertical": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "max_slots_vertical"
           },
           "named": true,
           "value": "identifier"
