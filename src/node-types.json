@@ -152,6 +152,10 @@
           "named": true
         },
         {
+          "type": "formatting_icon",
+          "named": true
+        },
+        {
           "type": "formatting_rule",
           "named": true
         },
@@ -161,6 +165,10 @@
         },
         {
           "type": "localization_color",
+          "named": true
+        },
+        {
+          "type": "localization_gold",
           "named": true
         },
         {
@@ -356,6 +364,10 @@
     "named": true
   },
   {
+    "type": "formatting_icon",
+    "named": true
+  },
+  {
     "type": "formatting_variable",
     "named": true
   },
@@ -381,6 +393,10 @@
   },
   {
     "type": "localization_color",
+    "named": true
+  },
+  {
+    "type": "localization_gold",
     "named": true
   },
   {
