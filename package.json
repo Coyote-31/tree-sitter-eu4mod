@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-eu4mod",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Global parser for Europa Universalis IV grammar syntax.",
   "main": "index.js",
   "keywords": [
@@ -8,7 +8,10 @@
     "lexer",
     "eu4",
     "paradox",
-    "mod"
+    "mod",
+    "yml",
+    "gfx",
+    "gui"
   ],
   "author": "Richard ANDRIAN - Coyote-31 <coyotepouil@gmail.com>",
   "license": "MIT",
